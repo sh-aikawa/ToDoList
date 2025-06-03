@@ -6,8 +6,9 @@ import org.springframework.stereotype.Repository;
 
 import com.example.todolist.mapper.ToDoMapper;
 import com.example.todolist.model.Task;
+
 @Repository
-public abstract class ToDoRepository {
+public class ToDoRepository {
     private final ToDoMapper toDoMapper;
     
     public ToDoRepository(ToDoMapper toDoMapper){

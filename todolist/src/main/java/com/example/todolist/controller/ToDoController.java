@@ -1,15 +1,18 @@
-package com.example.controller;
+package com.example.todolist.controller;
 
-import com.example.service.ToDoService;
+import java.util.List;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+import com.example.todolist.model.Task;
+import com.example.todolist.service.ToDoService;
 
 
 @Controller
-@RequestMapping("/toDos")
+@RequestMapping("/todolist")
 public class ToDoController {
     private final ToDoService toDoService;
 
@@ -19,9 +22,9 @@ public class ToDoController {
 
     @GetMapping
     public String toDos(Model model) {
-        List<ToDo> toDos = toDoService.getAllToDos();
-        model.addAllAttributes("toDos", toDos);
-        return "templates/index.html";//一覧画面に遷移
+        List<Task> tasks = toDoService.getAllTasks();
+        model.addAttribute("tasks", tasks);
+        return "index";//一覧画面に遷移
     }
     
 
