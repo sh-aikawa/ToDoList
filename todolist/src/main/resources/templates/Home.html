@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ja" xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="~{layout :: head(表示)}"></head>
+
+<body>
+    <div th:replace="~{layout :: header}"></div>
+    <h2>説明</h2>
+    
+    <h3>検索</h3>
+    <div id="searchArea">
+        <input type="date" id="date" name="date" value="2025/6/3">
+        <button type="submit">検索</button>
+    </div>
+    
+    <h3>やることリスト</h3>
+    <div id="listArea">
+        <!-- <ul th:each="todo : ${todos}"  id="todoList">
+            <li><input type="checkbox" id="check" name="check" checked /></li>
+            <li><span th:text="${todo.date}">日付</span></li>
+            <li><span th:text="${todo.title}">予定<span></li>
+        </ul> -->
+        <table>
+            <tr>
+                <th>チェック</th>
+                <th>期限</th>
+                <th>タイトル</th>
+            </tr>
+            <tr>
+                <th><input type="checkbox" id="check" name="check" checked /></th>
+                <th><span th:text="${todo.date}">2025/6/5</span></th>
+                <th><span th:text="${todo.title}">TodoListをつくる<span></th>
+            </tr>
+        </table>
+    </div>
+
+    <div th:replace="~{layout :: footer}"></div>
+</body>
+
+</html>
