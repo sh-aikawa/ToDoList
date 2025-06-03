@@ -1,0 +1,4 @@
+2025-06-03 16:26:28.740020+09:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: テーブル "TASKS" はすでに存在します
+Table "TASKS" already exists; SQL statement:
+CREATE TABLE tasks( task_id INTEGER AUTO_INCREMENT PRIMARY KEY, title TEXT, limit_date DATE, description TEXT ) [42101-232]
