@@ -26,10 +26,10 @@
                 <th>期限</th>
                 <th>タイトル</th>
             </tr>
-            <tr>
+            <tr th:each="task : ${tasks}">
                 <th><input type="checkbox" id="check" name="check" checked /></th>
-                <th><span th:text="${todo.date}">2025/6/5</span></th>
-                <th><span th:text="${todo.title}">TodoListをつくる<span></th>
+                <th><span th:text="${task.limitDate}">2025/6/5</span></th>
+                <th><span th:text="${task.title}">TodoListをつくる<span></th>
             </tr>
         </table>
     </div>

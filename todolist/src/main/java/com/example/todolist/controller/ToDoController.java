@@ -24,7 +24,7 @@ public class ToDoController {
     public String toDos(Model model) {
         List<Task> tasks = toDoService.getAllTasks();
         model.addAttribute("tasks", tasks);
-        return "index";//一覧画面に遷移
+        return "Home";//一覧画面に遷移
     }
     
 
