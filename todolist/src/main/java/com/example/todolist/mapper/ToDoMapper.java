@@ -19,6 +19,6 @@ public interface ToDoMapper {
     @Delete("DELETE FROM tasks WHERE task_id = #{taskId}")
     void deleteTask(long taskId);
 
-    @Insert("INSERT INTO tasks(title, limit_date, description) VALUES (#{title}, #{limit_date}, #{description})")
+    @Insert("INSERT INTO tasks(title, limit_date, description) VALUES (#{title}, #{limitDate}, #{description})")
     void insertTask(Task task);
 }
