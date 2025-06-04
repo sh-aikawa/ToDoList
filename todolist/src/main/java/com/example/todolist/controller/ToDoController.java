@@ -1,17 +1,18 @@
 package com.example.todolist.controller;
 
+import java.time.LocalDate;
 import java.util.List;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.example.todolist.form.ToDoForm;
 import com.example.todolist.model.Task;
 import com.example.todolist.service.ToDoService;
+
 
 
 
@@ -33,17 +34,24 @@ public class ToDoController {
     }
     
     @GetMapping("/register")
-    public String getMethodName(Model model) {
+    public String getRegister(Model model) {
         ToDoForm toDoForm = new ToDoForm();
         model.addAttribute("toDoForm",toDoForm);
         return "register";
     }
     
     @PostMapping("/register")
-    public String postMethodName(ToDoForm toDoForm) {
+    public String postRegister(ToDoForm toDoForm) {
         toDoService.registerTask(toDoForm);
         
         return "redirect:/todolist";
+    }
+    
+    @GetMapping("/search")
+    public String getSelectTasks(LocalDate limitDate, Model model) {
+        List<Task> tasks = toDoService.getSelectTasks(limitDate);
+        model.addAttribute("tasks", tasks);
+        return "Home";
     }
     
 

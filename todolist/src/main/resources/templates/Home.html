@@ -24,27 +24,22 @@
     
     <h4>検索</h4>
     <div id="searchArea">
-        <input type="date" id="date" name="date" value="2025/6/3">
+        <input type="date" id="date" name="date" value="2025-6-4" min="2000-01-01" max="2030-12-31" />
         <button type="submit" id= "item">検索</button>
     </div>
     
     <h3>やることリスト</h3>
     <div id="listArea">
-        <!-- <ul th:each="todo : ${todos}"  id="todoList">
-            <li><input type="checkbox" id="check" name="check" checked /></li>
-            <li><span th:text="${todo.date}">日付</span></li>
-            <li><span th:text="${todo.title}">予定<span></li>
-        </ul> -->
-        <table>
+        <table border="1" class="list">
             <tr>
                 <th>チェック</th>
-                <th>期限</th>
                 <th>タイトル</th>
+                <th>期限</th>
             </tr>
             <tr th:each="task : ${tasks}">
                 <th><input type="checkbox" id="check" name="check" checked /></th>
+                <th><span th:text="${task.title}">TodoListをつくる</span></th>
                 <th><span th:text="${task.limitDate}">2025/6/5</span></th>
-                <th><span th:text="${task.title}">TodoListをつくる<span></th>
             </tr>
         </table>
     </div>
