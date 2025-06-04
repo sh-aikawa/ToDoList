@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="ja" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{layout :: header}">
+<div>
+    <h4>予定の登録をします</h4>
+    <form th:action="@{Home}" th:object="${tasks}" method="post">
+        <label for = "title">予定</label>
+        <div style = "padding: 5px; margin: 0px;">
+            <textarea type="text" id="title" name="title" th:field="*{title}" style="width: 50%;"></textarea>
+        </div>
+            <label for = "limitDate">日付</label>
+        <div style = "padding: 5px; margin: 0px;">
+            <input type="date" id = "limitDate" th:field="*{limitDate}">
+        </div>
+
+        <label for = "description">詳細</label>
+        <div style = "padding: 5px; margin: 0px;">
+            <textarea id="description" th:field="*{description}" style="height: 100px; width: 50%;"></textarea>
+        </div>
+        <div style="margin-top: 8px;">
+            <button type="submit">登録</button>
+        </div>
+    </form>
+</div>
+</head>
+<body>
+    <div th:replace="~{layout :: footer}"></div>
+</body>
+</html>
