@@ -14,10 +14,6 @@ import com.example.todolist.form.ToDoForm;
 import com.example.todolist.model.Task;
 import com.example.todolist.service.ToDoService;
 
-
-
-
-
 @Controller
 @RequestMapping("/todolist")
 public class ToDoController {
@@ -31,29 +27,36 @@ public class ToDoController {
     public String toDos(Model model) {
         List<Task> tasks = toDoService.getAllTasks();
         model.addAttribute("tasks", tasks);
-        return "Home";//一覧画面に遷移
+        return "Home";// 一覧画面に遷移
     }
-    
+
     @GetMapping("/register")
     public String getRegister(Model model) {
         ToDoForm toDoForm = new ToDoForm();
-        model.addAttribute("toDoForm",toDoForm);
+        model.addAttribute("toDoForm", toDoForm);
         return "register";
     }
-    
+
     @PostMapping("/register")
     public String postRegister(ToDoForm toDoForm) {
         toDoService.registerTask(toDoForm);
-        
+
         return "redirect:/todolist";
     }
-    
+
     @PostMapping("/search")
-    public String getSelectTasks(@RequestParam("selectedDate") LocalDate selectedDate , Model model) {
+    public String getSelectTasks(@RequestParam("selectedDate") LocalDate selectedDate, Model model) {
         List<Task> tasks = toDoService.getSelectTasks(selectedDate);
         model.addAttribute("tasks", tasks);
         return "Home";
     }
-    
+
+    @PostMapping("/check")
+    public String updateChecked(@RequestParam("taskId") long taskId,
+            @RequestParam("checked") boolean checked) {
+
+        toDoService.updateChecked(taskId, checked);
+        return "redirect:/todolist";
+    }
 
 }

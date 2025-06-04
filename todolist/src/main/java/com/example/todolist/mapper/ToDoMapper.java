@@ -7,6 +7,7 @@ import org.apache.ibatis.annotations.Delete;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Select;
+import org.apache.ibatis.annotations.Update;
 
 import com.example.todolist.model.Task;
 
@@ -24,4 +25,7 @@ public interface ToDoMapper {
 
     @Insert("INSERT INTO tasks(title, limit_date, description) VALUES (#{title}, #{limitDate}, #{description})")
     void insertTask(Task task);
+
+    @Update("UPDATE tasks SET checked = #{checked} WHERE task_id = #{taskId}")
+    void updateChecked(long taskId, boolean checked);
 }

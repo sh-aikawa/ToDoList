@@ -4,5 +4,6 @@ CREATE TABLE tasks(
     task_id INTEGER AUTO_INCREMENT PRIMARY KEY,
     title TEXT,
     limit_date DATE,
-    description TEXT
+    description TEXT,
+    checked BOOLEAN DEFAULT FALSE
 );
