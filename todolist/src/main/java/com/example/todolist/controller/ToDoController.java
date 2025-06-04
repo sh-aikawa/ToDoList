@@ -8,6 +8,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.example.todolist.form.ToDoForm;
 import com.example.todolist.model.Task;
@@ -48,8 +49,8 @@ public class ToDoController {
     }
     
     @GetMapping("/search")
-    public String getSelectTasks(LocalDate limitDate, Model model) {
-        List<Task> tasks = toDoService.getSelectTasks(limitDate);
+    public String getSelectTasks(@RequestParam("selectedDate") LocalDate selectedDate , Model model) {
+        List<Task> tasks = toDoService.getSelectTasks(selectedDate);
         model.addAttribute("tasks", tasks);
         return "Home";
     }
