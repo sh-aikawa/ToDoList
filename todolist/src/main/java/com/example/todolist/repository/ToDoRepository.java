@@ -19,6 +19,10 @@ public class ToDoRepository {
         return toDoMapper.getAllTasks();
     }
 
+    public void insertTask(Task task){
+        toDoMapper.insertTask(task);
+    }
+
     public void deleteTask(long taskId){
         toDoMapper.deleteTask(taskId);
     }
