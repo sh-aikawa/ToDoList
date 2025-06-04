@@ -48,7 +48,7 @@ public class ToDoController {
         return "redirect:/todolist";
     }
     
-    @GetMapping("/search")
+    @PostMapping("/search")
     public String getSelectTasks(@RequestParam("selectedDate") LocalDate selectedDate , Model model) {
         List<Task> tasks = toDoService.getSelectTasks(selectedDate);
         model.addAttribute("tasks", tasks);
