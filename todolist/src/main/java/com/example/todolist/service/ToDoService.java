@@ -1,5 +1,6 @@
 package com.example.todolist.service;
 
+import java.time.LocalDate;
 import java.util.List;
 
 import org.springframework.stereotype.Service;
@@ -18,6 +19,10 @@ public class ToDoService {
 
     public List<Task> getAllTasks(){
         return toDoRepository.getAllTasks();
+    }
+
+    public List<Task> getSelectTasks(LocalDate limitDate){
+        return toDoRepository.getSelectTasks(limitDate);
     }
 
     public void deleteTask(long taskId){

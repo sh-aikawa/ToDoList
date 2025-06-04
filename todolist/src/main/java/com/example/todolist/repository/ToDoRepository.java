@@ -1,5 +1,6 @@
 package com.example.todolist.repository;
 
+import java.time.LocalDate;
 import java.util.List;
 
 import org.springframework.stereotype.Repository;
@@ -17,6 +18,10 @@ public class ToDoRepository {
 
     public List<Task> getAllTasks(){
         return toDoMapper.getAllTasks();
+    }
+
+    public List<Task> getSelectTasks(LocalDate limitDate){
+        return toDoMapper.getSelectTasks(limitDate);
     }
 
     public void insertTask(Task task){
