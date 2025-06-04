@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.stereotype.Service;
 
+import com.example.todolist.form.ToDoForm;
 import com.example.todolist.model.Task;
 import com.example.todolist.repository.ToDoRepository;
 
@@ -23,5 +24,12 @@ public class ToDoService {
         toDoRepository.deleteTask(taskId);
     }
 
+    public void registerTask(ToDoForm toDoForm){
+        Task task = new Task();
+        task.setTitle(toDoForm.getTitle());
+        task.setLimitDate(toDoForm.getLimitDate());
+        task.setDescription(toDoForm.getDescription());
+        toDoRepository.insertTask(task);
+    }
 
 }
