@@ -2,15 +2,30 @@
 <html lang="ja" xmlns:th="http://www.thymeleaf.org">
 
 <head th:replace="~{layout :: head(表示)}"></head>
-
+<script>
+    window.addEventListener('DOMContentLoaded', function() {
+        let display_moji = document.getElementById('display');
+        let enter_date = document.getElementById('date');
+        let push = document.getElementById('item');
+        push.addEventListener('click', function(event) {
+            if(!enter_date.value) {
+                display_moji.innerHTML = "数字を入力してください！";
+                display_moji.style.color = '#ED1A3D';
+            }else if("${tasks}"){
+                display_moji.innerHTML = "やることが見つかりました！";
+                display_moji.style.color = '#0D0116';
+            }
+        });
+    });
+</script>
 <body>
     <div th:replace="~{layout :: header}"></div>
-    <h2>説明</h2>
+    <h3 id = "display">toDoリストへようこそ！</h3>
     
-    <h3>検索</h3>
+    <h4>検索</h4>
     <div id="searchArea">
         <input type="date" id="date" name="date" value="2025/6/3">
-        <button type="submit">検索</button>
+        <button type="submit" id= "item">検索</button>
     </div>
     
     <h3>やることリスト</h3>
