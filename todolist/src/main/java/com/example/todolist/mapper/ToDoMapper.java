@@ -1,5 +1,6 @@
 package com.example.todolist.mapper;
 
+import java.time.LocalDate;
 import java.util.List;
 
 import org.apache.ibatis.annotations.Delete;
@@ -14,6 +15,9 @@ public interface ToDoMapper {
 
     @Select("SELECT * FROM tasks")
     List<Task> getAllTasks();
+    
+    @Select("SELECT * FROM tasks WHERE limit_date = #{limitDate}")
+    List<Task> getSelectTasks(LocalDate limitDate);
 
     @Delete("DELETE FROM tasks WHERE task_id = #{taskId}")
     void deleteTask(long taskId);
