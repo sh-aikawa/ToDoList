@@ -24,8 +24,10 @@
     
     <h4>検索</h4>
     <div id="searchArea">
-        <input type="date" id="date" name="date" value="2025-6-4" min="2000-01-01" max="2030-12-31" />
-        <button type="submit" id= "item">検索</button>
+        <form action="/todolist/search" method="post">
+            <input type="date" id="date" name="selectedDate" value="2025-06-04" min="2000-01-01" max="2030-12-31" />
+            <button type="submit" id = "item">検索</button>
+        </form>
     </div>
     
     <h3>やることリスト</h3>
