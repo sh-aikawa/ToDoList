@@ -1,0 +1,9 @@
+table {
+    text-align: center;
+    border-collapse: collapse;
+    border: solid 2px #696969;
+}
+
+table th{
+    background-color: #c0c0c0;
+}
