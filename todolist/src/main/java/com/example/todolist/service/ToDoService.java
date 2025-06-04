@@ -25,6 +25,10 @@ public class ToDoService {
         return toDoRepository.getSelectTasks(limitDate);
     }
 
+    public void updateChecked(long taskId, boolean checked){
+        toDoRepository.updateChecked(taskId, checked);
+    }
+
     public void deleteTask(long taskId){
         toDoRepository.deleteTask(taskId);
     }

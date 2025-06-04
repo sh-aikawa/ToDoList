@@ -24,6 +24,10 @@ public class ToDoRepository {
         return toDoMapper.getSelectTasks(limitDate);
     }
 
+    public void updateChecked(long taskId, boolean checked){
+        toDoMapper.updateChecked(taskId, checked);
+    }
+
     public void insertTask(Task task){
         toDoMapper.insertTask(task);
     }
