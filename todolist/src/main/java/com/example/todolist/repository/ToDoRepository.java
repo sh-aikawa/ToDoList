@@ -36,4 +36,8 @@ public class ToDoRepository {
         toDoMapper.deleteTask(taskId);
     }
 
+    public List<Task> getFinishTasks() {
+        return toDoMapper.getFinishTasks();
+    }
+
 }

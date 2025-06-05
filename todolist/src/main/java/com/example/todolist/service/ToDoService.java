@@ -41,4 +41,8 @@ public class ToDoService {
         toDoRepository.insertTask(task);
     }
 
+    public List<Task> getFinishTasks() {
+        return toDoRepository.getFinishTasks();
+    }
+
 }
