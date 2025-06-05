@@ -29,6 +29,13 @@
         },
         body: `taskId=${taskId}&checked=${isChecked}`
     }).then(response => {
+        if(response.ok) {
+            // 更新成功時の処理
+            window.location.reload(); // ページをリロードして更新を反映
+        } else {
+            // 更新失敗時の処理
+            console.error(`Failed to update task ${taskId}.`);
+        }
         if (!response.ok) {
             alert('更新に失敗しました');
         }

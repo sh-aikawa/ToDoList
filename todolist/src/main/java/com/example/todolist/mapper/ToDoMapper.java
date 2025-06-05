@@ -14,10 +14,10 @@ import com.example.todolist.model.Task;
 @Mapper
 public interface ToDoMapper {
 
-    @Select("SELECT * FROM tasks")
+    @Select("SELECT * FROM tasks WHERE checked = false")
     List<Task> getAllTasks();
     
-    @Select("SELECT * FROM tasks WHERE limit_date = #{limitDate}")
+    @Select("SELECT * FROM tasks WHERE limit_date = #{limitDate} AND checked = false")
     List<Task> getSelectTasks(LocalDate limitDate);
 
     @Delete("DELETE FROM tasks WHERE task_id = #{taskId}")
@@ -26,7 +26,7 @@ public interface ToDoMapper {
     @Insert("INSERT INTO tasks(title, limit_date, description) VALUES (#{title}, #{limitDate}, #{description})")
     void insertTask(Task task);
 
-    @Update("UPDATE tasks SET checked = #{checked} WHERE task_id = #{taskId}")
+    @Update("UPDATE tasks SET checked = #{checked} WHERE task_id = #{taskId}")//checkedを更新
     void updateChecked(long taskId, boolean checked);
 
     @Select("SELECT * FROM tasks WHERE checked = true")
