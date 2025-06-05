@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ja" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{layout :: head(ログイン)}"></head>
+<body>
+    <div th:replace="~{layout :: header}"></div>
+    <h3>ログイン</h3>
+    <div th:if="${param.error}" style="color:red">
+        ユーザ名、またはパスワードが違います
+    </div>
+    <div th:if="${param.register}" style="color:blue">
+        登録に成功しました
+    </div>
+    <form th:action="@{/login}" method="post">
+        <div>
+            <label for="username">ユーザ名：</label>
+            <input type="text" id="username" name="username">
+        </div>
+        <div>
+            <label for="password">パスワード：</label>
+            <input type="password" id="password" name="password">
+        </div>
+        <button type="submit">ログイン</button>
+    </form>
+    <p>
+        アカウントをお持ちでない方は、
+        <a th:href="@{/userRegister}">こちら</a>から新規登録できます。
+    </p>
+    <div th:replace="~{layout :: footer}"></div>
+</body>
+</html>

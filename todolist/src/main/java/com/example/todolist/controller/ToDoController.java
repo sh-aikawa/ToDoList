@@ -64,4 +64,5 @@ public class ToDoController {
         model.addAttribute("tasks", tasks);
         return "completed";
     }
+
 }

@@ -41,7 +41,7 @@
     <div th:replace="~{layout :: header}"></div>
     <div>
     <h4 id = "title_text">予定の登録をします</h4>
-    <form th:action="@{/todolist/register}" th:object="${toDoForm}" method="post">
+    <form type="hidden" th:action="@{/todolist/register}" th:object="${toDoForm}" method="post">
         <label for = "title" id = "yotei">予定</label>
         <div style = "padding: 5px; margin: 0px;">
             <textarea type="text" id="title" name="title" th:field="*{title}" style="width: 50%; resize: none;" required></textarea>
