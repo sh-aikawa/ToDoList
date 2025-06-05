@@ -1,3 +1,4 @@
+/* リスト関係 */
 .list {
     width: 100%;
     text-align: center;
@@ -20,6 +21,7 @@
     border-bottom: solid 1px #778ca3;
 }
 
+/* 隠し背景 */
 body{
     background-image: url();
     background-repeat: no-repeat;
@@ -31,4 +33,24 @@ body{
 .transparent{
     opacity : 0.8;
     border-radius:30px;
+}
+
+/* 入力フォーム関係 */
+.itemArea{
+    padding: 5px;
+    margin: 0px;
+}
+
+.item {
+    width: 50%;
+    resize: none;
+}
+
+.box{
+    height: 100px;
+}
+
+
+.buttonArea {
+    margin-top: 8px;
 }
