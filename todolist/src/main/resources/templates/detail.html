@@ -10,7 +10,7 @@
 <body>
     <div th:replace="~{layout :: header}"></div>
     <h3>予定の詳細</h3>
-    <div th:each="task : ${tasks}">
+    <div th:each="task : ${task}">
         <h3>タイトル</h3>
         <a th:text="${task.title}">タイトル</a>
         <h3 style="padding: 10px">日付</h3>

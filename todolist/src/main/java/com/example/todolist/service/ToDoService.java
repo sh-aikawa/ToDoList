@@ -45,4 +45,7 @@ public class ToDoService {
         return toDoRepository.getFinishTasks();
     }
 
+    public Task getTask(long taskId) {
+        return toDoRepository.getTask(taskId);
+    }
 }

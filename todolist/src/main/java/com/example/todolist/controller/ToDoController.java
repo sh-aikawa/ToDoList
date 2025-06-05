@@ -48,7 +48,7 @@ public class ToDoController {
     public String getSelectTasks(@RequestParam("selectedDate") LocalDate selectedDate, Model model) {
         List<Task> tasks = toDoService.getSelectTasks(selectedDate);
         model.addAttribute("tasks", tasks);
-        return "Home";
+        return "redirect:/todolist";
     }
 
     @PostMapping("/check")
@@ -64,4 +64,12 @@ public class ToDoController {
         model.addAttribute("tasks", tasks);
         return "completed";
     }
+
+    @GetMapping("/detail")
+    public String showTaskDetail(@RequestParam("taskId") Long taskId, Model model) {
+        Task task = toDoService.getTask(taskId);
+        model.addAttribute("task", task);
+        return "detail";
+    }
+    
 }

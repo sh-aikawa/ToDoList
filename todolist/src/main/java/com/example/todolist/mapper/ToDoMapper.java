@@ -31,4 +31,7 @@ public interface ToDoMapper {
 
     @Select("SELECT * FROM tasks WHERE checked = true")
     List<Task> getFinishTasks();
+
+    @Select("SELECT * FROM tasks WHERE task_id = #{taskId}")
+    Task getTask(long taskId);
 }
