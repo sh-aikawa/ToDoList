@@ -1,52 +1,72 @@
 <!DOCTYPE html>
 <html lang="ja" xmlns:th="http://www.thymeleaf.org">
+
 <head th:fragment="head(title)">
     <script>
-        window.addEventListener('DOMContentLoaded', function() {
-            const register = document.getElementById('register');
-            const modoru = document.getElementById('modoru');
+        window.addEventListener("DOMContentLoaded", function () {
+            const register = document.getElementById("register");
+            const modoru = document.getElementById("modoru");
             const path = false;
             // registerページならregister非表示、modoru表示
-            if (!(window.location.pathname.endsWith('/todolist'))) {
-                if (register) register.style.display = 'none';
-                if (modoru) modoru.style.display = '';
-            }else if(!(window.location.pathname.endsWith('/register'))
-                || window.location.pathname.endsWith('/login')
-                || window.location.pathname.endsWith('/search')) {
-                if (register) register.style.display = 'none';
-                if (modoru) modoru.style.display = 'none';
-                }else{
-                if (register) register.style.display = '';
-                if (modoru) modoru.style.display = 'none';
+            if (!window.location.pathname.endsWith("/todolist")) {
+                if (register) register.style.display = "none";
+                if (modoru) modoru.style.display = "";
+            } else if (
+                !window.location.pathname.endsWith("/register") ||
+                window.location.pathname.endsWith("/login") ||
+                window.location.pathname.endsWith("/search")
+            ) {
+                if (register) register.style.display = "none";
+                if (modoru) modoru.style.display = "none";
+            } else {
+                if (register) register.style.display = "";
+                if (modoru) modoru.style.display = "none";
             }
         });
-        
     </script>
-    <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
+    <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet" />
     <link th:href="@{/css/style.css}" rel="stylesheet" />
-    <meta charset="UTF-8">
+    <meta charset="UTF-8" />
     <title>Title</title>
 </head>
+
 <body>
-<div th:fragment="header">
-    <header style="background-color: #f8f8f8; display: flex; align-items: center; justify-content: space-between;" class="transparent">
-        <h4 style="margin: 20px; font-size: 23px;">toDoリスト</h4>
-        <div style="margin-left: auto; display: flex; align-items: center;">
-            <form action="@{/todolist/finish}" method="post" style="display:inline;">
-                <button type="submit" style="margin: 20px; font-size: 18px; background: none; border: none; cursor: pointer;">
-                    完了済みタスク一覧 <i class="fas fa-pen-square"></i>
-                </button>
-            </form>
-            <a th:href="@{/todolist/register}" id="register" style="display:inline; margin: 20px; font-size: 18px">よていをとうろく <i class="fas fa-pen-square"></i></a>
-            <a th:href="@{/todolist}" id="modoru" style="display:none; margin: 20px; font-size: 18px">もどる <i class="fas fa-pen-square"></i></a>
-        </div>
-    </header>
-</div>
-<!--  -->
-<div th:fragment="footer">
-    <footer style="background-color: #f8f8f8; text-align: center;" class = "transparent">
-        <h4 style = "padding: 8px; font-family:'Courier New', Courier, monospace">&copy;Project Stella</h4>
-    </footer>
-</div>
+    <div th:fragment="header">
+        <header style="
+          background-color: #f8f8f8;
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+        " class="transparent">
+            <h4 style="margin: 20px; font-size: 23px">toDoリスト</h4>
+            <div style="margin-left: auto; display: flex; align-items: center">
+                <form th:action="@{/todolist/finish}" method="post" style="display: inline">
+                    <button type="submit" style="
+                margin: 20px;
+                font-size: 18px;
+                background: none;
+                border: none;
+                cursor: pointer;
+              ">
+                        完了済みタスク一覧 <i class="fas fa-pen-square"></i>
+                    </button>
+                </form>
+                <a th:href="@{/todolist/register}" id="register"
+                    style="display: inline; margin: 20px; font-size: 18px">よていをとうろく <i
+                        class="fas fa-pen-square"></i></a>
+                <a th:href="@{/todolist}" id="modoru" style="display: none; margin: 20px; font-size: 18px">もどる <i
+                        class="fas fa-pen-square"></i></a>
+            </div>
+        </header>
+    </div>
+    <!--  -->
+    <div th:fragment="footer">
+        <footer style="background-color: #f8f8f8; text-align: center" class="transparent">
+            <h4 style="padding: 8px; font-family: 'Courier New', Courier, monospace">
+                &copy;Project Stella
+            </h4>
+        </footer>
+    </div>
 </body>
+
 </html>
