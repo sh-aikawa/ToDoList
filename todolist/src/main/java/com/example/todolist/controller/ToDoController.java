@@ -62,6 +62,6 @@ public class ToDoController {
     public String getFinishTasks(Model model) {
         List<Task> tasks = toDoService.getFinishTasks();
         model.addAttribute("tasks", tasks);
-        return "finish";
+        return "completed";
     }
 }
