@@ -23,7 +23,7 @@
 </head>
 <body>
 <div th:fragment="header">
-    <header style="background-color: #f8f8f8; display: flex; align-items: center; justify-content: space-between;">
+    <header style="background-color: #f8f8f8; display: flex; align-items: center; justify-content: space-between;"  class = "transparent">
         <h4 style="margin: 20px; font-size: 23px;">ToDoリスト</h4>
         <div>
             <a th:href="@{/todolist/register}" id="register" style="display:inline; margin: 20px; font-size: 18px">よていをとうろく <i class="fas fa-pen-square"></i></a>
@@ -33,7 +33,7 @@
 </div>
 <!--  -->
 <div th:fragment="footer">
-    <footer style="background-color: #f8f8f8; text-align: center;">
+    <footer style="background-color: #f8f8f8; text-align: center;" class = "transparent">
         <h4 style = "padding: 8px; font-family:'Courier New', Courier, monospace">&copy;Project Stella</h4>
     </footer>
 </div>

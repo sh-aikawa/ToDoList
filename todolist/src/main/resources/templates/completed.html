@@ -2,7 +2,12 @@
 <html lang="ja" xmlns:th="http://www.thymeleaf.org">
 
 <head th:replace="~{layout :: head(表示)}"></head>
-<script></script>
+<script>
+    window.addEventListener("DOMContentLoaded", function () {
+        const bgUrl = localStorage.getItem("bgImage");
+        document.body.style.backgroundImage = `url('${bgUrl}')`;
+    });
+</script>
 <body>
     <div th:replace="~{layout :: header}"></div>
     
