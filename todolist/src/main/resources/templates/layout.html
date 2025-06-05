@@ -3,26 +3,27 @@
 
 <head th:fragment="head(title)">
     <script>
-        window.addEventListener("DOMContentLoaded", function () {
-            const register = document.getElementById("register");
-            const modoru = document.getElementById("modoru");
-            const path = false;
-            // registerページならregister非表示、modoru表示
-            if (!window.location.pathname.endsWith("/todolist")) {
-                if (register) register.style.display = "none";
-                if (modoru) modoru.style.display = "";
-            } else if (
-                !window.location.pathname.endsWith("/register") ||
-                window.location.pathname.endsWith("/login") ||
-                window.location.pathname.endsWith("/search")
-            ) {
-                if (register) register.style.display = "none";
-                if (modoru) modoru.style.display = "none";
-            } else {
-                if (register) register.style.display = "";
-                if (modoru) modoru.style.display = "none";
-            }
-        });
+    window.addEventListener("DOMContentLoaded", function () {
+        const register = document.getElementById("register");
+        const modoru = document.getElementById("modoru");
+        const path = window.location.pathname;
+
+        // /todolist/registerページならregister非表示、modoru表示
+        if (path.endsWith("/todolist/register")) {
+            if (register) register.style.display = "none";
+            if (modoru) modoru.style.display = "";
+        }
+        // /todolistページならregister表示、modoru非表示
+        else if (path.endsWith("/todolist")) {
+            if (register) register.style.display = "";
+            if (modoru) modoru.style.display = "none";
+        }
+        // その他のページでは両方非表示
+        else {
+            if (register) register.style.display = "none";
+            if (modoru) modoru.style.display = "none";
+        }
+    });
     </script>
     <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet" />
     <link th:href="@{/css/style.css}" rel="stylesheet" />
@@ -32,22 +33,11 @@
 
 <body>
     <div th:fragment="header">
-        <header style="
-          background-color: #f8f8f8;
-          display: flex;
-          align-items: center;
-          justify-content: space-between;
-        " class="transparent">
+        <header style="" class="transparent">
             <h4 style="margin: 20px; font-size: 23px">toDoリスト</h4>
             <div style="margin-left: auto; display: flex; align-items: center">
                 <form th:action="@{/todolist/finish}" method="post" style="display: inline">
-                    <button type="submit" style="
-                margin: 20px;
-                font-size: 18px;
-                background: none;
-                border: none;
-                cursor: pointer;
-              ">
+                    <button type="submit" class="complete">
                         完了済みタスク一覧 <i class="fas fa-pen-square"></i>
                     </button>
                 </form>
