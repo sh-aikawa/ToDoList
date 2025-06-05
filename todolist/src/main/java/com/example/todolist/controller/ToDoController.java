@@ -58,4 +58,10 @@ public class ToDoController {
         return "redirect:/todolist";
     }
 
+    @PostMapping("/finish")
+    public String getFinishTasks(Model model) {
+        List<Task> tasks = toDoService.getFinishTasks();
+        model.addAttribute("tasks", tasks);
+        return "completed";
+    }
 }

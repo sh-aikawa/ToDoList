@@ -28,4 +28,7 @@ public interface ToDoMapper {
 
     @Update("UPDATE tasks SET checked = #{checked} WHERE task_id = #{taskId}")//checkedを更新
     void updateChecked(long taskId, boolean checked);
+
+    @Select("SELECT * FROM tasks WHERE checked = true")
+    List<Task> getFinishTasks();
 }
