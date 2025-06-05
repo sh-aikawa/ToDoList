@@ -34,6 +34,7 @@ public UserDetails loadUserByUsername(String username) throws UsernameNotFoundEx
         throw new UsernameNotFoundException(username);
     }
     System.out.println("ユーザー取得成功: " + user.getUsername());
+    System.out.println("パスワード：" + user.getPassword());
     return new CustomUserDetails(user);
 }
 

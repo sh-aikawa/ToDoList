@@ -10,7 +10,12 @@
             if (!(window.location.pathname.endsWith('/todolist'))) {
                 if (register) register.style.display = 'none';
                 if (modoru) modoru.style.display = '';
-            } else{
+            }else if(!(window.location.pathname.endsWith('/register'))
+                || window.location.pathname.endsWith('/login')
+                || window.location.pathname.endsWith('/search')) {
+                if (register) register.style.display = 'none';
+                if (modoru) modoru.style.display = 'none';
+                }else{
                 if (register) register.style.display = '';
                 if (modoru) modoru.style.display = 'none';
             }
