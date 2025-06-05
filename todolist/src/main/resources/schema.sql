@@ -1,4 +1,5 @@
-DROP TABLE IF EXISTS tasks; /* tasksを削除し初期化*/
+DROP TABLE IF EXISTS tasks;
+DROP TABLE IF EXISTS users; 
 
 CREATE TABLE tasks(
     task_id INTEGER AUTO_INCREMENT PRIMARY KEY,
