@@ -54,7 +54,6 @@ public class ToDoController {
     @PostMapping("/check")
     public String updateChecked(@RequestParam("taskId") long taskId,
             @RequestParam("checked") boolean checked) {
-
         toDoService.updateChecked(taskId, checked);
         return "redirect:/todolist";
     }
