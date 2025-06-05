@@ -19,12 +19,10 @@ import com.example.todolist.service.ToDoService;
 @RequestMapping("/todolist")
 public class ToDoController {
 
-    private final RegistrationController registrationController;
     private final ToDoService toDoService;
 
     public ToDoController(ToDoService toDoService, RegistrationController registrationController) {
         this.toDoService = toDoService;
-        this.registrationController = registrationController;
     }
 
     @GetMapping
