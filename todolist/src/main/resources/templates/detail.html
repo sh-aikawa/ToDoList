@@ -1,6 +1,14 @@
 <!DOCTYPE html>
 <html lang="ja" xmlns:th="http://www.thymeleaf.org">
+
 <head th:replace="~{layout :: head(表示)}"></head>
+<script>
+    window.addEventListener("DOMContentLoaded", function () {
+        const bgUrl = localStorage.getItem("bgImage");
+        document.body.style.backgroundImage = `url('${bgUrl}')`;
+    });
+</script>
+
 <body>
     <div th:replace="~{layout :: header}"></div>
     <h3>予定の詳細</h3>
@@ -9,9 +17,10 @@
         <a th:text="${task.title}">タイトル</a>
         <h3 style="padding: 10px">日付</h3>
         <a th:text="${task.limitDate}">limitDate</a>
-        <h3 style="padding: 10px">詳細</h3>        
-        <a th:text="${task.description}">limitDate</a>    
+        <h3 style="padding: 10px">詳細</h3>
+        <a th:text="${task.description}">limitDate</a>
     </div>
     <div th:replace="~{layout :: footer}"></div>
 </body>
+
 </html>

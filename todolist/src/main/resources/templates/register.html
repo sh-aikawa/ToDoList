@@ -9,15 +9,17 @@
         let count = 0;
         let boo = true;
         title_change_url.addEventListener('click', function(){
-            if(count < 5){
+            if(count < 3){
                 count++;
             }else{
                 let yotei = document.getElementById('yotei');
                 let url = document.getElementById('title');
+                let sub = document.getElementById('submit');
 
                 if(boo){
                     title_change_url.innerText = "背景変更モード有効";
                     yotei.innerText = "URL(resetと入力すると背景をリセットできます。)";
+                    sub.remove();
                     boo = false;
 
                 }else if(url.value == "reset"){
@@ -51,15 +53,15 @@
             <input type="date" id = "limitDate" th:field="*{limitDate}" max="9999-12-31" min="1000-01-01">
         </div>
 
-        <label for = "description">詳細</label>
-        <div style = "padding: 5px; margin: 0px;">
-            <textarea id="description" th:field="*{description}" style="height: 100px; width: 50%; resize: none;"></textarea>
-        </div>
-        <div style="margin-top: 8px;">
-            <button type="submit">登録</button>
-        </div>
-    </form>
-</div>
+            <label for = "description">詳細</label>
+            <div style = "padding: 5px; margin: 0px;">
+                <textarea id="description" th:field="*{description}" style="height: 100px; width: 50%; resize: none;"></textarea>
+            </div>
+            <div style="margin-top: 8px;">
+                <button type="submit" id="submit">登録</button>
+            </div>
+        </form>
     <div th:replace="~{layout :: footer}"></div>
+</div>
 </body>
 </html>
