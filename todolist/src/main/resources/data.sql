@@ -1,4 +1,7 @@
-INSERT INTO tasks(title, limit_date, description) VALUES
-    ('test','2025-06-05','TODOリスト完成');
-INSERT INTO tasks(title, limit_date, description) VALUES
-    ('test','2025-06-05','TODOリスト完成');
+INSERT INTO tasks(user_id,title, limit_date, description) VALUES
+    (1,'2025-06-05','TODOリスト完成');
+INSERT INTO tasks(user_id,title, limit_date, description) VALUES
+    (1,'2025-06-05','TODOリスト完成');
+
+INSERT INTO users(name, email, password) VALUES
+    ('test_user', 'test@example.com', 'password123');
