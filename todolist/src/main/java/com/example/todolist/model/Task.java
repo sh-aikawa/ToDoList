@@ -9,6 +9,7 @@ import lombok.Data;
 @Data
 public class Task {
     private long taskId;
+    private long userId;
     private String title;
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     private LocalDate limitDate;

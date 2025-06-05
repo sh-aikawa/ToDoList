@@ -41,17 +41,17 @@
 </script>
 <body>
     <div th:replace="~{layout :: header}"></div>
-        <div>
-        <h4 id = "title_text">予定の登録をします</h4>
-        <form th:action="@{/todolist/register}" th:object="${toDoForm}" method="post">
-            <label for = "title" id = "yotei">予定</label>
-            <div style = "padding: 5px; margin: 0px;">
-                <textarea type="text" id="title" name="title" th:field="*{title}" style="width: 50%; resize: none;" required></textarea>
-            </div>
-                <label for = "limitDate">日付</label>
-            <div style = "padding: 5px; margin: 0px;">
-                <input type="date" id = "limitDate" th:field="*{limitDate}" max="9999-12-31" min="1000-01-01">
-            </div>
+    <div>
+    <h4 id = "title_text">予定の登録をします</h4>
+    <form type="hidden" th:action="@{/todolist/register}" th:object="${toDoForm}" method="post">
+        <label for = "title" id = "yotei">予定</label>
+        <div style = "padding: 5px; margin: 0px;">
+            <textarea type="text" id="title" name="title" th:field="*{title}" style="width: 50%; resize: none;" required></textarea>
+        </div>
+            <label for = "limitDate">日付</label>
+        <div style = "padding: 5px; margin: 0px;">
+            <input type="date" id = "limitDate" th:field="*{limitDate}" max="9999-12-31" min="1000-01-01">
+        </div>
 
             <label for = "description">詳細</label>
             <div style = "padding: 5px; margin: 0px;">

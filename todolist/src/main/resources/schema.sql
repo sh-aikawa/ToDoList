@@ -4,8 +4,7 @@ DROP TABLE IF EXISTS users;
 
 CREATE TABLE users(
     user_id INTEGER AUTO_INCREMENT PRIMARY KEY,
-    name TEXT NOT NULL,
-    email TEXT NOT NULL UNIQUE,
+    username TEXT NOT NULL,
     password TEXT NOT NULL,
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
