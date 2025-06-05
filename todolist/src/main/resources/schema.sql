@@ -1,6 +1,15 @@
 DROP TABLE IF EXISTS tasks;
 DROP TABLE IF EXISTS users; 
 
+
+CREATE TABLE users(
+    user_id INTEGER AUTO_INCREMENT PRIMARY KEY,
+    name TEXT NOT NULL,
+    email TEXT NOT NULL UNIQUE,
+    password TEXT NOT NULL,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
 CREATE TABLE tasks(
     task_id INTEGER AUTO_INCREMENT PRIMARY KEY,
     user_id INTEGER NOT NULL,
@@ -9,12 +18,4 @@ CREATE TABLE tasks(
     limit_date DATE,
     description TEXT,
     checked BOOLEAN DEFAULT FALSE
-);
-
-CREATE TABLE users(
-    user_id INTEGER AUTO_INCREMENT PRIMARY KEY,
-    name TEXT NOT NULL,
-    email TEXT NOT NULL UNIQUE,
-    password TEXT NOT NULL,
-    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
