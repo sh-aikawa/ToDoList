@@ -6,6 +6,7 @@ import java.util.List;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -17,9 +18,10 @@ import com.example.todolist.service.ToDoService;
 @Controller
 @RequestMapping("/todolist")
 public class ToDoController {
+
     private final ToDoService toDoService;
 
-    public ToDoController(ToDoService toDoService) {
+    public ToDoController(ToDoService toDoService, RegistrationController registrationController) {
         this.toDoService = toDoService;
     }
 
@@ -71,5 +73,13 @@ public class ToDoController {
         model.addAttribute("task", task);
         return "detail";
     }
+
+    @GetMapping("/taskEdit/{taskId}")
+    public String taskEdit(@PathVariable long taskId, Model model) {
+        Task task = toDoService.getTask(taskId);
+        model.addAttribute("task",task);
+        return "edit";
+    }
+    
     
 }
