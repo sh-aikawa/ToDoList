@@ -15,3 +15,9 @@
     padding: 10px;
     border-bottom: solid 1px #778ca3;
 }
+
+body{
+    background-image: url();
+    background-repeat: no-repeat;
+    background-size: cover;
+}

@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="ja" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{layout :: head(表示)}"></head>
+<body>
+    <div th:replace="~{layout :: header}"></div>
+    <h3>予定の詳細</h3>
+    <div th:each="task : ${tasks}">
+        <h3>タイトル</h3>
+        <a th:text="${task.title}">タイトル</a>
+        <h3 style="padding: 10px">日付</h3>
+        <a th:text="${task.limitDate}">limitDate</a>
+        <h3 style="padding: 10px">詳細</h3>        
+        <a th:text="${task.description}">limitDate</a>    
+    </div>
+    <div th:replace="~{layout :: footer}"></div>
+</body>
+</html>
