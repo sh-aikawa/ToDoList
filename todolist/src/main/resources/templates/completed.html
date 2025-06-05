@@ -8,18 +8,19 @@
         document.body.style.backgroundImage = `url('${bgUrl}')`;
     });
 </script>
+
 <body>
     <div th:replace="~{layout :: header}"></div>
-    
+
     <div id="listArea">
         <table border="1" class="list">
-            <caption>完了済みタスク一覧</caption>
+            <h3 style="padding-top: 10px; text-align: center;">完了済みタスク一覧</h3>
             <tr>
                 <th>タイトル</th>
                 <th>期限</th>
             </tr>
             <tr th:each="task : ${tasks}">
-                <th><a href = "@{/todolist/detail}"><span th:text="${task.title}">TodoListをつくる</span></a></th>
+                <th><a href="@{/todolist/detail}"><span th:text="${task.title}">TodoListをつくる</span></a></th>
                 <th><span th:text="${task.limitDate}">2025/6/5</span></th>
             </tr>
         </table>
