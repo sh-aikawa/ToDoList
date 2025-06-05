@@ -7,7 +7,7 @@
             const modoru = document.getElementById('modoru');
             const path = false;
             // registerページならregister非表示、modoru表示
-            if (window.location.pathname.endsWith('/todolist/register')) {
+            if (!(window.location.pathname.endsWith('/todolist'))) {
                 if (register) register.style.display = 'none';
                 if (modoru) modoru.style.display = '';
             } else{
