@@ -40,4 +40,7 @@ public class ToDoRepository {
         return toDoMapper.getFinishTasks();
     }
 
+    public Task getTask(long taskId) {
+        return toDoMapper.getTask(taskId);
+    }
 }
