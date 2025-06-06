@@ -20,14 +20,18 @@
 
     function updateCheckedStatus(checkbox) {
         const taskId = checkbox.getAttribute("data-task-id");
-        const isChecked = checkbox.checked;
+        const checked = checkbox.checked;
+
+        const token = document.querySelector('meta[name="_csrf"]').getAttribute("content");
+        const header = document.querySelector('meta[name="_csrf_header"]').getAttribute("content");
 
         fetch("/todolist/check", {
             method: "POST",
             headers: {
                 "Content-Type": "application/x-www-form-urlencoded",
+                [header]: token
             },
-            body: `taskId=${taskId}&checked=${isChecked}`,
+            body: `taskId=${taskId}&checked=${checked}`,
         }).then((response) => {
             if (response.ok) {
                 // 更新成功時の処理
@@ -50,8 +54,8 @@
 
     <h4>toDO絞り込み</h4>
     <div id="searchArea">
-        <form action="/todolist/search" method="post">
-            <input type="date" id="date" name="selectedDate" value="2025-06-04" min="2000-01-01" max="9999-12-31" />
+        <form th:action="@{/todolist/search}" method="post">
+            <input type="date" id="date" name="selectedDate" th:value="${#dates.format(#dates.createNow(), 'yyyy-MM-dd')}" min="2000-01-01" max="9999-12-31" />
             <button type="submit" id="item">検索</button>
         </form>
     </div>
@@ -68,7 +72,8 @@
             <tr th:each="task : ${tasks}">
                 <th><input type="checkbox" th:attr="data-task-id=${task.taskId}" th:checked="${task.checked}"
                         onchange="updateCheckedStatus(this)" /></th>
-                <th><a th:href="@{/todolist/detail(taskId=${task.taskId})}"><span th:text="${task.title}">TodoListをつくる</span></a></th>
+                <th><a th:href="@{/todolist/detail(taskId=${task.taskId})}"><span
+                            th:text="${task.title}">TodoListをつくる</span></a></th>
                 <th><span th:text="${task.limitDate}">2025/6/5</span></th>
             </tr>
         </table>

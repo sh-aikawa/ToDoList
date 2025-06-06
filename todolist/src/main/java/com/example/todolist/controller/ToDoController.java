@@ -21,7 +21,7 @@ public class ToDoController {
 
     private final ToDoService toDoService;
 
-    public ToDoController(ToDoService toDoService, RegistrationController registrationController) {
+    public ToDoController(ToDoService toDoService) {
         this.toDoService = toDoService;
     }
 
@@ -50,7 +50,7 @@ public class ToDoController {
     public String getSelectTasks(@RequestParam("selectedDate") LocalDate selectedDate, Model model) {
         List<Task> tasks = toDoService.getSelectTasks(selectedDate);
         model.addAttribute("tasks", tasks);
-        return "redirect:/todolist";
+        return "Home";
     }
 
     @PostMapping("/check")
@@ -60,7 +60,7 @@ public class ToDoController {
         return "redirect:/todolist";
     }
 
-    @PostMapping("/finish")
+    @GetMapping("/finish")
     public String getFinishTasks(Model model) {
         List<Task> tasks = toDoService.getFinishTasks();
         model.addAttribute("tasks", tasks);
