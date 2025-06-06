@@ -6,6 +6,7 @@ import java.util.List;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -84,5 +85,12 @@ public class ToDoController {
         model.addAttribute("task", task);
         return "edit";
     }
+
+    @PostMapping("/{taskId}/edit")
+public String postEditTask(@PathVariable long taskId, @ModelAttribute("task") Task task) {
+    task.setTaskId(taskId);
+    toDoService.editTask(task);
+    return "redirect:/todolist";
+}
 
 }

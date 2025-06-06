@@ -55,4 +55,8 @@ public class ToDoService {
     public Task getTask(long taskId) {
         return toDoRepository.getTask(taskId);
     }
+
+    public void editTask(Task task) {
+        toDoRepository.editTask(task);
+    }
 }

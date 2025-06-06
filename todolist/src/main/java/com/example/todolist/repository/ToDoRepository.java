@@ -47,4 +47,8 @@ public class ToDoRepository {
     public Task getTask(long taskId) {
         return toDoMapper.getTask(taskId);
     }
+
+    public void editTask(Task task){
+        toDoMapper.editTask(task);
+    }
 }
