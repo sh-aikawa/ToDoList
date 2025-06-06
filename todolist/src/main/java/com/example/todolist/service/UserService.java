@@ -1,10 +1,11 @@
 package com.example.todolist.service;
 
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
-import com.example.todolist.model.User;
 import com.example.todolist.form.UserForm;
+import com.example.todolist.model.User;
 import com.example.todolist.repository.UserRepository;
 
 @Service
@@ -25,5 +26,10 @@ public class UserService {
         user.setPassword(hashedPassword);
 
         userRepository.insertUser(user);
+    }
+    
+    public Long getUserId() {
+        String username = SecurityContextHolder.getContext().getAuthentication().getName();
+        return userRepository.getUserId(username);
     }
 }

@@ -20,4 +20,10 @@ public class UserRepository{
     public void insertUser(User user){
         userMapper.insertUser(user);
     }
+
+    public long getUserId(String username){
+        return userMapper.getUserId(username);
+    }
+
+
 }

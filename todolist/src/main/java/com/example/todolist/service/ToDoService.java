@@ -12,13 +12,20 @@ import com.example.todolist.repository.ToDoRepository;
 @Service
 public class ToDoService {
     private final ToDoRepository toDoRepository;
+    private final UserService userService;
 
-    public ToDoService(ToDoRepository toDoRepository){
+    public ToDoService(ToDoRepository toDoRepository, UserService userService){
         this.toDoRepository = toDoRepository;
+        this.userService = userService;
     }
 
     public List<Task> getAllTasks(){
         return toDoRepository.getAllTasks();
+    }
+
+    public List<Task> getTasksByUserId(String username){
+        long userId  = userService.getUserId();
+        return toDoRepository.getTasksByUserId(userId);
     }
 
     public List<Task> getSelectTasks(LocalDate limitDate){

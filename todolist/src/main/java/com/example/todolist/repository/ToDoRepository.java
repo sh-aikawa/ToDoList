@@ -20,6 +20,10 @@ public class ToDoRepository {
         return toDoMapper.getAllTasks();
     }
 
+    public List<Task> getTasksByUserId(long userId){
+        return toDoMapper.getTasksByUserId(userId);
+    }
+
     public List<Task> getSelectTasks(LocalDate limitDate){
         return toDoMapper.getSelectTasks(limitDate);
     }

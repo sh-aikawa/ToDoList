@@ -16,7 +16,10 @@ public interface ToDoMapper {
 
     @Select("SELECT * FROM tasks WHERE checked = false")
     List<Task> getAllTasks();
-    
+
+    @Select("SELECT * FROM tasks WHERE checked = false AND user_id = #{userId}")
+    List<Task> getTasksByUserId(long userId);
+
     @Select("SELECT * FROM tasks WHERE limit_date = #{limitDate} AND checked = false")
     List<Task> getSelectTasks(LocalDate limitDate);
 

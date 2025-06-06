@@ -10,6 +10,8 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 
 import com.example.todolist.form.ToDoForm;
 import com.example.todolist.model.Task;
@@ -27,7 +29,9 @@ public class ToDoController {
 
     @GetMapping
     public String toDos(Model model) {
-        List<Task> tasks = toDoService.getAllTasks();
+        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+        String username = auth.getName();
+        List<Task> tasks = toDoService.getTasksByUserId(username);
         model.addAttribute("tasks", tasks);
         return "Home";// 一覧画面に遷移
     }
@@ -77,9 +81,8 @@ public class ToDoController {
     @GetMapping("/taskEdit/{taskId}")
     public String taskEdit(@PathVariable long taskId, Model model) {
         Task task = toDoService.getTask(taskId);
-        model.addAttribute("task",task);
+        model.addAttribute("task", task);
         return "edit";
     }
-    
-    
+
 }
