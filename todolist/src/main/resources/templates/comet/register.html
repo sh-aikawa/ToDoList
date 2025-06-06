@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="ja" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+    <form th:action="@{/comet/register}" method="post">
+        <h3>コメットする</h3>
+        <label for="content">内容</label>
+        <textarea id="content" name="content" required></textarea>
+        <br>
+        <button type="submit">送信</button>
+    </form>
+</body>
+</html>
