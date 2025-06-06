@@ -45,6 +45,9 @@ public class ToDoService {
         task.setTitle(toDoForm.getTitle());
         task.setLimitDate(toDoForm.getLimitDate());
         task.setDescription(toDoForm.getDescription());
+
+        long userId = userService.getUserId();
+        task.setUserId(userId);
         toDoRepository.insertTask(task);
     }
 
