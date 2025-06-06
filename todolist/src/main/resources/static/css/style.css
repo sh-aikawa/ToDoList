@@ -60,3 +60,18 @@ body{
 .buttonArea {
     margin-top: 8px;
 }
+
+.complete{
+    margin: 20px;
+    font-size: 18px;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+header{
+    background-color: #f8f8f8;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}

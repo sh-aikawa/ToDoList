@@ -45,12 +45,7 @@
 
 <body>
     <div th:fragment="header">
-        <header style="
-          background-color: #f8f8f8;
-          display: flex;
-          align-items: center;
-          justify-content: space-between;
-        " class="transparent">
+        <header style="" class="transparent">
             <h4 style="margin: 20px; font-size: 23px">toDoリスト</h4>
             <div style="margin-left: auto; display: flex; align-items: center">
                 <a th:href="@{/todolist/finish}" id="completed" style="display: inline; margin: 20px; font-size: 18px; background: none; border: none; cursor: pointer;">
@@ -58,7 +53,7 @@
                 </a>
                 </form>
                 <a th:href="@{/todolist/register}" id="register"
-                    style="display: inline; margin: 20px; font-size: 18px">よていをとうろく <i
+                    style="display: inline; margin: 2px; font-size: 18px">よていをとうろく <i
                         class="fas fa-pen-square"></i></a>
                 <a th:href="@{/todolist}" id="modoru" style="display: none; margin: 20px; font-size: 18px">もどる <i
                         class="fas fa-pen-square"></i></a>
