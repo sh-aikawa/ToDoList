@@ -30,7 +30,7 @@ public class CustomUserDetails implements UserDetails {
         return user.getUsername();
     }
 
-    public long getUSerId() {
+    public long getUserId() {
         return user.getUserId();
     }
 
