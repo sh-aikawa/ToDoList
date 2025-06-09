@@ -37,6 +37,16 @@
         let count = 0;
         let boo = true;
         title_change_url.addEventListener('click', function(){
+            if (title_change_url.dataset.locked === "true") return;
+
+            title_change_url.classList.add('anim-box', 'poyopoyo');
+            title_change_url.dataset.locked = "true";
+
+            setTimeout(function(){
+                title_change_url.classList.remove('anim-box', 'poyopoyo');
+                title_change_url.dataset.locked = "false";
+            }, 1000); // 1秒ロック
+
             if(count < 3){
                 count++;
             }else{

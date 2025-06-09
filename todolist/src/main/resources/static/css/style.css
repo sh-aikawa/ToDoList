@@ -32,9 +32,15 @@ body{
     background-image: url();
     background-repeat: no-repeat;
     background-size: cover ;
-    background-color:rgba(255,255,255,0.8);
+    /* background-color:rgba(255,255,255,0.8); */
     background-blend-mode:lighten;
+	animation: loading 1s;
 }
+@keyframes loading {
+	0% {opacity: 0;}
+	100% {opacity: 1;}
+}
+
 
 .transparent{
     opacity : 0.8;
@@ -74,4 +80,19 @@ header{
     display: flex;
     align-items: center;
     justify-content: space-between;
+}
+
+/* アニメーション（遊び用） */
+.anim-box.poyopoyo {
+    animation: poyopoyo 1s ease-in;
+    opacity: 1;
+    animation-iteration-count: 1;
+}
+@keyframes poyopoyo {
+    0%, 40%, 60%, 80% {
+        transform: scale(1.0);
+    }
+    50%, 70% {
+        transform: scale(0.95);
+    }
 }
