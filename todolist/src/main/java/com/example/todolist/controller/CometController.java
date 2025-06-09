@@ -1,5 +1,6 @@
 package com.example.todolist.controller;
 
+import java.time.format.DateTimeFormatter;
 import java.util.List;
 
 import org.springframework.stereotype.Controller;
@@ -11,27 +12,27 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import com.example.todolist.form.CometForm;
 import com.example.todolist.model.Comet;
 import com.example.todolist.service.CometService;
-import com.example.todolist.service.UserService;
 
 @Controller
 @RequestMapping("/comet")
 public class CometController {
 
     private final CometService cometService;
-    private final UserService userService;
 
-    public CometController(CometService cometService, UserService userService){
+    public CometController(CometService cometService) {
         this.cometService = cometService;
-        this.userService = userService;
     }
 
-    @GetMapping("/")
+    @GetMapping
     public String comets(Model model) {
-        /*
-        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
-        long userId = userService.getUserId();
-        */
+
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy年M月d日 H時m分s秒");
         List<Comet> comets = cometService.getAllComets();
+        for (Comet comet : comets) {
+            String formattedDate = comet.getCreatedAt().format(formatter);
+            comet.setFormattedCreatedAt(formattedDate);
+        }
+
         model.addAttribute("comets", comets);
         return "comet/home";
     }

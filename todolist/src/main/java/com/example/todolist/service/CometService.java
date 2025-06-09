@@ -24,12 +24,16 @@ public class CometService {
 
         long userId = userService.getUserId();
         comet.setUserId(userId);
-
         cometRepository.insertComet(comet);
     }
 
     public List<Comet> getAllComets(){
-        return cometRepository.getAllComets();
+        List<Comet> comets = cometRepository.getAllComets();
+        for(Comet comet : comets){
+            String username = userService.getUsername();
+            comet.setUsername(username);
+        }
+        return comets;
     }
 
 }

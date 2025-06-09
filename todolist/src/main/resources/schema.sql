@@ -26,5 +26,6 @@ CREATE TABLE comets(
     user_id INTEGER NOT NULL,
     FOREIGN KEY (user_id) REFERENCES users(user_id) ON DELETE CASCADE,
     content TEXT,
-    happy BOOLEAN DEFAULT FALSE
+    happy BOOLEAN DEFAULT FALSE,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );

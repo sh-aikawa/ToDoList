@@ -31,16 +31,17 @@
         }
     </style>
 </head>
-
 <body>
-
     <h1>Comet Timeline</h1>
-
+    <div th:replace="~{layout :: header}"></div>
     <div th:each="comet : ${comets}" class="comet">
+        <div class="username" th:text="${comet.username}">ユーザー名</div>
         <div class="userId" th:text="'@' + ${comet.userId}">ユーザーID</div>
         <div class="content" th:text="${comet.content}">ツイート内容</div>
+        <div class="timestamp" th:text="${comet.formattedCreatedAt}">タイムスタンプ</div>
     </div>
-
+    <a th:href="@{/comet/register}">コメットを投稿する</a>
+    <div th:replace="~{layout :: footer}"></div>
 </body>
 
 </html>
