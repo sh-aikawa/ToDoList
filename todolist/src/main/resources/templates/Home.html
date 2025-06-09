@@ -4,11 +4,10 @@
 <head th:replace="~{layout :: head(表示)}"></head>
 
 <body>
-    <div class="back"></div>
+    <!-- <div class="back"></div> -->
     <div th:replace="~{layout :: header}"></div>
     <h3 id="display">toDoリストへようこそ！</h3>
-    <a th:href="@{/comet}">Comet</a>
-    <h4>toDO絞り込み</h4>
+    <h4>toDo絞り込み</h4>
     <div id="searchArea">
         <form th:action="@{/todolist/search}" method="post">
             <input type="date" id="date" name="selectedDate"
