@@ -46,10 +46,37 @@ window.addEventListener("DOMContentLoaded", function () {
             document.body.style.backgroundImage = "";
         }
     }
+
+    //ボタンアニメーション
+    let submit_buttons = document.querySelectorAll("button");
+    submit_buttons.forEach(function(submit_button) {
+        submit_button.addEventListener('mouseover', function(){
+            if (submit_button.dataset.locked === "true") return;
+
+            submit_button.classList.add('anim-box', 'poyopoyo');
+            submit_button.dataset.locked = "true";
+
+            setTimeout(function(){
+                submit_button.classList.remove('anim-box', 'poyopoyo');
+                submit_button.dataset.locked = "false";
+            }, 1000); // 1秒ロック
+        });
+    });
+
+    //隠し要素処理 
     let count = 0;
     let boo = true;
     if (title_change_url) {
-        title_change_url.addEventListener('click', function () {
+        title_change_url.addEventListener('click', function(){
+            if (title_change_url.dataset.locked === "true") return;
+
+            title_change_url.classList.add('anim-box', 'poyopoyo');
+            title_change_url.dataset.locked = "true";
+
+            setTimeout(function(){
+                title_change_url.classList.remove('anim-box', 'poyopoyo');
+                title_change_url.dataset.locked = "false";
+            }, 1000); // 1秒ロック
             if (count < 3) {
                 count++;
             } else {
@@ -79,15 +106,17 @@ window.addEventListener("DOMContentLoaded", function () {
             }
         });
     }
+
     push.addEventListener("click", function (event) {
         if (push && enter_date && display_moji) {
-            event.preventDefault();
-            display_moji.innerHTML = "数字を入力してください！";
-            display_moji.style.color = "#ED1A3D";
+            if (!enter_date.value){
+                event.preventDefault();
+                display_moji.innerHTML = "数字を入力してください！";
+                display_moji.style.color = "#ED1A3D";
+            }
         }
     });
 });
-
 // タスクのチェックボックスが変更されたときに呼び出される関数
 function updateCheckedStatus(checkbox) {
     const taskId = checkbox.getAttribute("data-task-id");

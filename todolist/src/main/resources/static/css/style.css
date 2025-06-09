@@ -1,7 +1,7 @@
 a:link,
 a:visited {
-  color: inherit;
-  text-decoration: none;
+    color: inherit;
+    text-decoration: none;
 }
 
 /* リスト関係 */
@@ -74,6 +74,23 @@ body{
     border: none;
     cursor: pointer;
 }
+
+/* detail.htmlで使用 */
+.detail_text{
+    padding: 10px
+}
+
+/* Registar.htmlで使用 */
+.register_textarea{
+    height: 100px; 
+    width: 50%;
+    resize: none;
+}
+
+.title_text{
+    display:inline-block;
+}
+
 
 header{
     background-color: #f8f8f8;
