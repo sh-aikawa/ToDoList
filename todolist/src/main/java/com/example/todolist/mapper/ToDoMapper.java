@@ -40,4 +40,7 @@ public interface ToDoMapper {
 
     @Update("UPDATE tasks SET title = #{title}, limit_date = #{limitDate}, description = #{description} WHERE task_id = #{taskId}")
     void editTask(Task task);
+
+    @Select("SELECT * FROM tasks WHERE checked = false AND user_id = #{userId}  ORDER BY limit_date DESC") 
+    List<Task> getSortTasks(long userId);
 }

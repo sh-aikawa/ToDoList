@@ -61,6 +61,9 @@
     </div>
 
     <h3>やることリスト</h3>
+    <form th:action="@{/todolist/sort}" method="get">
+        <button type="submit" id="sort">昇順ソート</button>
+    </form>
     <!-- <form action="/todolist/finish" method="post"><button type="submit">履歴</button></form> -->
     <div id="listArea">
         <table border="1" class="list">
