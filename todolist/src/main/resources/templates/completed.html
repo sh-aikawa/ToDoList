@@ -2,12 +2,6 @@
 <html lang="ja" xmlns:th="http://www.thymeleaf.org">
 
 <head th:replace="~{layout :: head(表示)}"></head>
-<script>
-    window.addEventListener("DOMContentLoaded", function () {
-        const bgUrl = localStorage.getItem("bgImage");
-        document.body.style.backgroundImage = `url('${bgUrl}')`;
-    });
-</script>
 
 <body>
     <div th:replace="~{layout :: header}"></div>
@@ -20,7 +14,8 @@
                 <th>期限</th>
             </tr>
             <tr th:each="task : ${tasks}">
-                <th><a th:href = "@{/todolist/detail(taskId=${task.taskId})}"><span th:text="${task.title}">TodoListをつくる</span></a></th>
+                <th><a th:href="@{/todolist/detail(taskId=${task.taskId})}"><span
+                            th:text="${task.title}">TodoListをつくる</span></a></th>
                 <th><span th:text="${task.limitDate}">2025/6/5</span></th>
             </tr>
         </table>
@@ -30,3 +25,10 @@
 </body>
 
 </html>
+
+<!-- <script>
+    window.addEventListener("DOMContentLoaded", function () {
+        const bgUrl = localStorage.getItem("bgImage");
+        document.body.style.backgroundImage = `url('${bgUrl}')`;
+    });
+</script> -->

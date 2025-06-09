@@ -1,6 +1,6 @@
 
 window.addEventListener("DOMContentLoaded", function () {
-    //ヘッダー、フッター
+    //ヘッダー
     const register = document.getElementById("register");
     const modoru = document.getElementById("modoru");
     const completed = document.getElementById("completed");
@@ -31,18 +31,56 @@ window.addEventListener("DOMContentLoaded", function () {
     }
 
     //背景設定
+    const path = window.location.pathname;
     let display_moji = document.getElementById("display");
     let enter_date = document.getElementById("date");
     let push = document.getElementById("item");
-    const bgUrl = localStorage.getItem("bgImage");
-    //nullチェック追加
-    if (bgUrl) {
-        document.body.style.backgroundImage = `url('${bgUrl}')`;
-    } else {
-        document.body.style.backgroundImage = "";
+    let title_change_url = document.getElementById('title_text');
+    //ログイン、登録画面以外に適応
+    if (path !== "/login" && path !== "/userRegister") {
+        const bgUrl = localStorage.getItem('bgImage');
+        //nullチェック
+        if (bgUrl) {
+            document.body.style.backgroundImage = `url('${bgUrl}')`;
+        } else {
+            document.body.style.backgroundImage = "";
+        }
+    }
+    let count = 0;
+    let boo = true;
+    if (title_change_url) {
+        title_change_url.addEventListener('click', function () {
+            if (count < 3) {
+                count++;
+            } else {
+                let yotei = document.getElementById('yotei');
+                let url = document.getElementById('title');
+                let sub = document.getElementById('submit');
+
+                if (boo) {
+                    title_change_url.innerText = "背景変更モード有効";
+                    if (yotei) yotei.innerText = "URL(resetと入力すると背景をリセットできます。)";
+                    if (sub) sub.remove();
+                    boo = false;
+
+                } else if (url && url.value == "reset") {
+                    title_change_url.innerText = "背景がリセットされました";
+                    document.body.style.backgroundImage = "";
+                    document.body.style.backgroundColor = "white";
+                    localStorage.setItem('bgImage', "");
+
+                } else if (url && !(url.value.startsWith("http"))) {
+                    title_change_url.innerText = "URLを入力してください！";
+                } else if (url) {
+                    title_change_url.innerText = "URLを適用しました";
+                    document.body.style.backgroundImage = `url('${url.value}')`;
+                    localStorage.setItem('bgImage', url.value);
+                }
+            }
+        });
     }
     push.addEventListener("click", function (event) {
-        if (!enter_date.value) {
+        if (push && enter_date && display_moji) {
             event.preventDefault();
             display_moji.innerHTML = "数字を入力してください！";
             display_moji.style.color = "#ED1A3D";
