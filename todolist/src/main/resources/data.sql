@@ -7,3 +7,5 @@ INSERT INTO tasks(user_id,title, limit_date, description) VALUES
 INSERT INTO tasks(user_id,title, limit_date, description) VALUES
     (1,'test','2025-06-05','TODOリスト完成');
 
+INSERT INTO comets(user_id, content) VALUES
+    (1, 'test comment');

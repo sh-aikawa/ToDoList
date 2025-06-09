@@ -51,4 +51,8 @@ public class ToDoRepository {
     public void editTask(Task task){
         toDoMapper.editTask(task);
     }
+
+    public List<Task> getSortTasks(long userId) {
+        return toDoMapper.getSortTasks(userId);
+    }
 }

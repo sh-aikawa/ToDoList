@@ -62,4 +62,9 @@ public class ToDoService {
     public void editTask(Task task) {
         toDoRepository.editTask(task);
     }
+
+    public List<Task> getSortTasks(String username) {
+        long userId  = userService.getUserId();
+        return toDoRepository.getSortTasks(userId);
+    }
 }

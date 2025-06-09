@@ -19,4 +19,7 @@ public interface UserMapper {
 
     @Select("SELECT user_id FROM users WHERE username = #{username}")
     long getUserId(String username);
+
+    @Select("SELECT username FROM users WHERE user_id = #{userId}")
+    String getUsername(long userId);
 }

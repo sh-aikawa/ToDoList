@@ -13,12 +13,12 @@ public class UserService {
     private final UserRepository userRepository;
     private final PasswordEncoder passwordEncoder;
 
-    public UserService(UserRepository userRepository, PasswordEncoder passwordEncoder){
+    public UserService(UserRepository userRepository, PasswordEncoder passwordEncoder) {
         this.userRepository = userRepository;
         this.passwordEncoder = passwordEncoder;
     }
 
-    public void createUser(UserForm userForm){
+    public void createUser(UserForm userForm) {
         User user = new User();
         user.setUsername(userForm.getUsername());
 
@@ -27,9 +27,13 @@ public class UserService {
 
         userRepository.insertUser(user);
     }
-    
+
     public Long getUserId() {
-        String username = SecurityContextHolder.getContext().getAuthentication().getName();
-        return userRepository.getUserId(username);
+        return userRepository.getUserId(getUsername());
     }
+
+    public String getUsername() {
+        return SecurityContextHolder.getContext().getAuthentication().getName();
+    }
+
 }
