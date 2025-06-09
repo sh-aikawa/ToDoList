@@ -1,5 +1,7 @@
 DROP TABLE IF EXISTS tasks;
-DROP TABLE IF EXISTS users; 
+DROP TABLE IF EXISTS comets;
+DROP TABLE IF EXISTS users;
+
 
 
 CREATE TABLE users(
@@ -17,4 +19,13 @@ CREATE TABLE tasks(
     limit_date DATE,
     description TEXT,
     checked BOOLEAN DEFAULT FALSE
+);
+
+CREATE TABLE comets(
+    comet_id INTEGER AUTO_INCREMENT PRIMARY KEY,
+    user_id INTEGER NOT NULL,
+    FOREIGN KEY (user_id) REFERENCES users(user_id) ON DELETE CASCADE,
+    content TEXT,
+    happy BOOLEAN DEFAULT FALSE,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
