@@ -93,11 +93,21 @@ public class ToDoController {
         return "redirect:/todolist";
     }
 
-    @GetMapping("/sort")
-    public String getSortTasks(Model model) {
+    @GetMapping("/sortDesc")
+    public String getSortAscTasks(Model model) {
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
         String username = auth.getName();
-        List<Task> tasks = toDoService.getSortTasks(username);
+        List<Task> tasks = toDoService.getSortDescTasks(username);
+
+        model.addAttribute("tasks", tasks);
+        return "Home";
+    }
+
+    @GetMapping("/sortAsc")
+    public String getSortDescTasks(Model model) {
+        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+        String username = auth.getName();
+        List<Task> tasks = toDoService.getSortAscTasks(username);
 
         model.addAttribute("tasks", tasks);
         return "Home";

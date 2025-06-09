@@ -42,5 +42,8 @@ public interface ToDoMapper {
     void editTask(Task task);
 
     @Select("SELECT * FROM tasks WHERE checked = false AND user_id = #{userId}  ORDER BY limit_date DESC") 
-    List<Task> getSortTasks(long userId);
+    List<Task> getSortDescTasks(long userId);
+
+    @Select("SELECT * FROM tasks WHERE checked = false AND user_id = #{userId}  ORDER BY limit_date ASC") 
+    List<Task> getSortAscTasks(long userId);
 }

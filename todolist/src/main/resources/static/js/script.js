@@ -1,3 +1,4 @@
+let isDescending = true;
 
 window.addEventListener("DOMContentLoaded", function () {
     //ヘッダー
@@ -86,6 +87,25 @@ window.addEventListener("DOMContentLoaded", function () {
             display_moji.style.color = "#ED1A3D";
         }
     });
+
+    const descForm = document.getElementById("descForm");
+    const ascForm = document.getElementById("ascForm");
+
+    function toggleSort() {
+
+        if (isDescending) {
+            descForm.style.display = "none";
+            ascForm.style.display = "block";
+        }else {
+            ascForm.style.display = "none";
+            descForm.style.display = "block";
+        }
+
+        isDescending = !isDescending;
+    }
+
+    this.document.getElementById("sortDesc").onclick = toggleSort;
+    this.document.getElementById("sortAsc").onclick = toggleSort;
 });
 
 // タスクのチェックボックスが変更されたときに呼び出される関数
@@ -115,4 +135,5 @@ function updateCheckedStatus(checkbox) {
             alert("更新に失敗しました");
         }
     });
+    
 }
