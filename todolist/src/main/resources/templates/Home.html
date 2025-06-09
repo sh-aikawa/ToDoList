@@ -22,12 +22,11 @@
         <button type="button" id="sortDesc">降順</button>
     </form>
 
-    <form th:action="@{/todolist/sortAsc}" method="get" id="ascForm"style="display: none;">
+    <form th:action="@{/todolist/sortAsc}" method="get" id="ascForm">
         <button type="button" id="sortAsc">昇順</button>
     </form>
     <div id="listArea">
         <table border="1" class="list">
-            <tr>
                 <th>チェック</th>
                 <th>タイトル</th>
                 <th>期限</th>

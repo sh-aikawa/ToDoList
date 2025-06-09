@@ -1,10 +1,12 @@
-let isDescending = true;
+
 
 window.addEventListener("DOMContentLoaded", function () {
     //ヘッダー
     const register = document.getElementById("register");
     const modoru = document.getElementById("modoru");
     const completed = document.getElementById("completed");
+
+    let isDescending = localStorage.getItem('isDescending') === 'true';//ソート用
 
     switch (window.location.pathname) {
         case "/todolist":
@@ -121,21 +123,33 @@ window.addEventListener("DOMContentLoaded", function () {
     const descForm = document.getElementById("descForm");
     const ascForm = document.getElementById("ascForm");
 
+
+    if (isDescending) {
+        ascForm.style.display = "none";
+        descForm.style.display = "block";
+    } else {
+        descForm.style.display = "none";
+        ascForm.style.display = "block";
+    }
+
     function toggleSort() {
 
         if (isDescending) {
             descForm.style.display = "none";
             ascForm.style.display = "block";
+            descForm.submit();
         }else {
             ascForm.style.display = "none";
             descForm.style.display = "block";
+            ascForm.submit();
         }
 
         isDescending = !isDescending;
+        localStorage.setItem('isDescending', isDescending);
     }
 
-    this.document.getElementById("sortDesc").onclick = toggleSort;
-    this.document.getElementById("sortAsc").onclick = toggleSort;
+    document.getElementById("sortDesc").onclick = toggleSort;
+    document.getElementById("sortAsc").onclick = toggleSort;
 });
 // タスクのチェックボックスが変更されたときに呼び出される関数
 function updateCheckedStatus(checkbox) {
