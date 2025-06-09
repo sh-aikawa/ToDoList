@@ -9,6 +9,16 @@
         let count = 0;
         let boo = true;
         title_change_url.addEventListener('click', function(){
+            if (title_change_url.dataset.locked === "true") return;
+
+            title_change_url.classList.add('anim-box', 'poyopoyo');
+            title_change_url.dataset.locked = "true";
+
+            setTimeout(function(){
+                title_change_url.classList.remove('anim-box', 'poyopoyo');
+                title_change_url.dataset.locked = "false";
+            }, 1000); // 1秒ロック
+
             if(count < 3){
                 count++;
             }else{
@@ -42,7 +52,7 @@
 <body>
     <div th:replace="~{layout :: header}"></div>
     <div>
-    <h4 id = "title_text">予定の登録をします</h4>
+    <h4 style = "display:inline-block;" id = "title_text">予定の登録をします</h4>
     <form type="hidden" th:action="@{/todolist/register}" th:object="${toDoForm}" method="post">
         <label for = "title" id = "yotei">予定</label>
         <div style = "padding: 5px; margin: 0px;">
