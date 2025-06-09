@@ -93,4 +93,15 @@ public class ToDoController {
         return "redirect:/todolist";
     }
 
+    @GetMapping("/sort")
+    public String getSortTasks(Model model) {
+        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+        String username = auth.getName();
+        List<Task> tasks = toDoService.getSortTasks(username);
+
+        model.addAttribute("tasks", tasks);
+        return "Home";
+    }
+    
+
 }
