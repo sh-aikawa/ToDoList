@@ -33,9 +33,9 @@ a:visited {
     flex-direction: column;
     justify-content: space-between;
     cursor: pointer;
-    position: absolute;  
-    right: 20px;         
-    top: 20px;  
+    position: absolute;
+    right: 20px;
+    top: 20px;
     z-index: 202;
 }
 
@@ -113,14 +113,15 @@ a:visited {
 }
 
 /*ホームで使用*/
-.random_div{
+.random_div {
     display: flex;
 }
+
 .random_title {
     display: block;
     width: 100%;
     margin-left: 40px;
-    display: block; 
+    display: block;
     width: 100%;
 }
 
@@ -153,7 +154,8 @@ body {
     background-repeat: no-repeat;
     background-size: cover;
     /* background-color:rgba(255,255,255,0.8); */
-    background-color: rgba(255,255,255,0.5); /* 半透明の白 */
+    background-color: rgba(255, 255, 255, 0.5);
+    /* 半透明の白 */
     background-blend-mode: lighten;
     animation: loading 1s;
 }
@@ -226,6 +228,62 @@ header {
     justify-content: space-between;
 }
 
+#chatArea {
+    width: 80%;
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+    overflow-y: auto;
+    max-height: 600px;
+}
+
+.chat {
+    margin-bottom: 10px;
+    display: flex;
+}
+
+.chat > div {
+    max-width: 70%;
+    padding: 10px 15px;
+    border-radius: 18px;
+    word-wrap: break-word;
+    box-shadow: 0 1px 1px rgba(0,0,0,0.1);
+    margin-bottom: 5px;
+    display: flex;
+    flex-direction: column;
+}
+
+.send {
+    background-color: #DCF8C6;
+    align-self: flex-end;
+    margin-left: auto;
+    color: #333;
+}
+
+
+.receive {
+    background-color: #FFFFFF;
+    align-self: flex-start;
+    margin-right: auto;
+    color: #333;
+    border: 1px solid #e0e0e0;
+}
+
+.content {
+    font-size: 1rem;
+    line-height: 1.4;
+    padding-bottom: 5px;
+}
+
+.timestamp {
+    font-size: 0.75rem;
+    color: #777;
+    text-align: right;
+    margin-top: 5px;
+}
 /* アニメーション（遊び用） */
 .anim-box.poyopoyo {
     animation: poyopoyo 1s ease-in;
