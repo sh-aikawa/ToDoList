@@ -16,30 +16,62 @@
 <body>
     <div th:fragment="header">
         <header class="transparent">
-            <h4 id="header-title" class="header-title" style="margin-left: 20px;">toDoリスト</h4>
-            <nav id="hamburger-nav" class="hamburger-nav">
-                <input type="checkbox" id="menu-toggle" class="menu-toggle" />
-                <label for="menu-toggle" class="menu-icon">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                </label>
-                <div class="menu">
-                    <a th:href="@{/todolist}" id="modoru" class="menu-link">ホーム</a>
-                    <a th:href="@{/todolist/finish}" id="completed" class="menu-link">完了済みタスク一覧</a>
-                    <a th:href="@{/todolist/register}" id="register" class="menu-link">よていをとうろく</a>
-                    <a th:href="@{/comet}" id="comet" class="menu-link">comet</a>
-                    <a th:href="@{/login}" id="logout" class="menu-link">ログアウト</a>
-                </div>
-            </nav>
+            <h4 style="margin: 20px; font-size: 23px">toDoリスト</h4>
+            <div style="margin-left: auto; display: flex; align-items: center">
+                <a th:href="@{/todolist/finish}" id="completed"
+                    style="display: inline; margin: 20px; font-size: 18px; background: none; border: none; cursor: pointer;">
+                    完了済みタスク一覧 <i class="fas fa-pen-square"></i>
+                </a>
+                </form>
+                <a th:href="@{/todolist/register}" id="register" style="display: inline; margin: 2px; font-size: 18px">
+                    よていをとうろく <i class="fas fa-pen-square"></i>
+                </a>
+                <a th:href="@{/todolist}" id="modoru" style="display: none; margin: 20px; font-size: 18px">
+                    もどる <i class="fas fa-pen-square"></i>
+                </a>
+            </div>
         </header>
     </div>
-
+    <!--  -->
     <div th:fragment="footer">
-        <footer class="footer-area transparent">
-            <h4 class="footer-title">&copy;Project Stella</h4>
+        <footer style="background-color: #f8f8f8; text-align: center" class="transparent">
+            <h4 style="padding: 8px; font-family: 'Courier New', Courier, monospace">
+                &copy;Project Stella
+            </h4>
         </footer>
     </div>
 </body>
-
 </html>
+
+<!-- <script>
+        window.addEventListener("DOMContentLoaded", function () {
+            const register = document.getElementById("register");
+            const modoru = document.getElementById("modoru");
+            const completed = document.getElementById("completed");
+
+            switch (window.location.pathname) {
+                case "/todolist":
+                case "/search":
+                    if (modoru) modoru.style.display = "none";
+                    if (register) register.style.display = "";
+                    if (completed) completed.style.display = "";
+                    break;
+                case "/login":
+                case "/userRegister":
+                    if (register) register.style.display = "none";
+                    if (modoru) modoru.style.display = "none";
+                    if (completed) completed.style.display = "none";
+                    break;
+                case "/todolist/register":
+                    if (modoru) modoru.style.display = "";
+                    if (register) register.style.display = "none";
+                    if (completed) completed.style.display = "";
+                    break;
+                case "/todolist/finish":
+                    if (modoru) modoru.style.display = "";
+                    if (register) register.style.display = "none";
+                    if (completed) completed.style.display = "none";
+                    break;
+            }
+        });
+    </script> -->

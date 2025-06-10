@@ -149,35 +149,28 @@ a:visited {
 }
 
 /* 隠し背景 */
-body {
+body{
     background-image: url();
     background-repeat: no-repeat;
-    background-size: cover;
+    background-size: cover ;
     /* background-color:rgba(255,255,255,0.8); */
+    background-blend-mode:lighten;
+	animation: loading 1s;
     background-color: rgba(255, 255, 255, 0.5);
-    /* 半透明の白 */
-    background-blend-mode: lighten;
-    animation: loading 1s;
 }
-
 @keyframes loading {
-    0% {
-        opacity: 0;
-    }
-
-    100% {
-        opacity: 1;
-    }
+	0% {opacity: 0;}
+	100% {opacity: 1;}
 }
 
 
-.transparent {
-    opacity: 0.8;
-    border-radius: 30px;
+.transparent{
+    opacity : 0.8;
+    border-radius:30px;
 }
 
 /* 入力フォーム関係 */
-.itemArea {
+.itemArea{
     padding: 5px;
     margin: 0px;
 }
@@ -187,7 +180,7 @@ body {
     resize: none;
 }
 
-.box {
+.box{
     height: 100px;
 }
 
@@ -196,7 +189,7 @@ body {
     margin-top: 8px;
 }
 
-.complete {
+.complete{
     margin: 20px;
     font-size: 18px;
     background: none;
@@ -205,23 +198,23 @@ body {
 }
 
 /* detail.htmlで使用 */
-.detail_text {
+.detail_text{
     padding: 10px
 }
 
 /* Registar.htmlで使用 */
-.register_textarea {
-    height: 100px;
+.register_textarea{
+    height: 100px; 
     width: 50%;
     resize: none;
 }
 
-.title_text {
-    display: inline-block;
+.title_text{
+    display:inline-block;
 }
 
 
-header {
+header{
     background-color: #f8f8f8;
     display: flex;
     align-items: center;
@@ -290,18 +283,11 @@ header {
     opacity: 1;
     animation-iteration-count: 1;
 }
-
 @keyframes poyopoyo {
-
-    0%,
-    40%,
-    60%,
-    80% {
+    0%, 40%, 60%, 80% {
         transform: scale(1.0);
     }
-
-    50%,
-    70% {
+    50%, 70% {
         transform: scale(0.95);
     }
 }
