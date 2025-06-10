@@ -20,7 +20,7 @@ public interface ToDoMapper {
     @Select("SELECT * FROM tasks WHERE checked = false AND user_id = #{userId}")
     List<Task> getTasksByUserId(long userId);
 
-    @Select("SELECT * FROM tasks WHERE limit_date = #{limitDate} AND checked = false")
+    @Select("SELECT * FROM tasks WHERE limit_date = #{limitDate} AND checked = false ORDER BY importance ASC")
     List<Task> getSelectTasks(LocalDate limitDate);
 
     @Delete("DELETE FROM tasks WHERE task_id = #{taskId}")
