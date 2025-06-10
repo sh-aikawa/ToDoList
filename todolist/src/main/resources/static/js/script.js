@@ -188,3 +188,11 @@ function updateCheckedStatus(checkbox) {
     });
 
 }
+
+// nexusのチャットエリアのスクロールを最新にする
+document.addEventListener('DOMContentLoaded', function() {
+            var chatArea = document.getElementById('chatArea');
+            if (chatArea) {
+                chatArea.scrollTop = chatArea.scrollHeight;
+            }
+        });
