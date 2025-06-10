@@ -26,7 +26,7 @@ public interface ToDoMapper {
     @Delete("DELETE FROM tasks WHERE task_id = #{taskId}")
     void deleteTask(long taskId);
 
-    @Insert("INSERT INTO tasks(user_id, title, limit_date, description) VALUES (#{userId},#{title}, #{limitDate}, #{description})")
+    @Insert("INSERT INTO tasks(user_id, title, limit_date, description, importance) VALUES (#{userId},#{title}, #{limitDate}, #{description}, #{importance})")
     void insertTask(Task task);
 
     @Update("UPDATE tasks SET checked = #{checked} WHERE task_id = #{taskId}")//checkedを更新

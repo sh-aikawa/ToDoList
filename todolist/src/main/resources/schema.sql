@@ -23,7 +23,8 @@ CREATE TABLE
         title TEXT,
         limit_date DATE,
         description TEXT,
-        checked BOOLEAN DEFAULT FALSE
+        checked BOOLEAN DEFAULT FALSE,
+        importance TEXT
     );
 
 CREATE TABLE
