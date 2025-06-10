@@ -3,8 +3,8 @@
 <head th:replace="~{layout :: head(表示)}"></head>
 <body>
     <div th:replace="~{layout :: header}"></div>
-    <h3>今日のあなたの予定は...</h3>
-    <div>
+    <div id = "result" >
+        <h3>今日のあなたの予定は...</h3>
         <div>
             <a id = "title_text_roulette" th:text = "${task.title}"> </a>
         </div>
