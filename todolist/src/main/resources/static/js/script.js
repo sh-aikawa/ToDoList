@@ -56,6 +56,9 @@ window.addEventListener("DOMContentLoaded", function () {
         });
     });
 
+    //おみやげ演出
+    
+
 
     //隠し要素処理 
     let count = 0;
@@ -71,28 +74,42 @@ window.addEventListener("DOMContentLoaded", function () {
                 title_change_url.classList.remove('anim-box', 'poyopoyo');
                 title_change_url.dataset.locked = "false";
             }, 1000); // 1秒ロック
+
             if (count < 3) {
                 count++;
-            } else {
+            }else {
                 let yotei = document.getElementById('yotei');
                 let url = document.getElementById('title');
                 let sub = document.getElementById('submit');
-
+            
                 if (boo) {
                     title_change_url.innerText = "背景変更モード有効";
                     if (yotei) yotei.innerText = "URL(resetと入力すると背景をリセットできます。)";
                     if (sub) sub.remove();
                     boo = false;
 
-                } else if (url && url.value == "reset") {
+                }else if (url && url.value == "reset") {
                     title_change_url.innerText = "背景がリセットされました";
                     document.body.style.backgroundImage = "";
                     document.body.style.backgroundColor = "white";
-                    localStorage.setItem('bgImage', "");
+                    localStorage.setItem('bgImage', "");;
 
-                } else if (url && !(url.value.startsWith("http"))) {
-                    title_change_url.innerText = "URLを入力してください！";
-                } else if (url) {
+                }
+                //httpではない場合に特定の文字を入力すると処理を行う。 
+                else if (url && !(url.value.startsWith("http"))) {
+                    switch(url.value){
+                        case "packman":
+                            window.open("https://www.google.co.jp/logos/2010/pacman10-i.html");
+                        case "proseka":
+                            window.open("https://pjsekai.sega.jp/");
+                        case "cybercom":
+                            window.open("https://www.cy-com.co.jp/");
+                        case "givery":
+                            window.open("https://givery.co.jp/");
+                        default:
+                            title_change_url.innerText = "URLを入力してください！"
+                    }
+                }else if (url) {
                     title_change_url.innerText = "URLを適用しました";
                     document.body.style.backgroundImage = `url('${url.value}')`;
                     localStorage.setItem('bgImage', url.value);

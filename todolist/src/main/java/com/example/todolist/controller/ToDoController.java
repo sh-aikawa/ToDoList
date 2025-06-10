@@ -120,8 +120,14 @@ public class ToDoController {
         String username = auth.getName();
         Random random = new Random();
         List<Task> tasks = toDoService.getTasksforRoullete(username);
-        Task task = tasks.get(random.nextInt(tasks.size()));
-        model.addAttribute("task", task);
+        if(tasks.size() > 0){
+            Task task = tasks.get(random.nextInt(tasks.size()));
+            model.addAttribute("task", task);
+        }else{
+            Task task = new Task();
+            task.setTitle("ありません！！！！");
+            model.addAttribute("task", task);
+        }
         return "listroulette";
     }
 
