@@ -9,7 +9,7 @@ import com.example.todolist.model.Comet;
 
 @Repository
 public class CometRepository {
-    private CometMapper cometMapper;
+    private final CometMapper cometMapper;
 
     public CometRepository(CometMapper cometMapper) {
         this.cometMapper = cometMapper;
