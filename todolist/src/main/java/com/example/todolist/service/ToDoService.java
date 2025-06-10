@@ -45,6 +45,7 @@ public class ToDoService {
         task.setTitle(toDoForm.getTitle());
         task.setLimitDate(toDoForm.getLimitDate());
         task.setDescription(toDoForm.getDescription());
+        task.setImportance(toDoForm.getImportance());
 
         long userId = userService.getUserId();
         task.setUserId(userId);

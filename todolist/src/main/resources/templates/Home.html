@@ -35,6 +35,7 @@
                 <th>チェック</th>
                 <th>タイトル</th>
                 <th>期限</th>
+                <th>優先度</th>
             </tr>
             <tr th:each="task : ${tasks}">
                 <th>
@@ -46,6 +47,9 @@
                         <span th:text="${task.title}">TodoListをつくる</span></a>
                 </th>
                 <th><span th:text="${task.limitDate}">2025/6/5</span></th>
+                <th>
+                    <span th:text="${task.importance}">1</span>
+                </th>
             </tr>
         </table>
     </div>
