@@ -3,13 +3,14 @@
 <head th:replace="~{layout :: head(表示)}"></head>
 <body>
     <div th:replace="~{layout :: header}"></div>
-    <form th:action="@{/comet/register}" th:object="${cometForm}" method="post">
-        <h3>コメットする</h3>
-        <label for="content">内容</label>
-        <textarea id="content" name="content" th:field="*{content}" required></textarea>
-        <br>
-        <button type="submit">送信</button>
-    </form>
+    <div class="comet-post-container">
+        <div class="post-title">コメットする</div>
+        <form th:action="@{/comet/register}" th:object="${cometForm}" method="post">
+            <label for="content" class="content-label">内容</label>
+            <textarea id="content" name="content" th:field="*{content}" required></textarea>
+            <button type="submit" class="post-button">投稿</button>
+        </form>
+    </div>
     <div th:replace="~{layout :: footer}"></div>
 </body>
 </html>
