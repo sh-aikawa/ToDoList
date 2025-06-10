@@ -52,7 +52,12 @@ public class ToDoRepository {
         toDoMapper.editTask(task);
     }
 
-    public List<Task> getSortTasks(long userId) {
-        return toDoMapper.getSortTasks(userId);
+    public List<Task> getSortDescTasks(long userId) {
+        return toDoMapper.getSortDescTasks(userId);
     }
+
+    public List<Task> getSortAscTasks(long userId) {
+        return toDoMapper.getSortAscTasks(userId);
+    }
+
 }

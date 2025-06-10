@@ -5,22 +5,22 @@
 <body>
     <div th:replace="~{layout :: header}"></div>
     <div>
-    <h4 id = "title_text">予定の登録をします</h4>
+    <h4 id = "title_text" class = "title_text">予定の登録をします</h4>
     <form type="hidden" th:action="@{/todolist/register}" th:object="${toDoForm}" method="post">
         <label for = "title" id = "yotei">予定</label>
-        <div style = "padding: 5px; margin: 0px;">
-            <textarea type="text" id="title" name="title" th:field="*{title}" style="width: 50%; resize: none;" required></textarea>
+        <div class = "itemArea">
+            <textarea type="text" id="title" name="title" th:field="*{title}" class = "item" required></textarea>
         </div>
             <label for = "limitDate">日付</label>
-        <div style = "padding: 5px; margin: 0px;">
+        <div class = "itemArea">
             <input type="date" id = "limitDate" th:field="*{limitDate}" max="9999-12-31" min="1000-01-01">
         </div>
 
             <label for = "description">詳細</label>
-            <div style = "padding: 5px; margin: 0px;">
-                <textarea id="description" th:field="*{description}" style="height: 100px; width: 50%; resize: none;"></textarea>
+            <div class = "itemArea">
+                <textarea id="description" th:field="*{description}" class = "register_textarea"></textarea>
             </div>
-            <div style="margin-top: 8px;">
+            <div class="buttonArea">
                 <button type="submit" id="submit">登録</button>
             </div>
         </form>
@@ -28,42 +28,3 @@
 </div>
 </body>
 </html>
-
-<!-- <script>
-    document.addEventListener('DOMContentLoaded', function() {
-        let title_change_url = document.getElementById('title_text');
-        const bgUrl = localStorage.getItem('bgImage');
-        document.body.style.backgroundImage = `url('${bgUrl}')`;
-        let count = 0;
-        let boo = true;
-        title_change_url.addEventListener('click', function(){
-            if(count < 3){
-                count++;
-            }else{
-                let yotei = document.getElementById('yotei');
-                let url = document.getElementById('title');
-                let sub = document.getElementById('submit');
-
-                if(boo){
-                    title_change_url.innerText = "背景変更モード有効";
-                    yotei.innerText = "URL(resetと入力すると背景をリセットできます。)";
-                    sub.remove();
-                    boo = false;
-
-                }else if(url.value == "reset"){
-                    title_change_url.innerText = "背景がリセットされました";
-                    document.body.style.backgroundImage = "";
-                    document.body.style.backgroundColor = "white";
-                    localStorage.setItem('bgImage', "");
-
-                }else if(!(url.value.startsWith("http"))){
-                    title_change_url.innerText = "URLを入力してください！";
-                }else{
-                    title_change_url.innerText = "URLを適用しました";
-                    document.body.style.backgroundImage = `url('${url.value}')`;
-                    localStorage.setItem('bgImage', url.value);
-                }
-            }
-        });
-    });
-</script> -->

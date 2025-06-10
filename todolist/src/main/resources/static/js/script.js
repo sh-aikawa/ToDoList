@@ -1,38 +1,27 @@
 let isDescending = true;
 
 window.addEventListener("DOMContentLoaded", function () {
-    //ヘッダー
-    const register = document.getElementById("register");
+    // ハンバーガーメニュー
+    const path = window.location.pathname;
+    const nav = document.getElementById("hamburger-nav");
     const modoru = document.getElementById("modoru");
     const completed = document.getElementById("completed");
+    const register = document.getElementById("register");
+    const comet = document.getElementById("comet");
+    const logout = document.getElementById("logout");
 
-    switch (window.location.pathname) {
-        case "/todolist":
-        case "/search":
-            if (modoru) modoru.style.display = "none";
-            if (register) register.style.display = "";
-            if (completed) completed.style.display = "";
-            break;
-        case "/login":
-        case "/userRegister":
-            if (register) register.style.display = "none";
-            if (modoru) modoru.style.display = "none";
-            if (completed) completed.style.display = "none";
-            break;
-        case "/todolist/register":
-            if (modoru) modoru.style.display = "";
-            if (register) register.style.display = "none";
-            if (completed) completed.style.display = "";
-            break;
-        case "/todolist/finish":
-            if (modoru) modoru.style.display = "";
-            if (register) register.style.display = "none";
-            if (completed) completed.style.display = "none";
-            break;
+    
+    if (path === "/login" || path === "/userRegister") {
+        if (nav) nav.style.display = "none";
+    } else {
+        if (path === "/todolist" && modoru) modoru.style.display = "none";
+        if (path === "/todolist/finish" && completed) completed.style.display = "none";
+        if (path === "/todolist/register" && register) register.style.display = "none";
+        if (path === "/comet" && comet) comet.style.display = "none";
+        if (path === "/login" && logout) logout.style.display = "none";
     }
 
     //背景設定
-    const path = window.location.pathname;
     let display_moji = document.getElementById("display");
     let enter_date = document.getElementById("date");
     let push = document.getElementById("item");
@@ -50,31 +39,38 @@ window.addEventListener("DOMContentLoaded", function () {
 
     //ボタンアニメーション
     let submit_buttons = document.querySelectorAll("button");
-    submit_buttons.forEach(function(submit_button) {
-        submit_button.addEventListener('mouseover', function(){
+    submit_buttons.forEach(function (submit_button) {
+        submit_button.addEventListener('mouseover', function () {
             if (submit_button.dataset.locked === "true") return;
 
             submit_button.classList.add('anim-box', 'poyopoyo');
             submit_button.dataset.locked = "true";
 
-            setTimeout(function(){
+            setTimeout(function () {
                 submit_button.classList.remove('anim-box', 'poyopoyo');
                 submit_button.dataset.locked = "false";
             }, 1000); // 1秒ロック
         });
     });
 
+
+    //リストルーレット処理
+    title_text_id = document.getElementById("title_text");
+    if(title_text_id){
+        title_text_id.innerText = title_text;
+    }
+
     //隠し要素処理 
     let count = 0;
     let boo = true;
     if (title_change_url) {
-        title_change_url.addEventListener('click', function(){
+        title_change_url.addEventListener('click', function () {
             if (title_change_url.dataset.locked === "true") return;
 
             title_change_url.classList.add('anim-box', 'poyopoyo');
             title_change_url.dataset.locked = "true";
 
-            setTimeout(function(){
+            setTimeout(function () {
                 title_change_url.classList.remove('anim-box', 'poyopoyo');
                 title_change_url.dataset.locked = "false";
             }, 1000); // 1秒ロック
@@ -110,7 +106,7 @@ window.addEventListener("DOMContentLoaded", function () {
 
     push.addEventListener("click", function (event) {
         if (push && enter_date && display_moji) {
-            if (!enter_date.value){
+            if (!enter_date.value) {
                 event.preventDefault();
                 display_moji.innerHTML = "数字を入力してください！";
                 display_moji.style.color = "#ED1A3D";
@@ -126,7 +122,7 @@ window.addEventListener("DOMContentLoaded", function () {
         if (isDescending) {
             descForm.style.display = "none";
             ascForm.style.display = "block";
-        }else {
+        } else {
             ascForm.style.display = "none";
             descForm.style.display = "block";
         }
@@ -164,5 +160,5 @@ function updateCheckedStatus(checkbox) {
             alert("更新に失敗しました");
         }
     });
-    
+
 }

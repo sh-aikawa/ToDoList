@@ -63,8 +63,13 @@ public class ToDoService {
         toDoRepository.editTask(task);
     }
 
-    public List<Task> getSortTasks(String username) {
+    public List<Task> getSortDescTasks(String username) {
         long userId  = userService.getUserId();
-        return toDoRepository.getSortTasks(userId);
+        return toDoRepository.getSortDescTasks(userId);
+    }
+
+    public List<Task> getSortAscTasks(String username) {
+        long userId  = userService.getUserId();
+        return toDoRepository.getSortAscTasks(userId);
     }
 }
