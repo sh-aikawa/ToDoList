@@ -3,6 +3,7 @@
 <head th:replace="~{layout :: head(表示)}"></head>
 <body>
     <div th:replace="~{layout :: header}"></div>
+
     <div id="chatArea">
         <div th:each="message : ${chat}" class="chat">
             <div th:classappend="${message.receiveUserId}==${messageForm.receiveUserId} ? 'send':'receive'">
@@ -11,11 +12,22 @@
             </div>
         </div>
     </div>
-    <form th:action="@{/nexus/chat/send}" th:object="${messageForm}" method="post">
+
+    <form th:action="@{/nexus/chat/send}" th:object="${messageForm}" method="post" class="message-input-area">
         <input type="hidden" name="receiveUserId" th:value="*{receiveUserId}" />
         <textarea id="content" name="content" th:field="*{content}" required></textarea>
         <button type="submit">送信</button>
     </form>
+
     <div th:replace="~{layout :: footer}"></div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var chatArea = document.getElementById('chatArea');
+            if (chatArea) {
+                chatArea.scrollTop = chatArea.scrollHeight;
+            }
+        });
+    </script>
 </body>
 </html>
