@@ -4,6 +4,18 @@ a:visited {
     text-decoration: none;
 }
 
+/*ホームで使用*/
+.random_div{
+    display: flex;
+}
+.random_title {
+    display: block;
+    width: 100%;
+    margin-left: 40px;
+    display: block; 
+    width: 100%;
+}
+
 /* リスト関係 */
 .list {
     width: 100%;

@@ -6,8 +6,13 @@
 <body>
     <div class="back"></div>
     <div th:replace="~{layout :: header}"></div>
+
+    
     <h3 id="display">toDoリストへようこそ！</h3>
-    <a th:href="@{/comet}">Comet</a>
+    <div class = "random_div">
+        <span><a th:href="@{/comet}">Comet</a></span>
+        <span class = "random_title"><a th:href="@{/todolist/listroulette}">リストルーレット</a></span>
+    </div>
     <h4>toDO絞り込み</h4>
     <div id="searchArea">
         <form th:action="@{/todolist/search}" method="post">
