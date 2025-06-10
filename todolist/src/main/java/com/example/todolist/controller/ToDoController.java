@@ -2,6 +2,7 @@ package com.example.todolist.controller;
 
 import java.time.LocalDate;
 import java.util.List;
+import java.util.Random;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -22,7 +23,7 @@ import com.example.todolist.service.ToDoService;
 @RequestMapping("/todolist")
 public class ToDoController {
 
-    private final ToDoService toDoService;
+    private final ToDoService toDoService;;
 
     public ToDoController(ToDoService toDoService) {
         this.toDoService = toDoService;
@@ -117,8 +118,10 @@ public class ToDoController {
     public String getlistRoulette(Model model){
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
         String username = auth.getName();
-        List<Task> tasks = toDoService.getTasksByUserId(username);
-        model.addAttribute("tasks", tasks);
+        Random random = new Random();
+        List<Task> tasks = toDoService.getTasksforRoullete(username);
+        Task task = tasks.get(random.nextInt(tasks.size()));
+        model.addAttribute("task", task);
         return "listroulette";
     }
 

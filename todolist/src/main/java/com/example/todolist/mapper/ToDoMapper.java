@@ -46,4 +46,8 @@ public interface ToDoMapper {
 
     @Select("SELECT * FROM tasks WHERE checked = false AND user_id = #{userId}  ORDER BY limit_date ASC") 
     List<Task> getSortAscTasks(long userId);
+
+    @Select("SELECT * FROM tasks WHERE user_id = #{userId} AND checked = false")
+    List<Task> getTasksforRoullete(long userId);
+
 }
