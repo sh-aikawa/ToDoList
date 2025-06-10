@@ -38,7 +38,7 @@ public interface ToDoMapper {
     @Select("SELECT * FROM tasks WHERE task_id = #{taskId}")
     Task getTask(long taskId);
 
-    @Update("UPDATE tasks SET title = #{title}, limit_date = #{limitDate}, description = #{description} WHERE task_id = #{taskId}")
+    @Update("UPDATE tasks SET title = #{title}, limit_date = #{limitDate}, description = #{description}, importance = #{importance} WHERE task_id = #{taskId}")
     void editTask(Task task);
 
     @Select("SELECT * FROM tasks WHERE checked = false AND user_id = #{userId}  ORDER BY limit_date DESC") 
