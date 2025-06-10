@@ -39,13 +39,7 @@ window.addEventListener("DOMContentLoaded", function () {
             document.body.style.backgroundImage = "";
         }
     }
-
-    //リストルーレット処理
-    let title_text_id = document.getElementById("title_text_roulette");
-    if (title_text_id) {
-        title_text_id.innerText = title_text;
-    }
-
+    
     //ボタンアニメーション
     let submit_buttons = document.querySelectorAll("button");
     submit_buttons.forEach(function (submit_button) {
