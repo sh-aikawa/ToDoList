@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="ja" xmlns:th="http://www.thymeleaf.org">
+
 <head th:replace="~{layout :: head(表示)}"></head>
+
 <body>
     <div th:replace="~{layout :: header}"></div>
 
@@ -11,23 +13,17 @@
                 <div class="timestamp" th:text="${message.formattedSendAt}">タイムスタンプ</div>
             </div>
         </div>
+        <form th:action="@{/nexus/chat/send}" th:object="${messageForm}" method="post" class="message-input-area">
+            <input type="hidden" name="receiveUserId" th:value="*{receiveUserId}" />
+            <textarea id="content" name="content" th:field="*{content}" required></textarea>
+            <button type="submit">送信</button>
+        </form>
     </div>
 
-    <form th:action="@{/nexus/chat/send}" th:object="${messageForm}" method="post" class="message-input-area">
-        <input type="hidden" name="receiveUserId" th:value="*{receiveUserId}" />
-        <textarea id="content" name="content" th:field="*{content}" required></textarea>
-        <button type="submit">送信</button>
-    </form>
+
 
     <div th:replace="~{layout :: footer}"></div>
 
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            var chatArea = document.getElementById('chatArea');
-            if (chatArea) {
-                chatArea.scrollTop = chatArea.scrollHeight;
-            }
-        });
-    </script>
 </body>
+
 </html>
