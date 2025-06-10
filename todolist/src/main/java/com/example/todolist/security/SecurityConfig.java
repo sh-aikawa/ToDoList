@@ -6,6 +6,8 @@ import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
+// Spring Security 6.x以降で推奨される書き方
+import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 
 @Configuration
 public class SecurityConfig {
@@ -13,20 +15,36 @@ public class SecurityConfig {
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http
                 .authorizeHttpRequests(request -> request
-                        .requestMatchers("/userRegister",
-                                "/css/**", // ← 追加：CSSなど静的リソースの許可
-                                "/js/**",
-                                "/images/**",
-                                "/login"
-                                )
+                        // H2 Console のパスを許可
+                        .requestMatchers(
+                                AntPathRequestMatcher.antMatcher("/userRegister"),
+                                AntPathRequestMatcher.antMatcher("/css/**"),
+                                AntPathRequestMatcher.antMatcher("/js/**"),
+                                AntPathRequestMatcher.antMatcher("/images/**"),
+                                AntPathRequestMatcher.antMatcher("/login"),
+                                AntPathRequestMatcher.antMatcher("/h2/**") // ここを AntPathRequestMatcher.antMatcher に変更
+                        )
                         .permitAll()
-                        .anyRequest().authenticated())
+                        .anyRequest().authenticated()
+                )
                 .formLogin(login -> login
                         .loginProcessingUrl("/login")
                         .loginPage("/login")
                         .defaultSuccessUrl("/todolist")
                         .failureUrl("/login?error")
                         .permitAll());
+
+        // ★追加: H2 Console が iframe で表示されるように、フレームオプションを無効にする
+        http.headers(headers -> headers.frameOptions(frameOptions -> frameOptions.disable()));
+
+        // ★追加: H2 Console へのPOSTリクエストを許可するため、CSRF保護を無効にする
+        // 注意: 本番環境ではCSRF保護を無効にすることは推奨されません。
+        // 開発時のみH2 Consoleのパスに対して無効にすることを検討してください。
+        http.csrf(csrf -> csrf
+                .ignoringRequestMatchers(AntPathRequestMatcher.antMatcher("/h2/**"))
+        );
+
+
         return http.build();
     }
 

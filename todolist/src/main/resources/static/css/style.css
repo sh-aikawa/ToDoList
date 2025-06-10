@@ -291,3 +291,122 @@ header{
         transform: scale(0.95);
     }
 }
+
+/* chat関係 */
+#chatArea {
+    width: 80%;
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+    overflow-y: auto;
+    /* 画面全体のスクロールを避けるため、chatAreaの最大高さを調整 */
+    /* header, footer, input-areaの合計高さを約180pxと仮定して計算 */
+    max-height: calc(100vh - 180px);
+}
+
+.chat {
+    margin-bottom: 10px;
+    display: flex;
+}
+
+.chat > div {
+    max-width: 70%;
+    padding: 10px 15px;
+    border-radius: 18px;
+    word-wrap: break-word;
+    box-shadow: 0 1px 1px rgba(0,0,0,0.1);
+    margin-bottom: 5px;
+    display: flex;
+    flex-direction: column;
+}
+
+.send {
+    background-color: #DCF8C6;
+    align-self: flex-end;
+    margin-left: auto;
+    color: #333;
+}
+
+.receive {
+    background-color: #FFFFFF;
+    align-self: flex-start;
+    margin-right: auto;
+    color: #333;
+    border: 1px solid #e0e0e0;
+}
+
+.content {
+    font-size: 1rem;
+    line-height: 1.4;
+    padding-bottom: 5px;
+}
+
+.timestamp {
+    font-size: 0.75rem;
+    color: #777;
+    text-align: right;
+    margin-top: 5px;
+}
+
+.message-input-area {
+    display: flex;
+    padding: 10px 15px; /* 左右のパディングを調整 */
+    background-color: #f0f2f5; /* 背景色を少し暗く */
+    border-top: 1px solid #e0e0e0; /* 上部の区切り線 */
+    gap: 10px;
+    align-items: flex-end;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    box-sizing: border-box;
+    z-index: 1000;
+    box-shadow: 0 -2px 5px rgba(0,0,0,0.05); /* 上部に影を追加 */
+}
+
+.message-input-area textarea {
+    flex-grow: 1;
+    padding: 10px 12px; /* パディングを調整 */
+    border: 1px solid #e0e0e0; /* 枠線を微調整 */
+    border-radius: 20px; /* 角丸をさらに強く */
+    resize: none;
+    min-height: 40px; /* 最小高さを調整 */
+    max-height: 80px; /* 最大高さを調整（2-3行程度） */
+    font-size: 0.95rem; /* フォントサイズを微調整 */
+    line-height: 1.4;
+    overflow-y: auto;
+    transition: all 0.2s ease-in-out; /* フォーカス時のアニメーション */
+}
+
+.message-input-area textarea:focus {
+    border-color: #007bff; /* フォーカス時の枠線色 */
+    box-shadow: 0 0 0 2px rgba(0,123,255,0.25); /* フォーカス時の影 */
+    outline: none; /* デフォルトのアウトラインを削除 */
+}
+
+.message-input-area button {
+    padding: 10px 20px; /* パディングを調整 */
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 20px; /* 角丸を強く */
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: bold; /* フォントを太く */
+    white-space: nowrap;
+    height: 40px; /* 高さをテキストエリアのmin-heightに合わせる */
+    transition: background-color 0.2s ease-in-out, transform 0.1s ease-in-out; /* ホバー・クリック時のアニメーション */
+}
+
+.message-input-area button:hover {
+    background-color: #0056b3;
+    transform: translateY(-1px); /* ホバー時に少し上に移動 */
+}
+
+.message-input-area button:active {
+    transform: translateY(0); /* クリック時に元の位置に戻る */
+    box-shadow: inset 0 2px 4px rgba(0,0,0,0.2); /* クリック時に内側に影 */
+}
