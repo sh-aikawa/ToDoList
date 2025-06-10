@@ -33,9 +33,9 @@ a:visited {
     flex-direction: column;
     justify-content: space-between;
     cursor: pointer;
-    position: absolute;  
-    right: 20px;         
-    top: 20px;  
+    position: absolute;
+    right: 20px;
+    top: 20px;
     z-index: 202;
 }
 
@@ -113,14 +113,15 @@ a:visited {
 }
 
 /*ホームで使用*/
-.random_div{
+.random_div {
     display: flex;
 }
+
 .random_title {
     display: block;
     width: 100%;
     margin-left: 40px;
-    display: block; 
+    display: block;
     width: 100%;
 }
 
@@ -148,22 +149,22 @@ a:visited {
 }
 
 /* 隠し背景 */
-body {
+body{
     background-image: url();
     background-repeat: no-repeat;
-    background-size: cover;
+    background-size: cover ;
     /* background-color:rgba(255,255,255,0.8); */
     background-color: rgba(255,255,255,0.6); /* 半透明の白 */
     background-blend-mode: lighten;
 }
 
-.transparent {
-    opacity: 0.8;
-    border-radius: 30px;
+.transparent{
+    opacity : 0.8;
+    border-radius:30px;
 }
 
 /* 入力フォーム関係 */
-.itemArea {
+.itemArea{
     padding: 5px;
     margin: 0px;
 }
@@ -173,7 +174,7 @@ body {
     resize: none;
 }
 
-.box {
+.box{
     height: 100px;
 }
 
@@ -182,7 +183,7 @@ body {
     margin-top: 8px;
 }
 
-.complete {
+.complete{
     margin: 20px;
     font-size: 18px;
     background: none;
@@ -191,47 +192,96 @@ body {
 }
 
 /* detail.htmlで使用 */
-.detail_text {
+.detail_text{
     padding: 10px
 }
 
 /* Registar.htmlで使用 */
-.register_textarea {
-    height: 100px;
+.register_textarea{
+    height: 100px; 
     width: 50%;
     resize: none;
 }
 
-.title_text {
-    display: inline-block;
+.title_text{
+    display:inline-block;
 }
 
 
-header {
+header{
     background-color: #f8f8f8;
     display: flex;
     align-items: center;
     justify-content: space-between;
 }
 
+#chatArea {
+    width: 80%;
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+    overflow-y: auto;
+    max-height: 600px;
+}
+
+.chat {
+    margin-bottom: 10px;
+    display: flex;
+}
+
+.chat > div {
+    max-width: 70%;
+    padding: 10px 15px;
+    border-radius: 18px;
+    word-wrap: break-word;
+    box-shadow: 0 1px 1px rgba(0,0,0,0.1);
+    margin-bottom: 5px;
+    display: flex;
+    flex-direction: column;
+}
+
+.send {
+    background-color: #DCF8C6;
+    align-self: flex-end;
+    margin-left: auto;
+    color: #333;
+}
+
+
+.receive {
+    background-color: #FFFFFF;
+    align-self: flex-start;
+    margin-right: auto;
+    color: #333;
+    border: 1px solid #e0e0e0;
+}
+
+.content {
+    font-size: 1rem;
+    line-height: 1.4;
+    padding-bottom: 5px;
+}
+
+.timestamp {
+    font-size: 0.75rem;
+    color: #777;
+    text-align: right;
+    margin-top: 5px;
+}
 /* アニメーション（遊び用） */
 .anim-box.poyopoyo {
     animation: poyopoyo 1s ease-in;
     opacity: 1;
     animation-iteration-count: 1;
 }
-
 @keyframes poyopoyo {
-
-    0%,
-    40%,
-    60%,
-    80% {
+    0%, 40%, 60%, 80% {
         transform: scale(1.0);
     }
-
-    50%,
-    70% {
+    50%, 70% {
         transform: scale(0.95);
     }
 }

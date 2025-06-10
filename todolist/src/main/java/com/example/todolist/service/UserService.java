@@ -1,5 +1,7 @@
 package com.example.todolist.service;
 
+import java.util.List;
+
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
@@ -34,6 +36,15 @@ public class UserService {
 
     public String getUsername() {
         return SecurityContextHolder.getContext().getAuthentication().getName();
+    }
+
+    public List<User> getAllUsers(){
+        return userRepository.getAllUsers();
+    }
+
+    public List<User> getAllFriends(){
+        long userId = getUserId();
+        return userRepository.getAllFriends(userId);
     }
 
 }
