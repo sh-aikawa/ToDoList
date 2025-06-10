@@ -20,6 +20,13 @@
             <div class = "itemArea">
                 <textarea id="description" th:field="*{description}" class = "register_textarea"></textarea>
             </div>
+            <label for = "importance">重要度</label>
+            <select id="importance" name="importance" th:field="importance"></select>>
+                <option value="1">重要かつ緊急</option>
+                <option value="2">重要だが緊急でない</option>
+                <option value="3">緊急だが重要でない</option>
+                <option value="4">重要でも緊急でもない</option>
+            </select>
             <div class="buttonArea">
                 <button type="submit" id="submit">登録</button>
             </div>

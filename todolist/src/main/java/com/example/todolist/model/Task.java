@@ -16,4 +16,5 @@ public class Task {
     private LocalDate limitDate;
     private String description;
     private boolean checked;
+    private String importance;
 }
