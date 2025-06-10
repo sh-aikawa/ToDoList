@@ -149,22 +149,23 @@ a:visited {
 }
 
 /* 隠し背景 */
-body{
+body {
     background-image: url();
     background-repeat: no-repeat;
-    background-size: cover ;
+    background-size: cover;
     /* background-color:rgba(255,255,255,0.8); */
-    background-color: rgba(255,255,255,0.6); /* 半透明の白 */
+    background-color: rgba(255, 255, 255, 0.6);
+    /* 半透明の白 */
     background-blend-mode: lighten;
 }
 
-.transparent{
-    opacity : 0.8;
-    border-radius:30px;
+.transparent {
+    opacity: 0.8;
+    border-radius: 30px;
 }
 
 /* 入力フォーム関係 */
-.itemArea{
+.itemArea {
     padding: 5px;
     margin: 0px;
 }
@@ -174,7 +175,7 @@ body{
     resize: none;
 }
 
-.box{
+.box {
     height: 100px;
 }
 
@@ -183,7 +184,7 @@ body{
     margin-top: 8px;
 }
 
-.complete{
+.complete {
     margin: 20px;
     font-size: 18px;
     background: none;
@@ -192,23 +193,23 @@ body{
 }
 
 /* detail.htmlで使用 */
-.detail_text{
+.detail_text {
     padding: 10px
 }
 
 /* Registar.htmlで使用 */
-.register_textarea{
-    height: 100px; 
+.register_textarea {
+    height: 100px;
     width: 50%;
     resize: none;
 }
 
-.title_text{
-    display:inline-block;
+.title_text {
+    display: inline-block;
 }
 
 
-header{
+header {
     background-color: #f8f8f8;
     display: flex;
     align-items: center;
@@ -232,12 +233,12 @@ header{
     display: flex;
 }
 
-.chat > div {
+.chat>div {
     max-width: 70%;
     padding: 10px 15px;
     border-radius: 18px;
     word-wrap: break-word;
-    box-shadow: 0 1px 1px rgba(0,0,0,0.1);
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
     margin-bottom: 5px;
     display: flex;
     flex-direction: column;
@@ -271,17 +272,253 @@ header{
     text-align: right;
     margin-top: 5px;
 }
+
 /* アニメーション（遊び用） */
 .anim-box.poyopoyo {
     animation: poyopoyo 1s ease-in;
     opacity: 1;
     animation-iteration-count: 1;
 }
+
 @keyframes poyopoyo {
-    0%, 40%, 60%, 80% {
+
+    0%,
+    40%,
+    60%,
+    80% {
         transform: scale(1.0);
     }
-    50%, 70% {
+
+    50%,
+    70% {
         transform: scale(0.95);
     }
+}
+
+/* chat関係 */
+#chatArea {
+    width: 80%;
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+    overflow-y: auto;
+    /* 画面全体のスクロールを避けるため、chatAreaの最大高さを調整 */
+    /* header, footer, input-areaの合計高さを約180pxと仮定して計算 */
+    max-height: calc(100vh - 180px);
+}
+
+.chat {
+    margin-bottom: 10px;
+    display: flex;
+}
+
+.chat>div {
+    max-width: 70%;
+    padding: 10px 15px;
+    border-radius: 18px;
+    word-wrap: break-word;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
+    margin-bottom: 5px;
+    display: flex;
+    flex-direction: column;
+}
+
+.send {
+    background-color: #DCF8C6;
+    align-self: flex-end;
+    margin-left: auto;
+    color: #333;
+}
+
+.receive {
+    background-color: #FFFFFF;
+    align-self: flex-start;
+    margin-right: auto;
+    color: #333;
+    border: 1px solid #e0e0e0;
+}
+
+.content {
+    font-size: 1rem;
+    line-height: 1.4;
+    padding-bottom: 5px;
+}
+
+.timestamp {
+    font-size: 0.75rem;
+    color: #777;
+    text-align: right;
+    margin-top: 5px;
+}
+
+.message-input-area {
+    display: flex;
+    padding: 10px 15px;
+    /* 左右のパディングを調整 */
+    background-color: #f0f2f5;
+    /* 背景色を少し暗く */
+    border-top: 1px solid #e0e0e0;
+    /* 上部の区切り線 */
+    gap: 10px;
+    align-items: flex-end;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    box-sizing: border-box;
+    z-index: 1000;
+    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.05);
+    /* 上部に影を追加 */
+}
+
+.message-input-area textarea {
+    flex-grow: 1;
+    padding: 10px 12px;
+    /* パディングを調整 */
+    border: 1px solid #e0e0e0;
+    /* 枠線を微調整 */
+    border-radius: 20px;
+    /* 角丸をさらに強く */
+    resize: none;
+    min-height: 40px;
+    /* 最小高さを調整 */
+    max-height: 80px;
+    /* 最大高さを調整（2-3行程度） */
+    font-size: 0.95rem;
+    /* フォントサイズを微調整 */
+    line-height: 1.4;
+    overflow-y: auto;
+    transition: all 0.2s ease-in-out;
+    /* フォーカス時のアニメーション */
+}
+
+.message-input-area textarea:focus {
+    border-color: #007bff;
+    /* フォーカス時の枠線色 */
+    box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.25);
+    /* フォーカス時の影 */
+    outline: none;
+    /* デフォルトのアウトラインを削除 */
+}
+
+.message-input-area button {
+    padding: 10px 20px;
+    /* パディングを調整 */
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 20px;
+    /* 角丸を強く */
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: bold;
+    /* フォントを太く */
+    white-space: nowrap;
+    height: 40px;
+    /* 高さをテキストエリアのmin-heightに合わせる */
+    transition: background-color 0.2s ease-in-out, transform 0.1s ease-in-out;
+    /* ホバー・クリック時のアニメーション */
+}
+
+.message-input-area button:hover {
+    background-color: #0056b3;
+    transform: translateY(-1px);
+    /* ホバー時に少し上に移動 */
+}
+
+.message-input-area button:active {
+    transform: translateY(0);
+    /* クリック時に元の位置に戻る */
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.2);
+    /* クリック時に内側に影 */
+}
+
+/* Comet関連*/
+.timeline-container {
+    max-width: 700px;
+    margin: 20px auto;
+    padding: 0 15px;
+}
+
+h1 {
+    text-align: center;
+    color: #333;
+    font-size: 2.2rem;
+    margin-bottom: 30px;
+    letter-spacing: 1px;
+    border-bottom: 2px solid #eee;
+    padding-bottom: 10px;
+}
+
+.comet {
+    background-color: #fff;
+    border: 1px solid #e0e0e0;
+    border-radius: 10px;
+    padding: 15px 20px;
+    margin-bottom: 15px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+}
+
+.comet:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.comet .username {
+    font-weight: bold;
+    color: #333;
+    font-size: 1.1rem;
+    margin-bottom: 2px;
+}
+
+.comet .userId {
+    color: #777;
+    font-size: 0.85rem;
+    margin-bottom: 10px;
+}
+
+.comet .content {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: #444;
+    margin-bottom: 10px;
+    white-space: pre-wrap;
+    /* 改行を保持 */
+    word-wrap: break-word;
+    /* 長い単語で改行 */
+}
+
+.comet .timestamp {
+    font-size: 0.75rem;
+    color: #999;
+    text-align: right;
+}
+
+.post-link {
+    display: block;
+    width: fit-content;
+    margin: 30px auto;
+    padding: 12px 25px;
+    background-color: #007bff;
+    color: white;
+    text-decoration: none;
+    border-radius: 25px;
+    font-weight: bold;
+    font-size: 1.05rem;
+    transition: background-color 0.2s ease-in-out, transform 0.1s ease-in-out;
+    box-shadow: 0 3px 5px rgba(0, 123, 255, 0.3);
+}
+
+.post-link:hover {
+    background-color: #0056b3;
+    transform: translateY(-2px);
+}
+
+.post-link:active {
+    transform: translateY(0);
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.2);
 }

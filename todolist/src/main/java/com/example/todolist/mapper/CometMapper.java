@@ -10,7 +10,9 @@ import com.example.todolist.model.Comet;
 
 @Mapper
 public interface CometMapper {
-    @Select("SELECT comets.*, users.username FROM comets JOIN users ON comets.user_id = users.user_id")
+    @Select("SELECT c.comet_id AS id, c.user_id AS userId, c.content, c.happy, c.created_at AS createdAt, u.username " +
+            "FROM comets c JOIN users u ON c.user_id = u.user_id " +
+            "ORDER BY c.created_at DESC")
     List<Comet> getAllComets();
 
     @Insert("INSERT INTO comets(user_id, content) VALUES (#{userId}, #{content})")

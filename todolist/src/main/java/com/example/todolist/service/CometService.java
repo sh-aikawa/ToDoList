@@ -29,10 +29,6 @@ public class CometService {
 
     public List<Comet> getAllComets(){
         List<Comet> comets = cometRepository.getAllComets();
-        for(Comet comet : comets){
-            String username = userService.getUsername();
-            comet.setUsername(username);
-        }
         return comets;
     }
 
