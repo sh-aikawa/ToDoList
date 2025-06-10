@@ -10,8 +10,8 @@ import com.example.todolist.repository.CometRepository;
 
 @Service
 public class CometService {
-    private CometRepository cometRepository;
-    private UserService userService;
+    private final CometRepository cometRepository;
+    private final UserService userService;
 
     public CometService(CometRepository cometRepository, UserService userService){
         this.cometRepository = cometRepository;

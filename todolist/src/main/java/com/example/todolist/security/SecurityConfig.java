@@ -17,8 +17,8 @@ public class SecurityConfig {
                                 "/css/**", // ← 追加：CSSなど静的リソースの許可
                                 "/js/**",
                                 "/images/**",
-                                "/userRegister",
-                                "/login")
+                                "/login"
+                                )
                         .permitAll()
                         .anyRequest().authenticated())
                 .formLogin(login -> login

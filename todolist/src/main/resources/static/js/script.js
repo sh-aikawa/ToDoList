@@ -66,6 +66,13 @@ window.addEventListener("DOMContentLoaded", function () {
         });
     });
 
+
+    //リストルーレット処理
+    title_text_id = document.getElementById("title_text");
+    if(title_text_id){
+        title_text_id.innerText = title_text;
+    }
+
     //隠し要素処理 
     let count = 0;
     let boo = true;

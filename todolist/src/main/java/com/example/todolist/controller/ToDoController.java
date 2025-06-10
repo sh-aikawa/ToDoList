@@ -113,5 +113,13 @@ public class ToDoController {
         return "Home";
     }
     
+    @GetMapping("/listroulette")
+    public String getlistRoulette(Model model){
+        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+        String username = auth.getName();
+        List<Task> tasks = toDoService.getTasksByUserId(username);
+        model.addAttribute("tasks", tasks);
+        return "listroulette";
+    }
 
 }

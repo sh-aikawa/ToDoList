@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="ja" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{layout :: head('表示')}"></head>
+<body>
+    <div th:replace="~{layout :: header}"></div>
+    <div id="searchArea">
+        <div th:each="user : ${users}" class="user">
+            <a th:href="@{/nexus/chat/{userId}(userId=${user.userId})}">
+                <div class="username" th:text="${user.username} + ' @' + ${user.userId}">ユーザー名+@ユーザーID</div>
+            </a>
+        </div>
+    </div>
+    <div th:replace="~{layout :: footer}"></div>
+</body>
+</html>

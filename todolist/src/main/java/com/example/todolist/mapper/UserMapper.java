@@ -1,5 +1,7 @@
 package com.example.todolist.mapper;
 
+import java.util.List;
+
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Options;
@@ -22,4 +24,10 @@ public interface UserMapper {
 
     @Select("SELECT username FROM users WHERE user_id = #{userId}")
     String getUsername(long userId);
+
+    @Select("SELECT user_id,username FROM users")
+    List<User> getAllUsers();
+
+    @Select("SELECT user_id, username FROM users WHERE user_id != #{userId}")
+    List<User> getAllFriends(long userId);
 }
