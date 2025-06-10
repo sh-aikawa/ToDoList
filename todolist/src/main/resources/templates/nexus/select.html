@@ -6,7 +6,7 @@
     <div id="searchArea">
         <div th:each="user : ${users}" class="user">
             <a th:href="@{/nexus/chat/{userId}(userId=${user.userId})}">
-                <div class="username" th:text="${user.username} + ' @' + ${user.userId}">ユーザー名+@ユーザーID</div>
+                <div class="username" th:text="${user.username}">ユーザー名</div>
             </a>
         </div>
     </div>

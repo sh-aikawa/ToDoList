@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.example.todolist.form.MessageForm;
 import com.example.todolist.model.Message;
@@ -50,9 +51,10 @@ public class NexusController {
     }
 
     @PostMapping("/chat/send")
-    public String sendMessage(MessageForm messageForm) {
+    public String sendMessage(MessageForm messageForm, RedirectAttributes redirectAttributes) {
         nexusService.sendMessage(messageForm);
-        return "redirect:/nexus";
+        redirectAttributes.addAttribute("userId", messageForm.getReceiveUserId());
+        return "redirect:/nexus/chat/{userId}";
     }
 
 }
