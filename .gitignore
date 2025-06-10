@@ -29,8 +29,7 @@ buildNumber.properties
 # Root level database files
 data/*.mv.db
 data/*.trace.db
-db/*.mv.db
-db/*.trace.db
+
 
 # OS generated files
 .DS_Store
