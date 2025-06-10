@@ -14,7 +14,12 @@
                 タイムスタンプ
             </div>
         </div>
-        <a th:href="@{/comet/register}" class="post-link">コメットを投稿する</a>
+        <!-- 右下固定の投稿ボタン -->
+        <a th:href="@{/comet/register}" class="floating-post-button" title="コメットを投稿する">
+            <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" style="display: flex; align-items: center; justify-content: center;">
+                <image href="/svg/comet_icon.svg" alt="Star Icon" width="32" height="32" x="4" y="4"/>
+            </svg>
+        </a>
     </div>
     <div th:replace="~{layout :: footer}"></div>
 </body>

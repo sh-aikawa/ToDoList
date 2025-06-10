@@ -186,13 +186,9 @@ function updateCheckedStatus(checkbox) {
             alert("更新に失敗しました");
         }
     });
+    // nexusのチャットエリアのスクロールを最新にする
+
 
 }
 
-// nexusのチャットエリアのスクロールを最新にする
-document.addEventListener('DOMContentLoaded', function() {
-            var chatArea = document.getElementById('chatArea');
-            if (chatArea) {
-                chatArea.scrollTop = chatArea.scrollHeight;
-            }
-        });
+

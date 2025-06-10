@@ -49,17 +49,28 @@
 /* chat関係 */
 
 #chatArea {
-    width: 80%;
-    max-width: 800px;
-    margin: 20px auto;
-    padding: 15px;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    background-color: #f9f9f9;
+    width: 90%;
+    max-width: 600px;
+    margin: 32px auto;
+    padding: 0;
+    border: 1.5px solid #cfd8dc;
+    border-radius: 16px;
+    background: #f7fafc;
+    display: flex;
+    flex-direction: column;
+    height: 82vh;
+    max-height: 82vh;
+    box-shadow: 0 4px 24px rgba(0,0,0,0.07);
+    overflow: hidden;
+}
+
+.chat-list {
+    flex: 1;
     overflow-y: auto;
-    /* 画面全体のスクロールを避けるため、chatAreaの最大高さを調整 */
-    /* header, footer, input-areaの合計高さを約180pxと仮定して計算 */
-    max-height: calc(100vh - 180px);
+    padding: 32px 18px 16px 18px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
 }
 
 .chat {
@@ -68,100 +79,101 @@
 }
 
 .chat>div {
-    max-width: 70%;
-    padding: 10px 15px;
-    border-radius: 18px;
-    word-wrap: break-word;
-    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
-    margin-bottom: 5px;
+    max-width: 75%;
+    padding: 12px 18px;
+    border-radius: 18px 18px 8px 18px;
+    word-break: break-all;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.07);
+    margin-bottom: 2px;
     display: flex;
     flex-direction: column;
+    font-size: 1.05rem;
 }
 
 .send {
-    background-color: #DCF8C6;
+    background: linear-gradient(90deg, #e0ffe6 60%, #b2f7c1 100%);
     align-self: flex-end;
     margin-left: auto;
-    color: #333;
+    color: #222;
+    border-bottom-right-radius: 4px;
 }
 
 .receive {
-    background-color: #FFFFFF;
+    background: #fff;
     align-self: flex-start;
     margin-right: auto;
-    color: #333;
+    color: #222;
     border: 1px solid #e0e0e0;
+    border-bottom-left-radius: 4px;
 }
 
 .content {
-    font-size: 1rem;
-    line-height: 1.4;
-    padding-bottom: 5px;
+    font-size: 1.05rem;
+    line-height: 1.5;
+    padding-bottom: 4px;
 }
 
 .timestamp {
     font-size: 0.75rem;
-    color: #777;
+    color: #8a8a8a;
     text-align: right;
-    margin-top: 5px;
+    margin-top: 2px;
 }
 
 .message-input-area {
     display: flex;
-    padding: 10px 15px;
-    background-color: #f0f2f5;
-    border-top: 1px solid #e0e0e0;
-    gap: 10px;
+    padding: 18px 18px 18px 18px;
+    background: #f0f2f5;
+    border-top: 1.5px solid #e0e0e0;
+    gap: 12px;
     align-items: flex-end;
-    position: fixed;
-    bottom: 60px; /* Adjust this value based on your footer's height */
-    left: 0;
-    width: 100%;
     box-sizing: border-box;
-    z-index: 999; /* Lower z-index than footer so footer is on top */
-    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.05);
+    border-radius: 0 0 16px 16px;
+    box-shadow: 0 -2px 8px rgba(0,0,0,0.03);
 }
 
 .message-input-area textarea {
     flex-grow: 1;
-    padding: 10px 12px;
-    border: 1px solid #e0e0e0;
-    border-radius: 20px;
+    padding: 10px 14px;
+    border: 1.5px solid #e0e0e0;
+    border-radius: 18px;
     resize: none;
-    min-height: 40px;
-    max-height: 80px;
-    font-size: 0.95rem;
-    line-height: 1.4;
-    overflow-y: auto;
-    transition: all 0.2s ease-in-out;
+    min-height: 38px;
+    max-height: 90px;
+    font-size: 1rem;
+    line-height: 1.5;
+    background: #fff;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.03);
+    transition: border-color 0.2s, box-shadow 0.2s;
 }
 
 .message-input-area textarea:focus {
-    border-color: #007bff;
-    box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.25);
+    border-color: #4fc3f7;
+    box-shadow: 0 0 0 2px rgba(33, 150, 243, 0.13);
     outline: none;
 }
 
 .message-input-area button {
-    padding: 10px 20px;
-    background-color: #007bff;
-    color: white;
+    padding: 10px 22px;
+    background: linear-gradient(90deg, #4fc3f7 60%, #1976d2 100%);
+    color: #fff;
     border: none;
-    border-radius: 20px;
+    border-radius: 18px;
     cursor: pointer;
     font-size: 1rem;
     font-weight: bold;
     white-space: nowrap;
     height: 40px;
-    transition: background-color 0.2s ease-in-out, transform 0.1s ease-in-out;
+    box-shadow: 0 2px 8px rgba(33,150,243,0.07);
+    transition: background 0.2s, transform 0.1s;
 }
 
 .message-input-area button:hover {
-    background-color: #0056b3;
+    background: linear-gradient(90deg, #1976d2 60%, #4fc3f7 100%);
     transform: translateY(-1px);
 }
 
 .message-input-area button:active {
     transform: translateY(0);
-    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.2);
+    box-shadow: inset 0 2px 4px rgba(0,0,0,0.13);
 }
