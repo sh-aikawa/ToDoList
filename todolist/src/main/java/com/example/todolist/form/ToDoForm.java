@@ -9,4 +9,5 @@ public class ToDoForm {
     private String title;
     private LocalDate limitDate;
     private String description;
+    private String importance;
 }
