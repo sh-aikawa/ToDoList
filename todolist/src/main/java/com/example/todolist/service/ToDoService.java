@@ -73,4 +73,10 @@ public class ToDoService {
         long userId  = userService.getUserId();
         return toDoRepository.getSortAscTasks(userId);
     }
+
+    public List<Task> getTasksforRoullete(String username) {
+        long userId  = userService.getUserId();
+        return toDoRepository.getTasksforRoullete(userId);
+    }
+
 }

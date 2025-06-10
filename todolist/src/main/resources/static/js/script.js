@@ -10,6 +10,7 @@ window.addEventListener("DOMContentLoaded", function () {
     const register = document.getElementById("register");
     const comet = document.getElementById("comet");
     const logout = document.getElementById("logout");
+    const nexus = document.getElementById("nexus");
 
     if (path === "/login" || path === "/userRegister") {
         if (nav) nav.style.display = "none";
@@ -20,6 +21,7 @@ window.addEventListener("DOMContentLoaded", function () {
         if (path === "/todolist/register" && register) register.style.display = "none";
         if (path === "/comet" && comet) comet.style.display = "none";
         if (path === "/login" && logout) logout.style.display = "none";
+        if (path === "/nexus" && nexus) nexus.style.display = "none";
     }
 
     //背景設定
@@ -37,13 +39,7 @@ window.addEventListener("DOMContentLoaded", function () {
             document.body.style.backgroundImage = "";
         }
     }
-
-    //リストルーレット処理
-    let title_text_id = document.getElementById("title_text_roulette");
-    if (title_text_id) {
-        title_text_id.innerText = title_text;
-    }
-
+    
     //ボタンアニメーション
     let submit_buttons = document.querySelectorAll("button");
     submit_buttons.forEach(function (submit_button) {

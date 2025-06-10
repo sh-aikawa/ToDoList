@@ -60,4 +60,8 @@ public class ToDoRepository {
         return toDoMapper.getSortAscTasks(userId);
     }
 
+    public List<Task> getTasksforRoullete(long userId) {
+        return toDoMapper.getTasksforRoullete(userId);
+    }
+
 }
