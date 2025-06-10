@@ -10,6 +10,7 @@ window.addEventListener("DOMContentLoaded", function () {
     const register = document.getElementById("register");
     const comet = document.getElementById("comet");
     const logout = document.getElementById("logout");
+    const nexus = document.getElementById("nexus");
 
     if (path === "/login" || path === "/userRegister") {
         if (nav) nav.style.display = "none";
@@ -20,6 +21,7 @@ window.addEventListener("DOMContentLoaded", function () {
         if (path === "/todolist/register" && register) register.style.display = "none";
         if (path === "/comet" && comet) comet.style.display = "none";
         if (path === "/login" && logout) logout.style.display = "none";
+        if (path === "/nexus" && nexus) nexus.style.display = "none";
     }
 
     //背景設定
