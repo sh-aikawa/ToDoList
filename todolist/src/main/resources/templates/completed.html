@@ -9,6 +9,11 @@
     <div id="listArea">
         <table border="1" class="list">
             <h3 style="padding-top: 10px; text-align: center;">完了済みタスク一覧</h3>
+
+            <form th:action="@{/todolist/finishDelete}" method="get" id="finishDelete">
+                <button type="submit" id="button">削除</button>
+            </form>
+            
             <tr>
                 <th>タイトル</th>
                 <th>期限</th>

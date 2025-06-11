@@ -131,4 +131,12 @@ public class ToDoController {
         return "listroulette";
     }
 
+    @GetMapping("/finishDelete")
+    public String finishDelete() {
+        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+        String username = auth.getName();
+        toDoService.deleteTask(username);
+        return "redirect:/todolist/finish";
+    }
+
 }

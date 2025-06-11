@@ -36,8 +36,9 @@ public class ToDoService {
         toDoRepository.updateChecked(taskId, checked);
     }
 
-    public void deleteTask(long taskId){
-        toDoRepository.deleteTask(taskId);
+    public void deleteTask(String username){
+        long userId  = userService.getId();
+        toDoRepository.deleteTask(userId);
     }
 
     public void registerTask(ToDoForm toDoForm){
