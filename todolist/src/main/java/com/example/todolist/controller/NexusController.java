@@ -45,8 +45,14 @@ public class NexusController {
             String formattedDate = message.getSendAt().format(formatter);
             message.setFormattedSendAt(formattedDate);
         }
+        // トーク相手のユーザー情報を取得
+        User partner = userService.getAllFriends().stream()
+            .filter(u -> u.getId() == id)
+            .findFirst()
+            .orElse(null);
         model.addAttribute("chat", chat);
         model.addAttribute("messageForm", messageForm);
+        model.addAttribute("partner", partner); // 追加
         return "nexus/chat";
     }
 
