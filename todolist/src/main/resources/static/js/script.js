@@ -30,7 +30,7 @@ window.addEventListener("DOMContentLoaded", function () {
     let push = document.getElementById("item");
     let title_change_url = document.getElementById('title_text');
     //ログイン、登録画面以外に適応
-    if (path !== "/login" && path !== "/userRegister") {
+    if (path !== "/login" && path !== "/userRegister" && path !=="/todolist/roulette_effect") {
         const bgUrl = localStorage.getItem('bgImage');
         //nullチェック
         if (bgUrl) {
@@ -56,8 +56,16 @@ window.addEventListener("DOMContentLoaded", function () {
         });
     });
 
-    //おみやげ演出
-    
+    //おみくじ演出
+    let select_div = document.getElementById("select");
+    if(select_div){
+        select_div.addEventListener('click', function(){
+            select_div.classList.add('fade');
+            setTimeout(function () {
+                location.href = "roulette_effect/listroulette";
+            }, 1800); // 2秒ロック
+        });
+    }
 
 
     //隠し要素処理 

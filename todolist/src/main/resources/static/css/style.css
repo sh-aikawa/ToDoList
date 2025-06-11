@@ -284,9 +284,8 @@ header {
 
 /* アニメーション（遊び用） */
 .anim-box.poyopoyo {
-    animation: poyopoyo 1s ease-in;
+    animation: poyopoyo 1s infinite;
     opacity: 1;
-    animation-iteration-count: 1;
 }
 
 @keyframes poyopoyo {
@@ -619,4 +618,51 @@ header {
 }
 
 /* ルーレット用 演出 step1.引く, step2.爆発, step3.虹色, step4.結果*/
+.background_roullete{
+    background-color: black;
+}
 
+.font {
+    display: block;
+    /* margin-top: 100px; */
+    font-size: 40px;
+    text-align: center;
+}
+
+.kuji_color_black{
+    color: black;
+}
+
+.kuji_color_white{
+    color: white; 
+}
+
+.fade {
+    animation: fade 2s forwards;
+}
+
+@keyframes fade {
+    0% {
+        opacity: 1.0;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+
+.kuji{
+    animation: shake 1.5s infinite;
+    background-image: url(https://japaclip.com/files/omikuji.png);
+    background-repeat: no-repeat;
+    width: 300px; 
+    height: 400px;
+    background-size: contain;
+    display:flex;
+    margin: 0 auto;
+}
+
+@keyframes shake {
+    0%{ transform:rotate(0);}
+    50%{transform:rotate(90deg);}
+    100%{ transform:rotate(0); }
+}
