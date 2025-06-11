@@ -17,7 +17,7 @@
         </div>
         <form th:action="@{/nexus/chat/send}" th:object="${messageForm}" method="post" class="message-input-area">
             <input type="hidden" name="receiveUserId" th:value="*{receiveUserId}" />
-            <textarea id="content" name="content" th:field="*{content}" required></textarea>
+            <textarea id="content" name="content" th:field="*{content}" maxlength="4000" required></textarea>
             <button type="submit">送信</button>
         </form>
     </div>

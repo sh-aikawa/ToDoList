@@ -10,7 +10,7 @@
         <form th:action="@{/todolist/{taskId}/edit(taskId=${task.taskId})}" th:object="${task}" method="post">
             <label for="title">予定</label>
             <div class="itemArea">
-                <textarea id="title" th:field="*{title}" class="item" required></textarea>
+                <textarea id="title" th:field="*{title}" class="item" maxlength="100" required></textarea>
             </div>
 
             <label for="limitDate">日付</label>
@@ -20,7 +20,7 @@
 
             <label for="description">詳細</label>
             <div class="itemArea">
-                <textarea id="description" th:field="*{description}" class="item box"></textarea>
+                <textarea id="description" th:field="*{description}" class="item box" maxlength="5000"></textarea>
             </div>
 
             <label for="importance"></label>

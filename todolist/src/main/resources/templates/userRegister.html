@@ -7,11 +7,11 @@
     <form th:action="@{/userRegister}" th:object="${userForm}" method="post">
         <div>
             <label for="username">ユーザ名：</label>
-            <input type="text" id="username" name="username" th:field="*{username}">
+            <input type="text" id="username" name="username" th:field="*{username}" maxlength="20" required>
         </div>
         <div>
             <label for="password">パスワード：</label>
-            <input type="password" id="password" name="password" th:field="*{password}">
+            <input type="password" id="password" name="password" th:field="*{password}" maxlength="16" required>
         </div>
         <button type="submit">登録</button>
     </form>
