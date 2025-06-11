@@ -1,14 +1,19 @@
 <!DOCTYPE html>
 <html lang="ja" xmlns:th="http://www.thymeleaf.org">
+
 <head th:replace="~{layout :: head(表示)}"></head>
+
 <body>
     <div th:replace="~{layout :: header}"></div>
-    <div id = "result" >
-        <h3>今日のあなたの予定は...</h3>
-        <div>
-            <a id = "title_text_roulette" th:text = "${task.title}"> </a>
+    <div class="mainArea">
+        <div id="result">
+            <h3>今日のあなたの予定は...</h3>
+            <div>
+                <a id="title_text_roulette" th:text="${task.title}"> </a>
+            </div>
         </div>
     </div>
     <div th:replace="~{layout :: footer}"></div>
 </body>
+
 </html>

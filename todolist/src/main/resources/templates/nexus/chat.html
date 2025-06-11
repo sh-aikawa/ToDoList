@@ -5,26 +5,35 @@
 
 <body>
     <div th:replace="~{layout :: header}"></div>
-
-    <div id="chatArea">
-        <div class="chat-list">
-            <div th:each="message : ${chat}" class="chat">
-                <div th:classappend="${message.receiveUserId}==${messageForm.receiveUserId} ? 'send':'receive'">
-                    <div class="content" th:text="${message.content}">メッセージ内容</div>
-                    <div class="timestamp" th:text="${message.formattedSendAt}">タイムスタンプ</div>
+    <div class="mainArea">
+        <div id="chatArea">
+            <div id="chatHeader" class="nexus-chat-header">
+                <a th:href="@{/nexus}" class="nexus-back-link">
+                    <span class="nexus-back-arrow">&#8592;</span>
+                </a>
+                <div class="nexus-header-center">
+                    <span th:text="${partner.accountName}">名前</span>
+                </div>
+                <div class="nexus-header-right-space"></div> <!-- 右側の余白用 -->
+            </div>
+            <div class="chat-list">
+                <div th:each="message : ${chat}" class="chat">
+                    <div th:classappend="${message.receiveUserId}==${messageForm.receiveUserId} ? 'send':'receive'">
+                        <div class="content" th:text="${message.content}">メッセージ内容</div>
+                        <div class="timestamp" th:text="${message.formattedSendAt}">タイムスタンプ</div>
+                    </div>
                 </div>
             </div>
+            <form th:action="@{/nexus/chat/send}" th:object="${messageForm}" method="post" class="message-input-area">
+                <input type="hidden" name="receiveUserId" th:value="*{receiveUserId}" />
+                <textarea id="content" name="content" th:field="*{content}" maxlength="4000" required></textarea>
+                <button type="submit">送信</button>
+            </form>
         </div>
-        <form th:action="@{/nexus/chat/send}" th:object="${messageForm}" method="post" class="message-input-area">
-            <input type="hidden" name="receiveUserId" th:value="*{receiveUserId}" />
-            <textarea id="content" name="content" th:field="*{content}" maxlength="4000" required></textarea>
-            <button type="submit">送信</button>
-        </form>
     </div>
-
     <div th:replace="~{layout :: footer}"></div>
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
+        document.addEventListener('DOMContentLoaded', function () {
             var chatList = document.querySelector('.chat-list');
             if (chatList) {
                 chatList.scrollTop = chatList.scrollHeight;

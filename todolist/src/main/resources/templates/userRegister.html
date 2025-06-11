@@ -3,26 +3,28 @@
 <head th:replace="~{layout :: head(ユーザー登録)}"></head>
 <body>
     <div th:replace="~{layout :: header}"></div>
-    <h3>ユーザ登録</h3>
-    <form th:action="@{/userRegister}" th:object="${userForm}" method="post">
-        <div>
-            <label for="accountName">ユーザー名：</label>
-            <input type="text" id="accountName" name="accountName" th:field="*{accountName}" maxlength="20" required>
-        </div>
-        <div>
-            <label for="accountId">アカウントID：</label>
-            <input type="text" id="accountId" name="accountId" th:field="*{accountId}" maxlength="20" required>
-        </div>
-        <div>
-            <label for="password">パスワード：</label>
-            <input type="password" id="password" name="password" th:field="*{password}" maxlength="16" required>
-        </div>
-        <button type="submit">登録</button>
-    </form>
-    <p>
-        既にアカウントをお持ちの方は、
-        <a th:href="@{/login}">こちら</a>からログインできます。
-    </p>
+    <div class="mainArea">
+        <h3>ユーザ登録</h3>
+        <form th:action="@{/userRegister}" th:object="${userForm}" method="post">
+            <div>
+                <label for="accountName">アカウント名：</label>
+                <input type="text" id="accountName" name="accountName" th:field="*{accountName}" maxlength="20" required>
+            </div>
+            <div>
+                <label for="accountId">アカウントID：</label>
+                <input type="text" id="accountId" name="accountId" th:field="*{accountId}" maxlength="20" required>
+            </div>
+            <div>
+                <label for="password">パスワード：</label>
+                <input type="password" id="password" name="password" th:field="*{password}" maxlength="16" required>
+            </div>
+            <button type="submit">登録</button>
+        </form>
+        <p>
+            既にアカウントをお持ちの方は、
+            <a th:href="@{/login}">こちら</a>からログインできます。
+        </p>
+    </div>
     <div th:replace="~{layout :: footer}"></div>
 </body>
 </html>
