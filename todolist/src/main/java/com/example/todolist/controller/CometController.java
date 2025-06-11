@@ -19,34 +19,34 @@ public class CometController {
 
     private final CometService cometService;
 
-    public CometController(CometService cometService) {
+    public CometController(CometService cometService) { //*CometControllerのコンストラクタ */
         this.cometService = cometService;
     }
 
     @GetMapping
     public String comets(Model model) {
 
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy年M月d日 H時m分s秒");
-        List<Comet> comets = cometService.getAllComets();
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy年M月d日 H時m分s秒"); //*投稿日時のフォーマット(yyyy年M月d日 H時m分s秒) */
+        List<Comet> comets = cometService.getAllComets(); //*cometの一覧を取得 */
         for (Comet comet : comets) {
-            String formattedDate = comet.getCreatedAt().format(formatter);
+            String formattedDate = comet.getCreatedAt().format(formatter); //*投稿日時をフォーマット */
             comet.setFormattedCreatedAt(formattedDate);
         }
 
-        model.addAttribute("comets", comets);
+        model.addAttribute("comets", comets);//*cometsをフロントへ */
         return "comet/home";
     }
 
     @GetMapping("/register")
     public String getRegister(Model model) {
-        CometForm cometForm = new CometForm();
-        model.addAttribute("cometForm", cometForm);
+        CometForm cometForm = new CometForm();  //*新規comet作成時のデータを格納するcometFormを作成 */
+        model.addAttribute("cometForm", cometForm);//*空のままフロントへ */
         return "comet/register";
     }
 
     @PostMapping("/register")
     public String postRegister(CometForm cometForm) {
-        cometService.registerComet(cometForm);
+        cometService.registerComet(cometForm);//*受け取ったcometFormをもとにdbに格納 */
 
         return "redirect:/comet";
     }
