@@ -36,8 +36,8 @@ public class ToDoRepository {
         toDoMapper.insertTask(task);
     }
 
-    public void deleteTask(long taskId){
-        toDoMapper.deleteTask(taskId);
+    public void deleteTask(long userId){
+        toDoMapper.deleteTask(userId);
     }
 
     public List<Task> getFinishTasks() {
