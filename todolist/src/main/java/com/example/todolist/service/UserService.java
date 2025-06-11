@@ -22,20 +22,23 @@ public class UserService {
 
     public void createUser(UserForm userForm) {
         User user = new User();
-        user.setUsername(userForm.getUsername());
-
+        user.setAccountName(userForm.getAccountName());
+        user.setAccountId(userForm.getAccountId());
         String hashedPassword = passwordEncoder.encode(userForm.getPassword());
         user.setPassword(hashedPassword);
 
         userRepository.insertUser(user);
     }
 
-    public Long getUserId() {
-        return userRepository.getUserId(getUsername());
+    public Long getId() {
+        return userRepository.getId(getAccountId());
     }
-
-    public String getUsername() {
+    public String getAccountId() {
         return SecurityContextHolder.getContext().getAuthentication().getName();
+    }
+    public String getAccountName() {
+        Long id = getId();
+        return userRepository.getAccountName(id);
     }
 
     public List<User> getAllUsers(){
@@ -43,8 +46,8 @@ public class UserService {
     }
 
     public List<User> getAllFriends(){
-        long userId = getUserId();
-        return userRepository.getAllFriends(userId);
+        long id = getId();
+        return userRepository.getAllFriends(id);
     }
 
 }

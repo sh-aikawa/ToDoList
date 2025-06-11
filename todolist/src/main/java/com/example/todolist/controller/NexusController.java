@@ -30,23 +30,23 @@ public class NexusController {
 
     @GetMapping
     public String selectUser(Model model) {
-        List<User> users = userService.getAllFriends(); //*自分以外のユーザの一覧を取得 */
-        model.addAttribute("users", users); //*usersをフロントへ */
+        List<User> users = userService.getAllFriends();
+        model.addAttribute("users", users);
         return "/nexus/select";
     }
 
-    @GetMapping("/chat/{userId}")
-    public String chat(@PathVariable long userId, Model model) {
-        MessageForm messageForm = new MessageForm();    //*新規メッセージ投稿時のデータを格納するmessageFormを作成 */
-        messageForm.setReceiveUserId(userId);   //*メッセージの受け取り手のIDにトーク相手のIDを設定 */
-        List<Message> chat = nexusService.getChat(userId);  //*トーク相手とログインユーザー間のmessageを一覧で取得 */
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy年M月d日 H時m分s秒"); //*messageの送信日時のフォーマット(yyyy年M月d日 H時m分s秒) */
+    @GetMapping("/chat/{id}")
+    public String chat(@PathVariable long id, Model model) {
+        MessageForm messageForm = new MessageForm();
+        messageForm.setReceiveUserId(id);
+        List<Message> chat = nexusService.getChat(id);
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy年M月d日 H時m分s秒");
         for (Message message : chat) {
-            String formattedDate = message.getSendAt().format(formatter);   //*messageの送信日時をフォーマット */
+            String formattedDate = message.getSendAt().format(formatter);
             message.setFormattedSendAt(formattedDate);
         }
-        model.addAttribute("chat", chat);   //*messageの一覧をフロントへ */
-        model.addAttribute("messageForm", messageForm); //*messageFormをフロントへ */
+        model.addAttribute("chat", chat);
+        model.addAttribute("messageForm", messageForm);
         return "nexus/chat";
     }
 

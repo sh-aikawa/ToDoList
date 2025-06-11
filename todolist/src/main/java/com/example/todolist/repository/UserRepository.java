@@ -15,23 +15,27 @@ public class UserRepository {
         this.userMapper = userMapper;
     }
 
-    public User selectUserByUsername(String username) {
-        return userMapper.selectUserByUsername(username);
+    public User selectUserByAccountId(String accountId) {
+        return userMapper.selectUserByAccountId(accountId);
     }
 
     public void insertUser(User user) {
         userMapper.insertUser(user);
     }
 
-    public long getUserId(String username) {
-        return userMapper.getUserId(username);
+    public long getId(String accountId) {
+        return userMapper.getId(accountId);
     }
 
     public List<User> getAllUsers() {
-        return userMapper.getAllUsers();
+        return userMapper.getAllFriends(-1); // 仮: 全ユーザー取得用
     }
 
-    public List<User> getAllFriends(long userId){
-        return userMapper.getAllFriends(userId);
+    public List<User> getAllFriends(long id){
+        return userMapper.getAllFriends(id);
+    }
+
+    public String getAccountName(Long id) {
+        return userMapper.getAccountName(id);
     }
 }

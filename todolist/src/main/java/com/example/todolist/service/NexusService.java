@@ -19,7 +19,7 @@ public class NexusService {
     }
 
     public List<Message> getChat(long userId) {
-        long myId = userService.getUserId();
+        long myId = userService.getId();
         return nexusRepository.getChat(myId, userId);
     }
 
@@ -28,7 +28,7 @@ public class NexusService {
         message.setReceiveUserId(messageForm.getReceiveUserId());
         message.setContent(messageForm.getContent());
 
-        long userId = userService.getUserId();
+        long userId = userService.getId();
         message.setSendUserId(userId);
         System.out.println(message.getReceiveUserId()+","+message.getSendUserId());//0.1
         nexusRepository.sendMessage(message);

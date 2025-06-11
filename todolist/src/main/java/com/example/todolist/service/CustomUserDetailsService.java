@@ -16,26 +16,13 @@ public class CustomUserDetailsService implements UserDetailsService {
     public CustomUserDetailsService(UserRepository userRepository){
         this.userRepository = userRepository;
     }
-/* 
+
     @Override
-    public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException{
-        User user = userRepository.selectUserByUsername(username);
-        if(user==null){
-            throw new UsernameNotFoundException(username);
+    public UserDetails loadUserByUsername(String accountId) throws UsernameNotFoundException {
+        User user = userRepository.selectUserByAccountId(accountId);
+        if (user == null) {
+            throw new UsernameNotFoundException(accountId);
         }
         return new CustomUserDetails(user);
     }
-    */
-    @Override
-public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-    System.out.println("検索ユーザー: " + username);
-    User user = userRepository.selectUserByUsername(username);
-    if (user == null) {
-        throw new UsernameNotFoundException(username);
-    }
-    System.out.println("ユーザー取得成功: " + user.getUsername());
-    System.out.println("パスワード：" + user.getPassword());
-    return new CustomUserDetails(user);
-}
-
 }

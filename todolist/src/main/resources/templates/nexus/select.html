@@ -5,8 +5,9 @@
     <div th:replace="~{layout :: header}"></div>
     <div id="searchArea">
         <div th:each="user : ${users}" class="user">
-            <a th:href="@{/nexus/chat/{userId}(userId=${user.userId})}">
-                <div class="username" th:text="${user.username}">ユーザー名</div>
+            <a th:href="@{/nexus/chat/{id}(id=${user.id})}">
+                <div class="username" th:text="${user.accountName}">ユーザー名</div>
+                <div class="accountId" th:text="'@' + ${user.accountId}">アカウントID</div>
             </a>
         </div>
     </div>
