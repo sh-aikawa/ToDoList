@@ -35,14 +35,14 @@ public class ToDoController {
         String username = auth.getName();
         List<Task> tasks = toDoService.getTasksByUserId(username);
         model.addAttribute("tasks", tasks);
-        return "Home";// 一覧画面に遷移
+        return "toDo/Home";// 一覧画面に遷移
     }
 
     @GetMapping("/register")
     public String getRegister(Model model) {
         ToDoForm toDoForm = new ToDoForm();
         model.addAttribute("toDoForm", toDoForm);
-        return "register";
+        return "toDo/register";
     }
 
     @PostMapping("/register")
@@ -56,7 +56,7 @@ public class ToDoController {
     public String getSelectTasks(@RequestParam("selectedDate") LocalDate selectedDate, Model model) {
         List<Task> tasks = toDoService.getSelectTasks(selectedDate);
         model.addAttribute("tasks", tasks);
-        return "Home";
+        return "toDo/Home";
     }
 
     @PostMapping("/check")
@@ -70,21 +70,21 @@ public class ToDoController {
     public String getFinishTasks(Model model) {
         List<Task> tasks = toDoService.getFinishTasks();
         model.addAttribute("tasks", tasks);
-        return "completed";
+        return "toDo/completed";
     }
 
     @GetMapping("/detail")
     public String showTaskDetail(@RequestParam("taskId") Long taskId, Model model) {
         Task task = toDoService.getTask(taskId);
         model.addAttribute("task", task);
-        return "detail";
+        return "toDo/detail";
     }
 
     @GetMapping("/taskEdit/{taskId}")
     public String taskEdit(@PathVariable long taskId, Model model) {
         Task task = toDoService.getTask(taskId);
         model.addAttribute("task", task);
-        return "edit";
+        return "toDo/edit";
     }
 
     @PostMapping("/{taskId}/edit")
@@ -101,7 +101,7 @@ public class ToDoController {
         List<Task> tasks = toDoService.getSortDescTasks(username);
 
         model.addAttribute("tasks", tasks);
-        return "Home";
+        return "toDo/Home";
     }
 
     @GetMapping("/sortAsc")
@@ -111,7 +111,7 @@ public class ToDoController {
         List<Task> tasks = toDoService.getSortAscTasks(username);
 
         model.addAttribute("tasks", tasks);
-        return "Home";
+        return "toDo/Home";
     }
     
     @GetMapping("/listroulette")
@@ -129,6 +129,14 @@ public class ToDoController {
             model.addAttribute("task", task);
         }
         return "listroulette";
+    }
+
+    @GetMapping("/finishDelete")
+    public String finishDelete() {
+        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+        String username = auth.getName();
+        toDoService.deleteTask(username);
+        return "redirect:/todolist/finish";
     }
 
 }

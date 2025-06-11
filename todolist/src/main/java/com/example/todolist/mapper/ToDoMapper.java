@@ -23,8 +23,8 @@ public interface ToDoMapper {
     @Select("SELECT * FROM tasks WHERE limit_date = #{limitDate} AND checked = false ORDER BY importance ASC")
     List<Task> getSelectTasks(LocalDate limitDate);
 
-    @Delete("DELETE FROM tasks WHERE task_id = #{taskId}")
-    void deleteTask(long taskId);
+    @Delete("DELETE FROM tasks WHERE user_id = #{userId} AND checked = true")
+    void deleteTask(long userId);
 
     @Insert("INSERT INTO tasks(user_id, title, limit_date, description, importance) VALUES (#{userId},#{title}, #{limitDate}, #{description}, #{importance})")
     void insertTask(Task task);

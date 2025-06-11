@@ -1,8 +1,30 @@
-/* リンク・ヘッダー */
 a:link,
 a:visited {
     color: inherit;
     text-decoration: none;
+}
+
+/*背景*/
+body {
+    background-image: url();
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-color: rgba(255, 255, 255, 0.6);
+    background-blend-mode: lighten;
+}
+
+/*フッター・ヘッターの共通スタイル*/
+.transparent {
+    opacity: 0.9;
+    border-radius: 15px;
+}
+
+/*ヘッダー */
+header {
+    background-color: #f8f8f8;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 }
 
 .header-title {
@@ -14,17 +36,32 @@ a:visited {
     margin-left: auto;
     display: flex;
     align-items: center;
-    background-color: #f8f8f8;
+    background-color: #e0e0e0;
     width: 100%;
     height: 80px;
     box-sizing: border-box;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1001;
+    border-radius: 0 0 15px 15px;
+}
+
+/*タイトル*/
+.app-title {
+    font-family: 'Courier New', Courier, monospace;
+    color: #555;
+    margin: 0;
+    font-size: 1.5rem;
+    font-weight: bold;
+    letter-spacing: 0.08em;
+    padding-left: 20px;
 }
 
 /* ハンバーガーメニュー */
 .hamburger-nav {
     position: relative;
     height: 60px;
-    z-index: 100;
 }
 
 .menu-toggle {
@@ -32,40 +69,43 @@ a:visited {
 }
 
 .menu-icon {
-    width: 40px;
-    height: 36px;
+    width: 48px;
+    height: 48px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     cursor: pointer;
     position: absolute;
-    right: 35px;
-    top: 15px;
-    z-index: 101;
+    right: 20px;
+    top: 6px;
+    z-index: 2002;
 }
 
 .menu-icon span {
     display: block;
     height: 5px;
-    background: #333;
+    background: #555;
     border-radius: 2px;
     transition: 0.3s;
+    margin: 6px 0; 
 }
 
 .menu {
-    color: #fff;
+    color: #555;
     position: fixed;
-    top: 0;
-    right: -400px;
-    width: 400px;
-    height: 100%;
-    background: #000;
+    top: 80px;
+    right: -100%;
+    width: 300px;
+    height: calc(100% - 80px);
+    background: #e0e0e0;
     box-shadow: -2px 0 8px rgba(0, 0, 0, 0.15);
     display: flex;
     flex-direction: column;
     padding-top: 60px;
     transition: right 0.3s;
-    z-index: 100;
+    z-index: 1000;
+    border-radius: 0 0 15px 0;
+    overflow-y: auto;
 }
 
 .menu-link {
@@ -106,19 +146,27 @@ a:visited {
     }
 }
 
+/*メインコンテンンツ*/
+.mainArea {
+    margin-top: 80px;
+    margin-bottom: 80px;
+    padding: 20px;
+}
+
 /* フッター */
 .footer-area {
-    background-color: #f8f8f8;
+    background-color: #e0e0e0;
     text-align: center;
     position: fixed;
+    left: 0;
     bottom: 0;
     width: 100%;
     height: 80px;
     box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.05);
-    z-index: 0;
     display: flex;
     justify-content: center;
     align-items: center;
+    border-radius: 15px 15px 0 0;
 }
 
 .footer-title {
@@ -142,13 +190,35 @@ a:visited {
     margin-left: 40px;
 }
 
+/*検索*/
+.searchArea {
+    display: flex;
+    flex-direction: row;
+    gap: 16px;
+    align-items: center;
+    flex-wrap: wrap;
+    padding: 20px;
+    width: 300px;
+    margin: 30px auto;
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.searchArea form {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin: 0;
+}
+
 /* リスト関係 */
 .list {
     width: 100%;
     text-align: center;
     border-collapse: collapse;
     border-spacing: 0;
-    border-top: solid 1px #778ca3;
+    border-top: solid 1px #555;
 }
 
 .list tr:nth-child(2n) {
@@ -156,28 +226,16 @@ a:visited {
 }
 
 .list tr:nth-child(2n+1) {
-    background: #e9faf9;
+    background: #e0e0e0;
 }
 
 .list th,
 .list td {
     padding: 10px;
-    border-bottom: solid 1px #778ca3;
+    border-bottom: solid 1px #e0e0e0;
 }
 
-/* 隠し背景 */
-body {
-    background-image: url();
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-color: rgba(255, 255, 255, 0.6);
-    background-blend-mode: lighten;
-}
 
-.transparent {
-    opacity: 0.8;
-    border-radius: 30px;
-}
 
 /* 入力フォーム関係 */
 .itemArea {
@@ -222,13 +280,6 @@ body {
     display: inline-block;
 }
 
-header {
-    background-color: #f8f8f8;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-}
-
 /* アニメーション（遊び用） */
 .anim-box.poyopoyo {
     animation: poyopoyo 1s ease-in;
@@ -237,6 +288,7 @@ header {
 }
 
 @keyframes poyopoyo {
+
     0%,
     40%,
     60%,
@@ -249,10 +301,5 @@ header {
         transform: scale(0.95);
     }
 }
-
-
-
-
-
 /* ルーレット用 演出 step1.引く, step2.爆発, step3.虹色, step4.結果*/
 
