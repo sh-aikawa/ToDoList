@@ -113,8 +113,18 @@ public class ToDoController {
         model.addAttribute("tasks", tasks);
         return "toDo/Home";
     }
+
+    @GetMapping("/roulette_effect")
+    public String getRoulette_effect(Model model) {
+        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+        String username = auth.getName();
+        List<Task> tasks = toDoService.getTasksByUserId(username);
+        model.addAttribute("tasks", tasks);
+        return "roulette_effect";
+    }
     
-    @GetMapping("/listroulette")
+    
+    @GetMapping("roulette_effect/listroulette")
     public String getlistRoulette(Model model){
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
         String username = auth.getName();

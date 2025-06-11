@@ -5,12 +5,10 @@
 
 <body>
     <div th:replace="~{layout :: header}"></div>
-    <div class="mainArea">
-        <div id="result">
-            <h3>今日のあなたの予定は...</h3>
-            <div>
-                <a id="title_text_roulette" th:text="${task.title}"> </a>
-            </div>
+    <div id = "result" >
+        <h3 class = "font kuji_color_black">今日のあなたの予定は...</h3>
+        <div>
+            <a id = "title_text_roulette" th:text = "${task.title}" class = "font kuji_color_black"> </a>
         </div>
     </div>
     <div th:replace="~{layout :: footer}"></div>
