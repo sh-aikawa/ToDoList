@@ -6,7 +6,7 @@
     <h3>ユーザ登録</h3>
     <form th:action="@{/userRegister}" th:object="${userForm}" method="post">
         <div>
-            <label for="accountName">ユーザー名：</label>
+            <label for="accountName">アカウント名：</label>
             <input type="text" id="accountName" name="accountName" th:field="*{accountName}" maxlength="20" required>
         </div>
         <div>
