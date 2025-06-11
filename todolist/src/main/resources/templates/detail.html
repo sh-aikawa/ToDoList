@@ -5,18 +5,20 @@
 
 <body>
     <div th:replace="~{layout :: header}"></div>
-    <h3>予定の詳細</h3>
-    <div th:each="task : ${task}">
-        <h3>タイトル</h3>
-        <a th:text="${task.title}">タイトル</a>
-        <h3 class = "detail_text">日付</h3>
-        <a th:text="${task.limitDate}" class = "detail_text">limitDate</a>
-        <h3 class = "detail_text">詳細</h3>
-        <a th:text="${task.description}">limitDate</a>
-        <h3 class = "detail_text">優先度</h3>
-        <a th:text="${task.importance}">importance</a>
+    <div class="mainArea">
+        <h3>予定の詳細</h3>
+        <div th:each="task : ${task}">
+            <h3>タイトル</h3>
+            <a th:text="${task.title}">タイトル</a>
+            <h3 class="detail_text">日付</h3>
+            <a th:text="${task.limitDate}" class="detail_text">limitDate</a>
+            <h3 class="detail_text">詳細</h3>
+            <a th:text="${task.description}">limitDate</a>
+            <h3 class="detail_text">優先度</h3>
+            <a th:text="${task.importance}">importance</a>
+        </div>
+        <button><a th:href="@{/todolist/taskEdit/{taskId}(taskId=${task.taskId})}">編集</a></button>
     </div>
-    <button><a th:href="@{/todolist/taskEdit/{taskId}(taskId=${task.taskId})}" >編集</a></button>
     <div th:replace="~{layout :: footer}"></div>
 </body>
 

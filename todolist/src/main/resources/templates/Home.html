@@ -4,54 +4,54 @@
 <head th:replace="~{layout :: head(表示)}"></head>
 
 <body>
-    <div class="back"></div>
     <div th:replace="~{layout :: header}"></div>
+    <div class="mainArea">
+        <h3 id="display">toDoリストへようこそ！</h3>
+        <div class="random_div">
+            <span><a th:href="@{/comet}">Comet</a></span>
+            <span><a th:href="@{/nexus}">Nexus</a></span>
+            <span class="random_title"><a th:href="@{/todolist/listroulette}">リストルーレット</a></span>
+        </div>
+        <h4>toDo絞り込み</h4>
+        <div id="searchArea">
+            <form th:action="@{/todolist/search}" method="post">
+                <input type="date" id="date" name="selectedDate"
+                    th:value="${#dates.format(#dates.createNow(), 'yyyy-MM-dd')}" min="2000-01-01" max="9999-12-31" />
+                <button type="submit" id="item">検索</button>
+            </form>
+        </div>
 
-    <h3 id="display">toDoリストへようこそ！</h3>
-    <div class="random_div">
-        <span><a th:href="@{/comet}">Comet</a></span>
-        <span><a th:href="@{/nexus}">Nexus</a></span>
-        <span class="random_title"><a th:href="@{/todolist/listroulette}">リストルーレット</a></span>
-    </div>
-    <h4>toDo絞り込み</h4>
-    <div id="searchArea">
-        <form th:action="@{/todolist/search}" method="post">
-            <input type="date" id="date" name="selectedDate"
-                th:value="${#dates.format(#dates.createNow(), 'yyyy-MM-dd')}" min="2000-01-01" max="9999-12-31" />
-            <button type="submit" id="item">検索</button>
+        <h3>やることリスト</h3>
+        <form th:action="@{/todolist/sortDesc}" method="get" id="descForm">
+            <button type="button" id="sortDesc">すべて表示して降順</button>
         </form>
-    </div>
 
-    <h3>やることリスト</h3>
-    <form th:action="@{/todolist/sortDesc}" method="get" id="descForm">
-        <button type="button" id="sortDesc">すべて表示して降順</button>
-    </form>
-
-    <form th:action="@{/todolist/sortAsc}" method="get" id="ascForm" style="display: none">
-        <button type="button" id="sortAsc">すべて表示して昇順</button>
-    </form>
-    <div id="listArea">
-        <table border="1" class="list">
+        <form th:action="@{/todolist/sortAsc}" method="get" id="ascForm" style="display: none">
+            <button type="button" id="sortAsc">すべて表示して昇順</button>
+        </form>
+        <div id="listArea">
+            <table border="1" class="list">
                 <th>チェック</th>
                 <th>タイトル</th>
                 <th>期限</th>
                 <th>優先度</th>
-            </tr>
-            <tr th:each="task : ${tasks}">
-                <th>
-                    <input type="checkbox" th:attr="data-task-id=${task.taskId}" th:checked="${task.checked}"
-                        onchange="updateCheckedStatus(this)" />
-                </th>
-                <th>
-                    <a th:href="@{/todolist/detail(taskId=${task.taskId})}">
-                        <span th:text="${task.title}">TodoListをつくる</span></a>
-                </th>
-                <th><span th:text="${task.limitDate}">2025/6/5</span></th>
-                <th>
-                    <span th:text="${task.importance}">1</span>
-                </th>
-            </tr>
-        </table>
+                </tr>
+                <tr th:each="task : ${tasks}">
+                    <th>
+                        <input type="checkbox" th:attr="data-task-id=${task.taskId}" th:checked="${task.checked}"
+                            onchange="updateCheckedStatus(this)" />
+                    </th>
+                    <th>
+                        <a th:href="@{/todolist/detail(taskId=${task.taskId})}">
+                            <span th:text="${task.title}">TodoListをつくる</span></a>
+                    </th>
+                    <th><span th:text="${task.limitDate}">2025/6/5</span></th>
+                    <th>
+                        <span th:text="${task.importance}">1</span>
+                    </th>
+                </tr>
+            </table>
+        </div>
     </div>
     <div th:replace="~{layout :: footer}"></div>
 </body>

@@ -5,7 +5,7 @@
 
 <body>
     <div th:replace="~{layout :: header}"></div>
-    <div>
+    <div class="mainArea">
         <h4 id="title_text" class="title_text">予定の登録をします</h4>
         <form type="hidden" th:action="@{/todolist/register}" th:object="${toDoForm}" method="post">
             <label for="title" id="yotei">予定</label>
@@ -34,8 +34,8 @@
                 <button type="submit" id="submit">登録</button>
             </div>
         </form>
-        <div th:replace="~{layout :: footer}"></div>
     </div>
+    <div th:replace="~{layout :: footer}"></div>
 </body>
 
 </html>
