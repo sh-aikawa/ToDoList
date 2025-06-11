@@ -108,12 +108,24 @@ window.addEventListener("DOMContentLoaded", function () {
                     switch (url.value) {
                         case "packman":
                             window.open("https://www.google.co.jp/logos/2010/pacman10-i.html");
+                            break;
+
                         case "proseka":
                             window.open("https://pjsekai.sega.jp/");
+                            break;
+
                         case "cybercom":
                             window.open("https://www.cy-com.co.jp/");
+                            break;
+
                         case "givery":
                             window.open("https://givery.co.jp/");
+                            break;
+
+                        case "gacha":
+                            location.href = "roulette_effect";
+                            break;
+
                         default:
                             title_change_url.innerText = "URLを入力してください！"
                     }
