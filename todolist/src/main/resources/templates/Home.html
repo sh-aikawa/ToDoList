@@ -6,13 +6,7 @@
 <body>
     <div th:replace="~{layout :: header}"></div>
     <div class="mainArea">
-        <h3 id="display">toDoリストへようこそ！</h3>
-        <div class="random_div">
-            <span><a th:href="@{/comet}">Comet</a></span>
-            <span><a th:href="@{/nexus}">Nexus</a></span>
-            <span class="random_title"><a th:href="@{/todolist/listroulette}">リストルーレット</a></span>
-        </div>
-        <h4>toDo絞り込み</h4>
+        <!-- <h3 id="display">toDoリストへようこそ！</h3> -->
         <div id="searchArea">
             <form th:action="@{/todolist/search}" method="post">
                 <input type="date" id="date" name="selectedDate"
@@ -57,48 +51,3 @@
 </body>
 
 </html>
-
-<!-- <script>
-    window.addEventListener("DOMContentLoaded", function () {
-        let display_moji = document.getElementById("display");
-        let enter_date = document.getElementById("date");
-        let push = document.getElementById("item");
-        const bgUrl = localStorage.getItem("bgImage");
-        document.body.style.backgroundImage = `url('${bgUrl}')`;
-        push.addEventListener("click", function (event) {
-            if (!enter_date.value) {
-                event.preventDefault();
-                display_moji.innerHTML = "数字を入力してください！";
-                display_moji.style.color = "#ED1A3D";
-            }
-        });
-    });
-
-    function updateCheckedStatus(checkbox) {
-        const taskId = checkbox.getAttribute("data-task-id");
-        const checked = checkbox.checked;
-
-        const token = document.querySelector('meta[name="_csrf"]').getAttribute("content");
-        const header = document.querySelector('meta[name="_csrf_header"]').getAttribute("content");
-
-        fetch("/todolist/check", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/x-www-form-urlencoded",
-                [header]: token
-            },
-            body: `taskId=${taskId}&checked=${checked}`,
-        }).then((response) => {
-            if (response.ok) {
-                // 更新成功時の処理
-                window.location.reload(); // ページをリロードして更新を反映
-            } else {
-                // 更新失敗時の処理
-                console.error(`Failed to update task ${taskId}.`);
-            }
-            if (!response.ok) {
-                alert("更新に失敗しました");
-            }
-        });
-    }
-</script> -->
