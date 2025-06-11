@@ -22,7 +22,7 @@ public class CometService {
         Comet comet = new Comet();
         comet.setContent(cometForm.getContent());
 
-        long userId = userService.getUserId();
+        long userId = userService.getId();
         comet.setUserId(userId);
         cometRepository.insertComet(comet);
     }

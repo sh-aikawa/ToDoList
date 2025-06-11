@@ -5,16 +5,22 @@
 
 <body>
     <div th:replace="~{layout :: header}"></div>
-    <div class="timeline-container">
-        <div th:each="comet : ${comets}" class="comet">
-            <div class="username" th:text="${comet.username}">ユーザー名</div>
-            <div class="userId" th:text="'@' + ${comet.userId}">ユーザーID</div>
-            <div class="content" th:text="${comet.content}">ツイート内容</div>
-            <div class="timestamp" th:text="${comet.formattedCreatedAt}">
-                タイムスタンプ
+    <div class="mainArea">
+        <div class="timeline-container">
+            <div th:each="comet : ${comets}" class="comet">
+                <div class="username" th:text="${comet.accountName}">ユーザー名</div>
+                <div class="accountId" th:text="'@' + ${comet.accountId}">アカウントID</div>
+                <div class="content" th:text="${comet.content}">ツイート内容</div>
+                <div class="timestamp" th:text="${comet.formattedCreatedAt}">タイムスタンプ</div>
             </div>
+            <!-- 右下固定の投稿ボタン -->
+            <a th:href="@{/comet/register}" class="floating-post-button" title="コメットを投稿する">
+                <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg"
+                    style="display: flex; align-items: center; justify-content: center;">
+                    <image href="/svg/comet_icon.svg" alt="Star Icon" width="32" height="32" x="4" y="4" />
+                </svg>
+            </a>
         </div>
-        <a th:href="@{/comet/register}" class="post-link">コメットを投稿する</a>
     </div>
     <div th:replace="~{layout :: footer}"></div>
 </body>

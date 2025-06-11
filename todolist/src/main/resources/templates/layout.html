@@ -8,6 +8,9 @@
     <meta name="_csrf" th:content="${_csrf.token}" />
     <meta name="_csrf_header" th:content="${_csrf.headerName}" />
     <link th:href="@{/css/style.css}" rel="stylesheet" />
+    <link th:href="@{/css/comet.css}" rel="stylesheet" />
+    <link th:href="@{/css/nexus.css}" rel="stylesheet" />
+    <link th:href="@{/css/login.css}" rel="stylesheet" />
     <script th:src="@{/js/script.js}" defer></script>
 
     <title>Title</title>
@@ -15,8 +18,8 @@
 
 <body>
     <div th:fragment="header">
-        <header class="transparent">
-            <h4 id="header-title" class="header-title" style="margin-left: 20px;">toDoリスト</h4>
+        <header class="transparent header-area">
+            <div class="app-title ">toDoリスト</div>
             <nav id="hamburger-nav" class="hamburger-nav">
                 <input type="checkbox" id="menu-toggle" class="menu-toggle" />
                 <label for="menu-toggle" class="menu-icon">

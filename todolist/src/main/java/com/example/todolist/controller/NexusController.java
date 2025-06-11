@@ -23,7 +23,7 @@ public class NexusController {
     private final UserService userService;
     private final NexusService nexusService;
 
-    public NexusController(UserService userService, NexusService nexusService) {
+    public NexusController(UserService userService, NexusService nexusService) {    //*NexusControllerのコンストラクタ */
         this.userService = userService;
         this.nexusService = nexusService;
     }
@@ -35,25 +35,31 @@ public class NexusController {
         return "/nexus/select";
     }
 
-    @GetMapping("/chat/{userId}")
-    public String chat(@PathVariable long userId, Model model) {
+    @GetMapping("/chat/{id}")
+    public String chat(@PathVariable long id, Model model) {
         MessageForm messageForm = new MessageForm();
-        messageForm.setReceiveUserId(userId);
-        List<Message> chat = nexusService.getChat(userId);
+        messageForm.setReceiveUserId(id);
+        List<Message> chat = nexusService.getChat(id);
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy年M月d日 H時m分s秒");
         for (Message message : chat) {
             String formattedDate = message.getSendAt().format(formatter);
             message.setFormattedSendAt(formattedDate);
         }
+        // トーク相手のユーザー情報を取得
+        User partner = userService.getAllFriends().stream()
+            .filter(u -> u.getId() == id)
+            .findFirst()
+            .orElse(null);
         model.addAttribute("chat", chat);
         model.addAttribute("messageForm", messageForm);
+        model.addAttribute("partner", partner); // 追加
         return "nexus/chat";
     }
 
     @PostMapping("/chat/send")
     public String sendMessage(MessageForm messageForm, RedirectAttributes redirectAttributes) {
-        nexusService.sendMessage(messageForm);
-        redirectAttributes.addAttribute("userId", messageForm.getReceiveUserId());
+        nexusService.sendMessage(messageForm);  //*受け取ったmessageFormをもとにdbに保存 */
+        redirectAttributes.addAttribute("userId", messageForm.getReceiveUserId());  //*トーク画面にリダイレクトするためにトーク相手のIdをリダイレクト先へ */
         return "redirect:/nexus/chat/{userId}";
     }
 

@@ -3,28 +3,32 @@
 <head th:replace="~{layout :: head(ログイン)}"></head>
 <body>
     <div th:replace="~{layout :: header}"></div>
-    <h3>ログイン</h3>
-    <div th:if="${param.error}" style="color:red">
-        ユーザ名、またはパスワードが違います
-    </div>
-    <div th:if="${param.register}" style="color:blue">
-        登録に成功しました
-    </div>
-    <form th:action="@{/login}" method="post">
-        <div>
-            <label for="username">ユーザ名：</label>
-            <input type="text" id="username" name="username">
+    <div class="mainArea">
+        <div class="login-card">
+            <h3 class="login-title">ログイン</h3>
+            <div th:if="${param.error}" class="login-error">
+                ユーザー名、またはパスワードが違います
+            </div>
+            <div th:if="${param.register}" class="login-success">
+                登録に成功しました
+            </div>
+            <form th:action="@{/login}" method="post" class="login-form">
+                <div class="login-form-group">
+                    <label for="accountId" class="login-label">アカウントID：</label>
+                    <input type="text" id="accountId" name="username" maxlength="20" required class="login-input">
+                </div>
+                <div class="login-form-group">
+                    <label for="password" class="login-label">パスワード：</label>
+                    <input type="password" id="password" name="password" maxlength="16" required class="login-input">
+                </div>
+                <button type="submit" class="login-button">ログイン</button>
+            </form>
+            <p class="login-link-text">
+                アカウントをお持ちでない方は、
+                <a th:href="@{/userRegister}" class="login-link">こちら</a>から新規登録できます。
+            </p>
         </div>
-        <div>
-            <label for="password">パスワード：</label>
-            <input type="password" id="password" name="password">
-        </div>
-        <button type="submit">ログイン</button>
-    </form>
-    <p>
-        アカウントをお持ちでない方は、
-        <a th:href="@{/userRegister}">こちら</a>から新規登録できます。
-    </p>
+    </div>
     <div th:replace="~{layout :: footer}"></div>
 </body>
 </html>

@@ -1,0 +1,175 @@
+/* Comet関連*/
+
+.comet-post-container {
+    max-width: 500px;
+    margin: 30px auto;
+    padding: 25px;
+    background-color: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+
+.comet-post-container .post-title {
+    font-size: 1.8em;
+    font-weight: 700;
+    color: #1da1f2;
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+.comet-post-container .content-label {
+    display: block;
+    font-size: 1.1em;
+    color: #555;
+    margin-bottom: 8px;
+    font-weight: 600;
+}
+
+.comet-post-container #content {
+    width: calc(100% - 20px);
+    padding: 12px 10px;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    font-size: 1em;
+    min-height: 120px;
+    resize: vertical;
+    box-sizing: border-box;
+    transition: border-color 0.3s ease;
+}
+
+.comet-post-container #content:focus {
+    border-color: #1da1f2;
+    outline: none;
+}
+
+.comet-post-container .post-button {
+    display: block;
+    width: 100%;
+    padding: 12px 20px;
+    margin-top: 20px;
+    background-color: #1da1f2;
+    color: white;
+    border: none;
+    border-radius: 25px;
+    font-size: 1.1em;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.comet-post-container .post-button:hover {
+    background-color: #178ace;
+    transform: translateY(-2px);
+}
+
+.comet-post-container .post-button:active {
+    transform: translateY(0);
+}
+
+.timeline-container {
+    max-width: 700px;
+    margin: 20px auto;
+    padding: 0 15px;
+}
+
+.comet {
+    background-color: #fff;
+    border: 1px solid #e0e0e0;
+    border-radius: 10px;
+    padding: 15px 20px;
+    margin-bottom: 15px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+}
+
+.comet:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.comet .username {
+    font-weight: bold;
+    color: #333;
+    font-size: 1.1rem;
+    margin-bottom: 2px;
+}
+
+.comet .userId {
+    color: #777;
+    font-size: 0.85rem;
+    margin-bottom: 10px;
+}
+
+.comet .content {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: #444;
+    margin-bottom: 10px;
+    white-space: pre-wrap;
+    /* 改行を保持 */
+    word-wrap: break-word;
+    /* 長い単語で改行 */
+}
+
+.comet .timestamp {
+    font-size: 0.75rem;
+    color: #999;
+    text-align: right;
+}
+
+.post-link {
+    display: block;
+    width: fit-content;
+    margin: 30px auto;
+    padding: 12px 25px;
+    background-color: #007bff;
+    color: white;
+    text-decoration: none;
+    border-radius: 25px;
+    font-weight: bold;
+    font-size: 1.05rem;
+    transition: background-color 0.2s ease-in-out, transform 0.1s ease-in-out;
+    box-shadow: 0 3px 5px rgba(0, 123, 255, 0.3);
+}
+
+.post-link:hover {
+    background-color: #0056b3;
+    transform: translateY(-2px);
+}
+
+.post-link:active {
+    transform: translateY(0);
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+/* 投稿ボタンを画面右下に固定し、丸い流れ星アイコン用のスタイルを追加 */
+.floating-post-button {
+    position: fixed;
+    right: 32px;
+    bottom: 8%;
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    background: #1da1f2;
+    box-shadow: 0 4px 16px rgba(30,144,255,0.18);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    z-index: 1000;
+    border: none;
+    transition: box-shadow 0.2s, background 0.2s;
+}
+.floating-post-button svg {
+    width: 40px;
+    height: 40px;
+    display: block;
+}
+.floating-post-button:hover {
+    background: #178ace;
+    box-shadow: 0 8px 24px rgba(30,144,255,0.28);
+}
+.floating-post-button:active {
+    background: #156fa3;
+}

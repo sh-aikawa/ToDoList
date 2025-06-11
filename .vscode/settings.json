@@ -1,7 +1,9 @@
 {
     "java.configuration.updateBuildConfiguration": "disabled",
     "cSpell.words": [
-        "todolist"
+        "classappend",
+        "todolist",
+        "yotei"
     ],
     "java.compile.nullAnalysis.mode": "disabled"
 }

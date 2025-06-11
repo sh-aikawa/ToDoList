@@ -24,7 +24,7 @@ public class ToDoService {
     }
 
     public List<Task> getTasksByUserId(String username){
-        long userId  = userService.getUserId();
+        long userId  = userService.getId();
         return toDoRepository.getTasksByUserId(userId);
     }
 
@@ -36,8 +36,9 @@ public class ToDoService {
         toDoRepository.updateChecked(taskId, checked);
     }
 
-    public void deleteTask(long taskId){
-        toDoRepository.deleteTask(taskId);
+    public void deleteTask(String username){
+        long userId  = userService.getId();
+        toDoRepository.deleteTask(userId);
     }
 
     public void registerTask(ToDoForm toDoForm){
@@ -47,7 +48,7 @@ public class ToDoService {
         task.setDescription(toDoForm.getDescription());
         task.setImportance(toDoForm.getImportance());
 
-        long userId = userService.getUserId();
+        long userId = userService.getId();
         task.setUserId(userId);
         toDoRepository.insertTask(task);
     }
@@ -65,17 +66,17 @@ public class ToDoService {
     }
 
     public List<Task> getSortDescTasks(String username) {
-        long userId  = userService.getUserId();
+        long userId  = userService.getId();
         return toDoRepository.getSortDescTasks(userId);
     }
 
     public List<Task> getSortAscTasks(String username) {
-        long userId  = userService.getUserId();
+        long userId  = userService.getId();
         return toDoRepository.getSortAscTasks(userId);
     }
 
     public List<Task> getTasksforRoullete(String username) {
-        long userId  = userService.getUserId();
+        long userId  = userService.getId();
         return toDoRepository.getTasksforRoullete(userId);
     }
 

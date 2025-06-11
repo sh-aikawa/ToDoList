@@ -11,23 +11,19 @@ import com.example.todolist.model.User;
 
 @Mapper
 public interface UserMapper {
+    @Select("SELECT id, account_name, account_id, password FROM users WHERE account_id = #{accountId}")
+    User selectUserByAccountId(String accountId);
 
-    @Select("SELECT user_id,username,password FROM users WHERE username = #{username}")
-    User selectUserByUsername(String username);
-
-    @Insert("INSERT INTO users (username, password) VALUES (#{username}, #{password})")
-    @Options(useGeneratedKeys = true, keyProperty = "userId")
+    @Insert("INSERT INTO users (account_name, account_id, password) VALUES (#{accountName}, #{accountId}, #{password})")
+    @Options(useGeneratedKeys = true, keyProperty = "id")
     void insertUser(User user);
 
-    @Select("SELECT user_id FROM users WHERE username = #{username}")
-    long getUserId(String username);
+    @Select("SELECT id FROM users WHERE account_id = #{accountId}")
+    long getId(String accountId);
 
-    @Select("SELECT username FROM users WHERE user_id = #{userId}")
-    String getUsername(long userId);
+    @Select("SELECT account_name FROM users WHERE id = #{id}")
+    String getAccountName(long id);
 
-    @Select("SELECT user_id,username FROM users")
-    List<User> getAllUsers();
-
-    @Select("SELECT user_id, username FROM users WHERE user_id != #{userId}")
-    List<User> getAllFriends(long userId);
+    @Select("SELECT id, account_name, account_id FROM users WHERE id != #{id}")
+    List<User> getAllFriends(long id);
 }

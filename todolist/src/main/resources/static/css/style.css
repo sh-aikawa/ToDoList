@@ -4,6 +4,29 @@ a:visited {
     text-decoration: none;
 }
 
+/*背景*/
+body {
+    background-image: url();
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-color: rgba(255, 255, 255, 0.6);
+    background-blend-mode: lighten;
+}
+
+/*フッター・ヘッターの共通スタイル*/
+.transparent {
+    opacity: 0.9;
+    border-radius: 15px;
+}
+
+/*ヘッダー */
+header {
+    background-color: #f8f8f8;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
 .header-title {
     margin: 20px;
     font-size: 23px;
@@ -13,13 +36,32 @@ a:visited {
     margin-left: auto;
     display: flex;
     align-items: center;
+    background-color: #e0e0e0;
+    width: 100%;
+    height: 80px;
+    box-sizing: border-box;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1001;
+    border-radius: 0 0 15px 15px;
 }
 
-/* ハンバーガーメニュー用（修正版） */
+/*タイトル*/
+.app-title {
+    font-family: 'Courier New', Courier, monospace;
+    color: #555;
+    margin: 0;
+    font-size: 1.5rem;
+    font-weight: bold;
+    letter-spacing: 0.08em;
+    padding-left: 20px;
+}
+
+/* ハンバーガーメニュー */
 .hamburger-nav {
     position: relative;
     height: 60px;
-    z-index: 100;
 }
 
 .menu-toggle {
@@ -27,41 +69,43 @@ a:visited {
 }
 
 .menu-icon {
-    width: 35px;
-    height: 30px;
+    width: 48px;
+    height: 48px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     cursor: pointer;
     position: absolute;
     right: 20px;
-    top: 20px;
-    z-index: 202;
+    top: 6px;
+    z-index: 2002;
 }
 
 .menu-icon span {
     display: block;
     height: 5px;
-    background: #333;
+    background: #555;
     border-radius: 2px;
     transition: 0.3s;
+    margin: 6px 0; 
 }
 
 .menu {
+    color: #555;
     position: fixed;
-    top: 0;
-    right: -400px;
-    /* 完全に隠す（幅と同じだけマイナスに） */
-    width: 400px;
-    /* メニューを大きく */
-    height: 100%;
-    background: #fff;
+    top: 80px;
+    right: -100%;
+    width: 300px;
+    height: calc(100% - 80px);
+    background: #e0e0e0;
     box-shadow: -2px 0 8px rgba(0, 0, 0, 0.15);
     display: flex;
     flex-direction: column;
     padding-top: 60px;
     transition: right 0.3s;
-    z-index: 200;
+    z-index: 1000;
+    border-radius: 0 0 15px 0;
+    overflow-y: auto;
 }
 
 .menu-link {
@@ -102,25 +146,40 @@ a:visited {
     }
 }
 
+/*メインコンテンンツ*/
+.mainArea {
+    margin-top: 80px;
+    margin-bottom: 80px;
+    padding: 20px;
+}
+
+/* フッター */
 .footer-area {
-    background-color: #f8f8f8;
+    background-color: #e0e0e0;
     text-align: center;
-    position: fixed; /* 画面に固定 */
-    bottom: 0; /* 画面下部に配置 */
-    width: 100%; /* 幅を100%に設定 */
-    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.05); /* 上部に影を追加 */
-    z-index: 1000; /* 他の要素の上に表示 */
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 80px;
+    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.05);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 15px 15px 0 0;
 }
 
 .footer-title {
-    padding: 10px; /* パディングを調整 */
+    padding: 10px;
     font-family: 'Courier New', Courier, monospace;
-    color: #555; /* 文字色を調整 */
-    margin: 0; /* マージンをリセット */
-    font-size: 0.9em; /* フォントサイズを調整 */
+    color: #555;
+    margin: 0;
+    font-size: 1.2rem;
+    font-weight: bold;
+    letter-spacing: 0.08em;
 }
 
-/*ホームで使用*/
+/* ホームで使用 */
 .random_div {
     display: flex;
 }
@@ -129,8 +188,28 @@ a:visited {
     display: block;
     width: 100%;
     margin-left: 40px;
-    display: block;
-    width: 100%;
+}
+
+/*検索*/
+.searchArea {
+    display: flex;
+    flex-direction: row;
+    gap: 16px;
+    align-items: center;
+    flex-wrap: wrap;
+    padding: 20px;
+    width: 300px;
+    margin: 30px auto;
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.searchArea form {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin: 0;
 }
 
 /* リスト関係 */
@@ -139,7 +218,7 @@ a:visited {
     text-align: center;
     border-collapse: collapse;
     border-spacing: 0;
-    border-top: solid 1px #778ca3;
+    border-top: solid 1px #555;
 }
 
 .list tr:nth-child(2n) {
@@ -147,30 +226,16 @@ a:visited {
 }
 
 .list tr:nth-child(2n+1) {
-    background: #e9faf9;
+    background: #e0e0e0;
 }
 
 .list th,
 .list td {
     padding: 10px;
-    border-bottom: solid 1px #778ca3;
+    border-bottom: solid 1px #e0e0e0;
 }
 
-/* 隠し背景 */
-body {
-    background-image: url();
-    background-repeat: no-repeat;
-    background-size: cover;
-    /* background-color:rgba(255,255,255,0.8); */
-    background-color: rgba(255, 255, 255, 0.6);
-    /* 半透明の白 */
-    background-blend-mode: lighten;
-}
 
-.transparent {
-    opacity: 0.8;
-    border-radius: 30px;
-}
 
 /* 入力フォーム関係 */
 .itemArea {
@@ -186,7 +251,6 @@ body {
 .box {
     height: 100px;
 }
-
 
 .buttonArea {
     margin-top: 8px;
@@ -216,72 +280,6 @@ body {
     display: inline-block;
 }
 
-
-header {
-    background-color: #f8f8f8;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-}
-
-#chatArea {
-    width: 80%;
-    max-width: 800px;
-    margin: 20px auto;
-    padding: 15px;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    background-color: #f9f9f9;
-    overflow-y: auto;
-    max-height: 600px;
-}
-
-
-.chat {
-    margin-bottom: 10px;
-    display: flex;
-}
-
-.chat>div {
-    max-width: 70%;
-    padding: 10px 15px;
-    border-radius: 18px;
-    word-wrap: break-word;
-    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
-    margin-bottom: 5px;
-    display: flex;
-    flex-direction: column;
-}
-
-.send {
-    background-color: #DCF8C6;
-    align-self: flex-end;
-    margin-left: auto;
-    color: #333;
-}
-
-
-.receive {
-    background-color: #FFFFFF;
-    align-self: flex-start;
-    margin-right: auto;
-    color: #333;
-    border: 1px solid #e0e0e0;
-}
-
-.content {
-    font-size: 1rem;
-    line-height: 1.4;
-    padding-bottom: 5px;
-}
-
-.timestamp {
-    font-size: 0.75rem;
-    color: #777;
-    text-align: right;
-    margin-top: 5px;
-}
-
 /* アニメーション（遊び用） */
 .anim-box.poyopoyo {
     animation: poyopoyo 1s infinite;
@@ -302,321 +300,6 @@ header {
         transform: scale(0.95);
     }
 }
-
-
-/* chat 検索関連*/
-#searchArea {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-    padding: 20px;
-    max-width: 600px;
-    margin: 30px auto;
-    background-color: #f9f9f9;
-    border-radius: 10px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-}
-
-.user {
-    background-color: #ffffff;
-    border: 1px solid #e0e0e0;
-    border-radius: 8px;
-    transition: all 0.3s ease;
-    overflow: hidden;
-}
-
-.user:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
-}
-
-.user a {
-    display: block;
-    padding: 15px 20px;
-    text-decoration: none;
-    color: #333;
-    display: flex;
-    align-items: center;
-}
-
-.username {
-    font-size: 1.1em;
-    font-weight: 600;
-    color: #007bff;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-}
-
-.user a:hover .username {
-    color: #0056b3;
-}
-
-/* chat関係 */
-
-#chatArea {
-    width: 80%;
-    max-width: 800px;
-    margin: 20px auto;
-    padding: 15px;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    background-color: #f9f9f9;
-    overflow-y: auto;
-    /* 画面全体のスクロールを避けるため、chatAreaの最大高さを調整 */
-    /* header, footer, input-areaの合計高さを約180pxと仮定して計算 */
-    max-height: calc(100vh - 180px);
-}
-
-.chat {
-    margin-bottom: 10px;
-    display: flex;
-}
-
-.chat>div {
-    max-width: 70%;
-    padding: 10px 15px;
-    border-radius: 18px;
-    word-wrap: break-word;
-    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
-    margin-bottom: 5px;
-    display: flex;
-    flex-direction: column;
-}
-
-.send {
-    background-color: #DCF8C6;
-    align-self: flex-end;
-    margin-left: auto;
-    color: #333;
-}
-
-.receive {
-    background-color: #FFFFFF;
-    align-self: flex-start;
-    margin-right: auto;
-    color: #333;
-    border: 1px solid #e0e0e0;
-}
-
-.content {
-    font-size: 1rem;
-    line-height: 1.4;
-    padding-bottom: 5px;
-}
-
-.timestamp {
-    font-size: 0.75rem;
-    color: #777;
-    text-align: right;
-    margin-top: 5px;
-}
-
-.message-input-area {
-    display: flex;
-    padding: 10px 15px;
-    background-color: #f0f2f5;
-    border-top: 1px solid #e0e0e0;
-    gap: 10px;
-    align-items: flex-end;
-    position: fixed;
-    bottom: 60px; /* Adjust this value based on your footer's height */
-    left: 0;
-    width: 100%;
-    box-sizing: border-box;
-    z-index: 999; /* Lower z-index than footer so footer is on top */
-    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.05);
-}
-
-.message-input-area textarea {
-    flex-grow: 1;
-    padding: 10px 12px;
-    border: 1px solid #e0e0e0;
-    border-radius: 20px;
-    resize: none;
-    min-height: 40px;
-    max-height: 80px;
-    font-size: 0.95rem;
-    line-height: 1.4;
-    overflow-y: auto;
-    transition: all 0.2s ease-in-out;
-}
-
-.message-input-area textarea:focus {
-    border-color: #007bff;
-    box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.25);
-    outline: none;
-}
-
-.message-input-area button {
-    padding: 10px 20px;
-    background-color: #007bff;
-    color: white;
-    border: none;
-    border-radius: 20px;
-    cursor: pointer;
-    font-size: 1rem;
-    font-weight: bold;
-    white-space: nowrap;
-    height: 40px;
-    transition: background-color 0.2s ease-in-out, transform 0.1s ease-in-out;
-}
-
-.message-input-area button:hover {
-    background-color: #0056b3;
-    transform: translateY(-1px);
-}
-
-.message-input-area button:active {
-    transform: translateY(0);
-    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.2);
-}
-
-/* Comet関連*/
-
-.comet-post-container {
-    max-width: 500px;
-    margin: 30px auto;
-    padding: 25px;
-    background-color: #ffffff;
-    border-radius: 12px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-}
-
-.comet-post-container .post-title {
-    font-size: 1.8em;
-    font-weight: 700;
-    color: #1da1f2;
-    text-align: center;
-    margin-bottom: 25px;
-}
-
-.comet-post-container .content-label {
-    display: block;
-    font-size: 1.1em;
-    color: #555;
-    margin-bottom: 8px;
-    font-weight: 600;
-}
-
-.comet-post-container #content {
-    width: calc(100% - 20px);
-    padding: 12px 10px;
-    border: 1px solid #e0e0e0;
-    border-radius: 8px;
-    font-size: 1em;
-    min-height: 120px;
-    resize: vertical;
-    box-sizing: border-box;
-    transition: border-color 0.3s ease;
-}
-
-.comet-post-container #content:focus {
-    border-color: #1da1f2;
-    outline: none;
-}
-
-.comet-post-container .post-button {
-    display: block;
-    width: 100%;
-    padding: 12px 20px;
-    margin-top: 20px;
-    background-color: #1da1f2;
-    color: white;
-    border: none;
-    border-radius: 25px;
-    font-size: 1.1em;
-    font-weight: 700;
-    cursor: pointer;
-    transition: background-color 0.3s ease, transform 0.2s ease;
-}
-
-.comet-post-container .post-button:hover {
-    background-color: #178ace;
-    transform: translateY(-2px);
-}
-
-.comet-post-container .post-button:active {
-    transform: translateY(0);
-}
-
-.timeline-container {
-    max-width: 700px;
-    margin: 20px auto;
-    padding: 0 15px;
-}
-
-.comet {
-    background-color: #fff;
-    border: 1px solid #e0e0e0;
-    border-radius: 10px;
-    padding: 15px 20px;
-    margin-bottom: 15px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
-    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
-}
-
-.comet:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-
-.comet .username {
-    font-weight: bold;
-    color: #333;
-    font-size: 1.1rem;
-    margin-bottom: 2px;
-}
-
-.comet .userId {
-    color: #777;
-    font-size: 0.85rem;
-    margin-bottom: 10px;
-}
-
-.comet .content {
-    font-size: 1rem;
-    line-height: 1.6;
-    color: #444;
-    margin-bottom: 10px;
-    white-space: pre-wrap;
-    /* 改行を保持 */
-    word-wrap: break-word;
-    /* 長い単語で改行 */
-}
-
-.comet .timestamp {
-    font-size: 0.75rem;
-    color: #999;
-    text-align: right;
-}
-
-.post-link {
-    display: block;
-    width: fit-content;
-    margin: 30px auto;
-    padding: 12px 25px;
-    background-color: #007bff;
-    color: white;
-    text-decoration: none;
-    border-radius: 25px;
-    font-weight: bold;
-    font-size: 1.05rem;
-    transition: background-color 0.2s ease-in-out, transform 0.1s ease-in-out;
-    box-shadow: 0 3px 5px rgba(0, 123, 255, 0.3);
-}
-
-.post-link:hover {
-    background-color: #0056b3;
-    transform: translateY(-2px);
-}
-
-.post-link:active {
-    transform: translateY(0);
-    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.2);
-}
-
 /* ルーレット用 演出 step1.引く, step2.爆発, step3.虹色, step4.結果*/
 .background_roullete{
     background-color: black;
