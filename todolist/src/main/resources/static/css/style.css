@@ -98,7 +98,8 @@ header {
     width: 300px;
     height: calc(100% - 80px);
     background: #e0e0e0;
-    box-shadow: -2px 0 8px rgba(0, 0, 0, 0.15);
+    /* box-shadow: -2px 0 8px rgba(0, 0, 0, 0.15); */
+    box-shadow: none;
     display: flex;
     flex-direction: column;
     padding-top: 60px;
@@ -212,30 +213,127 @@ header {
     margin: 0;
 }
 
-/* リスト関係 */
-.list {
-    width: 100%;
+/* ToDoリスト関係 */
+.listTitle{
+    padding-top: 10px;
     text-align: center;
-    border-collapse: collapse;
-    border-spacing: 0;
-    border-top: solid 1px #555;
 }
 
-.list tr:nth-child(2n) {
+.toDolist {
+    width: 100%;
+    table-layout: fixed;
+    text-align: center;
+    border-collapse: separate; /* ←ここをcollapseからseparateに変更 */
+    border-spacing: 0;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+}
+
+.toDolist tr:nth-child(2n) {
     background: #ffffff;
 }
 
-.list tr:nth-child(2n+1) {
+.toDolist tr:nth-child(2n+1) {
     background: #e0e0e0;
 }
 
-.list th,
-.list td {
+.toDolist th,
+.toDolist td {
     padding: 10px;
     border-bottom: solid 1px #e0e0e0;
+    border-right: 1px solid #bdbdbd; /* 列の境目 */
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    background-clip: padding-box;
 }
 
+/* チェックボックス */
+.toDolist th:nth-child(1),
+.toDolist td:nth-child(1) {
+    width: 40px; 
+}
+ /* タイトル列 */
+.toDolist th:nth-child(2),
+.toDolist td:nth-child(2) {
+    width: 220px;
+    white-space: normal;      /* 折り返し有効 */
+    word-break: break-all;    /* 長い単語も折り返す */
+    text-overflow: clip;      /* 省略記号を消す */
+}
+ /* 期限 */
+.toDolist th:nth-child(3),
+.toDolist td:nth-child(3) {
+    width: 100px;
+}
+/* 優先度 */
+.toDolist th:nth-child(4),
+.toDolist td:nth-child(4) {
+    width: 40px; 
+}
 
+/* 最後の列の右ボーダーを消す */
+.toDolist th:last-child,
+.toDolist td:last-child {
+    border-right: none;
+}
+
+/* completedList用（3列バージョン） */
+.completedList {
+    width: 100%;
+    table-layout: fixed;
+    text-align: center;
+    border-collapse: separate;
+    border-spacing: 0;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+}
+
+.completedList tr:nth-child(2n) {
+    background: #ffffff;
+}
+
+.completedList tr:nth-child(2n+1) {
+    background: #e0e0e0;
+}
+
+.completedList th,
+.completedList td {
+    padding: 10px;
+    border-bottom: solid 1px #e0e0e0;
+    border-right: 1px solid #bdbdbd;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    background-clip: padding-box;
+}
+
+/* タイトル列 */
+.completedList th:nth-child(1),
+.completedList td:nth-child(1) {
+    width: 260px;
+    white-space: normal;
+    word-break: break-all;
+    text-overflow: clip;
+}
+/* 期限 */
+.completedList th:nth-child(2),
+.completedList td:nth-child(2) {
+    width: 120px;
+}
+/* 優先度 */
+.completedList th:nth-child(3),
+.completedList td:nth-child(3) {
+    width: 60px;
+}
+
+/* 最後の列の右ボーダーを消す */
+.completedList th:last-child,
+.completedList td:last-child {
+    border-right: none;
+}
 
 /* 入力フォーム関係 */
 .itemArea {
