@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="ja" xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="~{layout :: head(表示)}"></head>
+
+<body>
+    <div th:replace="~{layout :: header}"></div>
+    <div class="mainArea">
+        <div class="settingArea">
+        <h3>テーマ設定</h3>
+        カラーコードを入力してください : #
+        <input type="text" id="themeColor" name="themeColor" value=""  placeholder="例: 000000" />
+        <button type="button" onclick="changeColor(1)">変更</button>
+        <h3>文字色</h3>
+        カラーコードを入力してください : #
+        <input type="text" id="textColor" name="textColor" value=""  placeholder="例: 000000" />
+        <button type="button" onclick="changeColor(2)">変更</button>
+        <h3></h3>
+        <button type="button" onclick="changeColor(0)">リセット</button>
+    </div>
+    <div th:replace="~{layout :: footer}"></div>
+</body>
+
+</html>

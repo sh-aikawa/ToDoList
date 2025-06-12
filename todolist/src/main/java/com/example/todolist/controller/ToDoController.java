@@ -149,4 +149,9 @@ public class ToDoController {
         return "redirect:/todolist/finish";
     }
 
+    @GetMapping("/setting")
+    public String setting(){
+        return "toDo/setting";
+    }
+
 }
