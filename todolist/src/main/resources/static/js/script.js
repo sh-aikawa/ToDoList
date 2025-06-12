@@ -1,5 +1,3 @@
-
-
 window.addEventListener("DOMContentLoaded", function () {
     let isDescending = localStorage.getItem('isDescending') === 'true';//ソート用
 
@@ -179,6 +177,11 @@ window.addEventListener("DOMContentLoaded", function () {
 
     document.getElementById("sortDesc").onclick = toggleSort;
     document.getElementById("sortAsc").onclick = toggleSort;
+
+    // nexus chatページで1分ごとにchat-listを自動更新
+    if (window.location.pathname === "/nexus/chat") {
+        setInterval(update, 60000); // 1分ごとにupdate実行
+    }
 });
 // タスクのチェックボックスが変更されたときに呼び出される関数
 function updateCheckedStatus(checkbox) {
@@ -208,8 +211,4 @@ function updateCheckedStatus(checkbox) {
         }
     });
     // nexusのチャットエリアのスクロールを最新にする
-
-
 }
-
-
