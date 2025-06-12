@@ -30,7 +30,6 @@ public class NexusService {
 
         long userId = userService.getId();
         message.setSendUserId(userId);
-        System.out.println(message.getReceiveUserId()+","+message.getSendUserId());//0.1
         nexusRepository.sendMessage(message);
     }
 

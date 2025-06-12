@@ -147,6 +147,10 @@ public class ToDoController {
         toDoService.deleteTask(username);
         return "redirect:/todolist/finish";
     }
+    @GetMapping("/setting")
+    public String setting(){
+        return "toDo/setting";
+    }
 
     @GetMapping("/finishDeleteByTaskId")
     public String finishDeleteByTaskId(@RequestParam long taskId) {
@@ -154,5 +158,4 @@ public class ToDoController {
         toDoService.deleteTaskByTaskId(Id);
         return "redirect:/todolist/finish";
     }
-
 }
