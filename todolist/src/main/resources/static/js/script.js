@@ -158,6 +158,7 @@ window.addEventListener("DOMContentLoaded", function () {
 
                         default:
                             title_change_url.innerText = "URLを入力してください！"
+                            break;
                     }
                 } else if (url) {
                     title_change_url.innerText = "URLを適用しました";
@@ -208,6 +209,11 @@ window.addEventListener("DOMContentLoaded", function () {
 
     document.getElementById("sortDesc").onclick = toggleSort;
     document.getElementById("sortAsc").onclick = toggleSort;
+
+    // nexus chatページで1分ごとにchat-listを自動更新
+    if (window.location.pathname === "/nexus/chat") {
+        setInterval(update, 60000); // 1分ごとにupdate実行
+    }
 });
 
 // タスクのチェックボックスが変更されたときに呼び出される関数

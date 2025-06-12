@@ -8,8 +8,8 @@
     <div class="mainArea">
         <div class="timeline-container">
             <div th:each="comet : ${comets}" class="comet">
-                <div class="username" th:text="${comet.accountName}">ユーザー名</div>
-                <div class="accountId" th:text="'@' + ${comet.accountId}">アカウントID</div>
+                <span class="username" th:text="${comet.accountName}">ユーザー名</span>
+                <span class="accountId" th:text="'@' + ${comet.accountId}">アカウントID</span>
                 <div class="content" th:text="${comet.content}">ツイート内容</div>
                 <div class="timestamp" th:text="${comet.formattedCreatedAt}">タイムスタンプ</div>
             </div>
@@ -24,5 +24,28 @@
     </div>
     <div th:replace="~{layout :: footer}"></div>
 </body>
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+            const timeline = document.getElementsByClassName('timeline-container');
+
+            setInterval(reloadTimeline, 5000);
+
+        });
+
+        function reloadTimeline() {
+            const timeline = document.getElementsByClassName('timeline-container')[0];
+            const url = window.location.pathname + '?fragment=true';
+            fetch(url, { headers: { 'X-Requested-With': 'XMLHttpRequest' } })
+                .then(response => response.text())
+                .then(html => {
+                    const temp = document.createElement('div');
+                    temp.innerHTML = html;
+                    const newTimeline = temp.querySelector('.timeline-container');
+                    if (newTimeline && timeline) {
+                        timeline.innerHTML = newTimeline.innerHTML;
+                    }
+                });
+        }
+    </script>
 
 </html>

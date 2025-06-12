@@ -122,18 +122,17 @@ public class ToDoController {
         model.addAttribute("tasks", tasks);
         return "roulette_effect";
     }
-    
-    
+
     @GetMapping("roulette_effect/listroulette")
-    public String getlistRoulette(Model model){
+    public String getlistRoulette(Model model) {
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
         String username = auth.getName();
         Random random = new Random();
         List<Task> tasks = toDoService.getTasksforRoullete(username);
-        if(tasks.size() > 0){
+        if (tasks.size() > 0) {
             Task task = tasks.get(random.nextInt(tasks.size()));
             model.addAttribute("task", task);
-        }else{
+        } else {
             Task task = new Task();
             task.setTitle("ありません！！！！");
             model.addAttribute("task", task);

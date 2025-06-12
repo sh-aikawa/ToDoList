@@ -24,9 +24,14 @@
                     <textarea id="description" th:field="*{description}" class="item box" maxlength="5000"></textarea>
                 </div>
 
-                <label for="importance"></label>
+                <label for="importance">優先度</label>
                 <div class="itemArea">
-                    <textarea id="importance" th:field="*{importance}" class="item box"></textarea>
+                    <select id="importance" name="importance" th:field="*{importance}">
+                        <option value="重要かつ緊急">重要かつ緊急</option>
+                        <option value="重要だが緊急でない">重要だが緊急でない</option>
+                        <option value="緊急だが重要でない">緊急だが重要でない</option>
+                        <option value="重要でも緊急でもない">重要でも緊急でもない</option>
+                    </select>
                 </div>
 
                 <div class="buttonArea">

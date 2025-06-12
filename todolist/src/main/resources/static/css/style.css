@@ -25,6 +25,7 @@ header {
     display: flex;
     align-items: center;
     justify-content: space-between;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.39);
 }
 
 .header-title {
@@ -329,6 +330,12 @@ header {
     width: 60px;
 }
 
+/* アクション操作 */
+.completedList th:nth-child(4),
+.completedList td:nth-child(4) {
+    width: 20px;
+}
+
 /* 最後の列の右ボーダーを消す */
 .completedList th:last-child,
 .completedList td:last-child {
@@ -367,17 +374,6 @@ header {
     padding: 10px
 }
 
-/* Registar.htmlで使用 */
-.register_textarea {
-    height: 100px;
-    width: 50%;
-    resize: none;
-}
-
-.title_text {
-    display: inline-block;
-}
-
 /* アニメーション（遊び用） */
 .anim-box.poyopoyo {
     animation: poyopoyo 1s infinite;
@@ -398,52 +394,118 @@ header {
         transform: scale(0.95);
     }
 }
-/* ルーレット用 演出 step1.引く, step2.爆発, step3.虹色, step4.結果*/
-.background_roullete{
-    background-color: black;
+
+/* レジスタ用のstyle */
+.registar_background{
+    animation: fade_in 1s;
+    background-size: contain;
+    background-color: rgb(255, 255, 255);
+    max-width: 497px;
+    max-height: 505px;
+    width: 50%;
+    position: absolute;
+    left:32%;
+    right:30%;
+    border-radius: 20%;
+    box-shadow: 10px 10px 4px #ccc ;
+    border: solid 2px rgba(255, 255, 255);
 }
 
-.font {
+@keyframes fade_in{
+    0%{
+        transform: translateY(-30px);
+        opacity:0;
+    }100%{
+        transform: translateY(0px);
+        opacity:100;
+    }
+}
+
+.title_text {
+    text-align: center;
     display: block;
-    font-size: 40px;
+    margin-bottom: 20px;
+}
+
+.registar_font{
+    font-size: 20px;
+    text-align: center;
+    display: block;
+}
+
+.registar_input{
+    text-align: center;
+    display: block;
+    padding: 5px;
+    margin-bottom: 10px;
+    
+}
+
+
+#limitDate{
+    width: 50%;
+    font-size: 20px;
     text-align: center;
 }
 
-.kuji_color_black{
-    margin-top: 130px; 
-    color: black;
+
+#importance{
+    width: 50%;
+    font-size: 20px;
+    text-align: center;
+    
 }
 
-.kuji_color_white{
-    color: white; 
-}
-
-.fade {
-    animation: fade 2s forwards;
-}
-
-@keyframes fade {
-    0% {
-        opacity: 1.0;
-    }
-    100% {
-        opacity: 0;
-    }
-}
-
-.kuji{
-    animation: shake 1.5s infinite;
-    background-image: url(https://japaclip.com/files/omikuji.png);
-    background-repeat: no-repeat;
-    width: 300px; 
-    height: 400px;
-    background-size: contain;
-    display:flex;
+.registar_textarea {
+    height: 100px;
+    width: 50%;
     margin: 0 auto;
+    display: block;
+    resize: none;
+    margin-bottom: 10px;
 }
 
-@keyframes shake {
-    0%{ transform:rotate(0);}
-    50%{transform:rotate(90deg);}
-    100%{ transform:rotate(0); }
+.registar_item {
+    width: 50%;
+    resize: none;
+}
+
+.registar_parent{
+    text-align: center;
+}
+
+.registar_button{
+    width: 10em;
+    margin-top: 20px;
+    border: none;
+    background-color: rgba(0, 221, 255, 0.785); 
+    font-size: 30px;
+    color: white;
+    display: inline-block;
+    border-radius: 25px;
+    cursor: pointer;
+}
+
+.registar_button:hover{
+    transform: translateY(-3px);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+}
+
+/* 完了リストで使用*/
+
+.button_delete{
+    width: 10em;
+    margin-top: 20px;
+    border: none;
+    background-color: rgba(0, 221, 255, 0.785); 
+    font-size: 30px;
+    color: white;
+    display: inline-block;
+    border-radius: 25px;
+    cursor: pointer;
+}
+
+.button_delete:hover{
+    transform: translateY(-3px);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
 }
