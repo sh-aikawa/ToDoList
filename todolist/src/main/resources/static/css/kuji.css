@@ -1,0 +1,48 @@
+.background_roullete{
+    background-color: black;
+}
+
+.font {
+    display: block;
+    font-size: 40px;
+    text-align: center;
+}
+
+.kuji_color_black{
+    margin-top: 130px; 
+    color: black;
+}
+
+.kuji_color_white{
+    color: white; 
+}
+
+.fade {
+    animation: fade 2s forwards;
+}
+
+@keyframes fade {
+    0% {
+        opacity: 1.0;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+
+.kuji{
+    animation: shake 1.5s infinite;
+    background-image: url(https://japaclip.com/files/omikuji.png);
+    background-repeat: no-repeat;
+    width: 300px; 
+    height: 400px;
+    background-size: contain;
+    display:flex;
+    margin: 0 auto;
+}
+
+@keyframes shake {
+    0%{ transform:rotate(0);}
+    50%{transform:rotate(90deg);}
+    100%{ transform:rotate(0); }
+}

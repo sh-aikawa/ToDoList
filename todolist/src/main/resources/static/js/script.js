@@ -126,6 +126,7 @@ window.addEventListener("DOMContentLoaded", function () {
 
                         default:
                             title_change_url.innerText = "URLを入力してください！"
+                            break;
                     }
                 } else if (url) {
                     title_change_url.innerText = "URLを適用しました";
