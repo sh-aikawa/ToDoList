@@ -64,4 +64,8 @@ public class ToDoRepository {
         return toDoMapper.getTasksforRoullete(userId);
     }
 
+    public void deleteTaskByTaskId(long userId, long taskId){
+        toDoMapper.deleteTaskByTaskId(userId, taskId);
+    }
+
 }

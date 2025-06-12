@@ -50,4 +50,7 @@ public interface ToDoMapper {
     @Select("SELECT * FROM tasks WHERE user_id = #{userId} AND checked = false")
     List<Task> getTasksforRoullete(long userId);
 
+    @Delete("DELETE FROM tasks WHERE user_id = #{userId} AND task_id = #{taskId} AND checked = true")
+    void deleteTaskByTaskId(long userId, long taskId);
+
 }

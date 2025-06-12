@@ -10,10 +10,6 @@
             <table class="completedList">
                 <h3 class="listTitle">完了済みタスク一覧</h3>
 
-                <form th:action="@{/todolist/finishDelete}" method="get" id="finishDelete">
-                    <button type="submit" id="button">削除</button>
-                </form>
-
                 <tr>
                     <th>タイトル</th>
                     <th>期限</th>
@@ -24,7 +20,8 @@
                     <th><a th:href="@{/todolist/detail(taskId=${task.taskId})}"><span
                                 th:text="${task.title}">TodoListをつくる</span></a></th>
                     <th><span th:text="${task.limitDate}">2025/6/5</span></th>
-                    <th><span>1</span></th>
+                    <th><span th:text="${task.importance}">1</th>
+                    <th><span><a id="button_delete" class = "button_delete" th:href = "@{/todolist/finishDeleteByTaskId(taskId=${task.taskId})}"><img src="/svg/trashbox.svg" alt="送信" width="32" height="32" x="4" y="4"/></a></span></th>
                 </tr>
             </table>
         </div>

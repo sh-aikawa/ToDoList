@@ -80,4 +80,8 @@ public class ToDoService {
         return toDoRepository.getTasksforRoullete(userId);
     }
 
+    public void deleteTaskByTaskId(long taskId){
+        long userId = userService.getId();
+        toDoRepository.deleteTaskByTaskId(userId, taskId);
+    }
 }

@@ -183,6 +183,7 @@ window.addEventListener("DOMContentLoaded", function () {
         setInterval(update, 60000); // 1分ごとにupdate実行
     }
 });
+
 // タスクのチェックボックスが変更されたときに呼び出される関数
 function updateCheckedStatus(checkbox) {
     const taskId = checkbox.getAttribute("data-task-id");
@@ -212,3 +213,14 @@ function updateCheckedStatus(checkbox) {
     });
     // nexusのチャットエリアのスクロールを最新にする
 }
+
+//削除処理の実装
+
+let button = document.getElementById("button_delete");
+button.addEventListener('click', function(){  
+    function delete_update_task(taskId){
+        const token = document.querySelector('meta[name="_csrf"]').getAttribute("content");
+        const header = document.querySelector('meta[name="_csrf_header"]').getAttribute("content");
+    }
+
+});
