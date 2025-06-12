@@ -9,6 +9,7 @@ window.addEventListener("DOMContentLoaded", function () {
     const comet = document.getElementById("comet");
     const logout = document.getElementById("logout");
     const nexus = document.getElementById("nexus");
+    const setting = document.getElementById("setting");
 
     if (path === "/login" || path === "/userRegister") {
         if (nav) nav.style.display = "none";
@@ -20,6 +21,37 @@ window.addEventListener("DOMContentLoaded", function () {
         if (path === "/comet" && comet) comet.style.display = "none";
         if (path === "/login" && logout) logout.style.display = "none";
         if (path === "/nexus" && nexus) nexus.style.display = "none";
+        if (path === "/setting" && setting) setting.style.display = "none";
+    }
+    
+    //テーマカラー
+    let themeColor = localStorage.getItem('theme');
+    let header = document.querySelector(".header-area");
+    let footer = document.querySelector(".footer-area");
+    let menu = document.querySelector(".menu");
+    if (themeColor) {
+        header.style.backgroundColor = themeColor;
+        footer.style.backgroundColor = themeColor;
+        menu.style.backgroundColor = themeColor;
+    }
+
+    //文字色
+    let textColor = localStorage.getItem('text');
+    let hedTitle = document.querySelector(".app-title");
+    let menuIcons = document.querySelectorAll(".menu-icon");
+    let menuLinks = document.querySelectorAll(".menu-link");
+    let fotTitle = document.querySelector(".footer-title");
+    if (textColor) {
+        if (hedTitle) hedTitle.style.color = textColor;
+        menuIcons.forEach(function (icon) {
+            icon.querySelectorAll("span").forEach(function(span){
+                span.style.backgroundColor = textColor;
+            });
+        });
+        menuLinks.forEach(function (link) {
+            link.style.color = textColor;
+        });
+        if (fotTitle) fotTitle.style.color = textColor;
     }
 
     //背景設定
@@ -28,7 +60,7 @@ window.addEventListener("DOMContentLoaded", function () {
     let push = document.getElementById("item");
     let title_change_url = document.getElementById('title_text');
     //ログイン、登録画面以外に適応
-    if (path !== "/login" && path !== "/userRegister" && path !=="/todolist/roulette_effect") {
+    if (path !== "/login" && path !== "/userRegister" && path !== "/todolist/roulette_effect") {
         const bgUrl = localStorage.getItem('bgImage');
         //nullチェック
         if (bgUrl) {
@@ -56,8 +88,8 @@ window.addEventListener("DOMContentLoaded", function () {
 
     //おみくじ演出
     let select_div = document.getElementById("select");
-    if(select_div){
-        select_div.addEventListener('click', function(){
+    if (select_div) {
+        select_div.addEventListener('click', function () {
             select_div.classList.add('fade');
             setTimeout(function () {
                 location.href = "roulette_effect/listroulette";
@@ -183,6 +215,7 @@ window.addEventListener("DOMContentLoaded", function () {
         setInterval(update, 60000); // 1分ごとにupdate実行
     }
 });
+
 // タスクのチェックボックスが変更されたときに呼び出される関数
 function updateCheckedStatus(checkbox) {
     const taskId = checkbox.getAttribute("data-task-id");
@@ -212,3 +245,38 @@ function updateCheckedStatus(checkbox) {
     });
     // nexusのチャットエリアのスクロールを最新にする
 }
+
+//色変え処理
+function changeColor(flag) {
+    let defaultThemeColor = "#e0e0e0";
+    let defaultTextColor = "#555";
+    let themeColor = document.getElementById("themeColor").value;
+    let textColor = document.getElementById("textColor").value;
+    const hexPattern = /^([0-9A-F]{3}){1,2}$/i;
+
+    if (flag == 0) {
+        // デフォルトの色にリセット
+        localStorage.setItem('theme', defaultThemeColor);
+        localStorage.setItem('text', defaultTextColor);
+        location.reload(true);
+    } else if (flag == 1) {
+        //テーマ
+        if (themeColor && hexPattern.test(themeColor)) {
+            localStorage.setItem('theme', "#" + themeColor);
+            location.reload(true);
+        } else {
+            alert("正しい色を入力してください（例: ff5733）");
+        }
+    } else if (flag == 2) {
+        //文字
+        if (textColor && hexPattern.test(textColor)) {
+            localStorage.setItem('text', "#" + textColor);
+            location.reload(true);
+        } else {
+            alert("正しい色を入力してください（例: ff5733）");
+        }
+    }
+}
+
+
+
