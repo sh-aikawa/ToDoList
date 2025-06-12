@@ -330,6 +330,12 @@ header {
     width: 60px;
 }
 
+/* アクション操作 */
+.completedList th:nth-child(4),
+.completedList td:nth-child(4) {
+    width: 20px;
+}
+
 /* 最後の列の右ボーダーを消す */
 .completedList th:last-child,
 .completedList td:last-child {
@@ -407,8 +413,10 @@ header {
 
 @keyframes fade_in{
     0%{
+        transform: translateY(-30px);
         opacity:0;
     }100%{
+        transform: translateY(0px);
         opacity:100;
     }
 }
@@ -479,6 +487,25 @@ header {
 }
 
 .registar_button:hover{
+    transform: translateY(-3px);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+}
+
+/* 完了リストで使用*/
+
+.button_delete{
+    width: 10em;
+    margin-top: 20px;
+    border: none;
+    background-color: rgba(0, 221, 255, 0.785); 
+    font-size: 30px;
+    color: white;
+    display: inline-block;
+    border-radius: 25px;
+    cursor: pointer;
+}
+
+.button_delete:hover{
     transform: translateY(-3px);
     box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
 }
