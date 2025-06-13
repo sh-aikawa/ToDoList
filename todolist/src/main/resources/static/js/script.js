@@ -330,15 +330,14 @@ function changeColor(flag) {
         //テーブル
         //[1行目、偶数、奇数]
         const tableColors = [
-            "#FF6666", "#FFCCCC", "#FF9999", // 赤の配色
-            "#6666FF", "#CCCCFF", "#9999FF", // 青の配色
-            "#FFFF00", "#FFFFCC", "#FFFF66", // 黄色の配色
-            "#00FF00", "#CCFFCC", "#66FF66", // 緑の配色
-            "#FFC0CB", "#FFD0E6", "#FFB0D1", // ピンクの配色
-            "#ADD8E6", "#CCD8E6", "#BCD8E6", // 水色の配色
-            "#996699", "#CC99CC", "#B399B3"  // 紫の配色
+            "#FF6666", "#FFE6E6", "#FF9999", // 赤
+            "#6666FF", "#E6E6FF", "#9999FF", // 青
+            "#FFFF00", "#FFFFE6", "#FFFF66", // 黄色
+            "#00FF00", "#E6FFE6", "#66FF66", // 緑
+            "#ffb2ff", "#ffe6ff", "#ffd1ff", // ピンク
+            "#9effff", "#c6ffff", "#b0ffff", // 水色
+            "#d1a3ff", "#e0c2ff", "#d9b3ff"  // 紫
         ];
-
         let index = tableColor * 3
         localStorage.setItem('table', tableColors[index]);
         localStorage.setItem('even', tableColors[index + 1]);
