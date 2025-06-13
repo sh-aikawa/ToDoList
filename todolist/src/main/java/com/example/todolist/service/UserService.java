@@ -21,6 +21,10 @@ public class UserService {
     }
 
     public void createUser(UserForm userForm) {
+        // 既存アカウントIDの重複チェック
+        if (userRepository.selectUserByAccountId(userForm.getAccountId()) != null) {
+            throw new com.example.todolist.exception.UniqueException("アカウントIDは既に使用されています。");
+        }
         User user = new User();
         user.setAccountName(userForm.getAccountName());
         user.setAccountId(userForm.getAccountId());
