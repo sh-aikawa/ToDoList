@@ -537,6 +537,11 @@ header {
 .button_delete{
     border:none;
     background-color:rgba(255, 255, 255, 0);
+    display: block;
+    text-align: right;
+    float:right;
+    margin-right: 30px;
+    margin-left: -80px;
 }
 
 .settingArea {
