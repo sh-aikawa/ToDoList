@@ -6,6 +6,9 @@
     <div class="mainArea">
         <div class="login-card">
             <h3 class="login-title">ユーザ登録</h3>
+            <div th:if="${error}" class="login-error">
+                <span th:text="${error}">アカウントIDは使用済みです</span>
+            </div>
             <form th:action="@{/userRegister}" th:object="${userForm}" method="post" class="login-form">
                 <div class="login-form-group">
                     <label for="accountName" class="login-label">アカウント名：</label>
