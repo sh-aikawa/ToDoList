@@ -24,79 +24,82 @@ window.addEventListener("DOMContentLoaded", function () {
         if (path === "/setting" && setting) setting.style.display = "none";
     }
 
-    //テーマカラー
-    let themeColor = localStorage.getItem('theme');
-    let header = document.querySelector(".header-area");
-    let footer = document.querySelector(".footer-area");
-    let menu = document.querySelector(".menu");
-    if (themeColor) {
-        header.style.backgroundColor = themeColor;
-        footer.style.backgroundColor = themeColor;
-        menu.style.backgroundColor = themeColor;
-    }
+    if (!(path === "/efect")) {
+        //テーマカラー
+        let themeColor = localStorage.getItem('theme');
+        let header = document.querySelector(".header-area");
+        let footer = document.querySelector(".footer-area");
+        let menu = document.querySelector(".menu");
+        if (themeColor) {
+            header.style.backgroundColor = themeColor;
+            footer.style.backgroundColor = themeColor;
+            menu.style.backgroundColor = themeColor;
+        }
 
-    //文字色
-    let textColor = localStorage.getItem('text');
-    let hedTitle = document.querySelector(".app-title");
-    let menuIcons = document.querySelectorAll(".menu-icon");
-    let menuLinks = document.querySelectorAll(".menu-link");
-    let fotTitle = document.querySelector(".footer-title");
-    if (textColor) {
-        if (hedTitle) hedTitle.style.color = textColor;
-        menuIcons.forEach(function (icon) {
-            icon.querySelectorAll("span").forEach(function (span) {
-                span.style.backgroundColor = textColor;
+        //文字色
+        let textColor = localStorage.getItem('text');
+        let hedTitle = document.querySelector(".app-title");
+        let menuIcons = document.querySelectorAll(".menu-icon");
+        let menuLinks = document.querySelectorAll(".menu-link");
+        let fotTitle = document.querySelector(".footer-title");
+        if (textColor) {
+            if (hedTitle) hedTitle.style.color = textColor;
+            menuIcons.forEach(function (icon) {
+                icon.querySelectorAll("span").forEach(function (span) {
+                    span.style.backgroundColor = textColor;
+                });
             });
-        });
-        menuLinks.forEach(function (link) {
-            link.style.color = textColor;
-        });
-        if (fotTitle) fotTitle.style.color = textColor;
-    }
-
-    //テーブルの色変更
-    // localStorage から色を取得
-    let tableColor = localStorage.getItem('table');
-    let even = localStorage.getItem('even');
-    let odd = localStorage.getItem('odd');
-
-    if (tableColor && even && odd) {
-        // ToDoリスト
-        let toDoFirstRow = document.querySelector('.toDolist tr:nth-child(1)');
-        if (toDoFirstRow) {
-            toDoFirstRow.style.backgroundColor = tableColor;
+            menuLinks.forEach(function (link) {
+                link.style.color = textColor;
+            });
+            if (fotTitle) fotTitle.style.color = textColor;
         }
 
-        let toDoEvenRows = document.querySelectorAll('.toDolist tr:nth-child(2n+2)');
-        toDoEvenRows.forEach(function (row) {
-            row.style.backgroundColor = even;
-        });
+        //テーブルの色変更
+        // localStorage から色を取得
+        let tableColor = localStorage.getItem('table');
+        let even = localStorage.getItem('even');
+        let odd = localStorage.getItem('odd');
 
-        let toDoOddRows = document.querySelectorAll('.toDolist tr:nth-child(2n+3)');
-        toDoOddRows.forEach(function (row) {
-            row.style.backgroundColor = odd;
-        });
+        if (tableColor && even && odd) {
+            // ToDoリスト
+            let toDoFirstRow = document.querySelector('.toDolist tr:nth-child(1)');
+            if (toDoFirstRow) {
+                toDoFirstRow.style.backgroundColor = tableColor;
+            }
 
-        // 完了リスト
-        let completedFirstRow = document.querySelector('.completedList tr:nth-child(1)');
-        if (completedFirstRow) {
-            completedFirstRow.style.backgroundColor = tableColor;
+            let toDoEvenRows = document.querySelectorAll('.toDolist tr:nth-child(2n+2)');
+            toDoEvenRows.forEach(function (row) {
+                row.style.backgroundColor = even;
+            });
+
+            let toDoOddRows = document.querySelectorAll('.toDolist tr:nth-child(2n+3)');
+            toDoOddRows.forEach(function (row) {
+                row.style.backgroundColor = odd;
+            });
+
+            // 完了リスト
+            let completedFirstRow = document.querySelector('.completedList tr:nth-child(1)');
+            if (completedFirstRow) {
+                completedFirstRow.style.backgroundColor = tableColor;
+            }
+
+            let completedEvenRows = document.querySelectorAll('.completedList tr:nth-child(2n+2)');
+            completedEvenRows.forEach(function (row) {
+                row.style.backgroundColor = even;
+            });
+
+            let completedOddRows = document.querySelectorAll('.completedList tr:nth-child(2n+3)');
+            completedOddRows.forEach(function (row) {
+                row.style.backgroundColor = odd;
+            });
+
+            let demoColor = document.querySelector(".table-img");
+            if (demoColor) {
+                demoColor.style.backgroundColor = tableColor;
+            }
         }
 
-        let completedEvenRows = document.querySelectorAll('.completedList tr:nth-child(2n+2)');
-        completedEvenRows.forEach(function (row) {
-            row.style.backgroundColor = even;
-        });
-
-        let completedOddRows = document.querySelectorAll('.completedList tr:nth-child(2n+3)');
-        completedOddRows.forEach(function (row) {
-            row.style.backgroundColor = odd;
-        });
-
-        let demoColor = document.querySelector(".table-img");
-        if (demoColor) {
-            demoColor.style.backgroundColor = tableColor;
-        }
     }
 
     //背景設定
@@ -144,11 +147,11 @@ window.addEventListener("DOMContentLoaded", function () {
 
     // ページ読み込み時に2秒後に別のページに遷移
     if (this.document.body.id === "efect") {
-        setTimeout(function() {
+        setTimeout(function () {
             window.location.href = "/todolist";
         }, 2500);
     }
-    
+
 
 
     //隠し要素処理 
