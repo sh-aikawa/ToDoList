@@ -31,7 +31,7 @@ public class SecurityConfig {
                                 .formLogin(login -> login
                                                 .loginProcessingUrl("/login")
                                                 .loginPage("/login")
-                                                .defaultSuccessUrl("/todolist",true)
+                                                .defaultSuccessUrl("/efect",true)
                                                 .failureUrl("/login?error")
                                                 .permitAll());
 
