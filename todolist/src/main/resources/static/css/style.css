@@ -429,6 +429,39 @@ header {
     }
 }
 
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 100;
+    }
+}
+
+/*ログイン演出*/
+.fade-in {
+    animation: fadeIn 1s ease-in-out;
+     margin: 0;
+            padding: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #30afd2; /* 落ち着いた色合い */
+            color: #ecf0f1; /* 明るいテキストカラー */
+            font-family: 'Arial', sans-serif;
+}
+
+.welcome-message {
+            text-align: center;
+            font-size: 2em;
+            font-weight: bold;
+            box-shadow: 0 0 10px rgba(3, 167, 237, 0.5);
+            padding: 20px;
+            border-radius: 10px;
+            background-color: rgba(255, 255, 255, 0.407); /* 透明感のある背景 */
+}
+
 .title_text {
     text-align: center;
     display: block;

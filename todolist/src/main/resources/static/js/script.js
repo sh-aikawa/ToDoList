@@ -142,6 +142,14 @@ window.addEventListener("DOMContentLoaded", function () {
         });
     }
 
+    // ページ読み込み時に2秒後に別のページに遷移
+    if (this.document.body.id === "efect") {
+        setTimeout(function() {
+            window.location.href = "/todolist";
+        }, 2500);
+    }
+    
+
 
     //隠し要素処理 
     let count = 0;
