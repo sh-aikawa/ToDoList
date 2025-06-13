@@ -7,16 +7,50 @@
     <div th:replace="~{layout :: header}"></div>
     <div class="mainArea">
         <div class="settingArea">
-        <h3>テーマ設定</h3>
-        カラーコードを入力してください : #
-        <input type="text" id="themeColor" name="themeColor" value=""  placeholder="例: 000000" />
-        <button type="button" onclick="changeColor(1)">変更</button>
-        <h3>文字色</h3>
-        カラーコードを入力してください : #
-        <input type="text" id="textColor" name="textColor" value=""  placeholder="例: 000000" />
-        <button type="button" onclick="changeColor(2)">変更</button>
-        <h3></h3>
-        <button type="button" onclick="changeColor(0)">リセット</button>
+            <h2 class="setting-title">テーマ設定</h2>
+            <form class="setting-form">
+                <div class="setting-group">
+                    <label for="themeColor" class="setting-label">背景色</label>
+                    <div class="setting-input-row">
+                        <span>#</span>
+                        <input type="text" id="themeColor" name="themeColor" maxlength="6" class="setting-input"
+                            placeholder="例: 00bfff" />
+                        <button type="button" onclick="changeColor(1)" class="setting-btn">変更</button>
+                    </div>
+                </div>
+
+                <div class="setting-group">
+                    <label for="textColor" class="setting-label">文字色</label>
+                    <div class="setting-input-row">
+                        <span>#</span>
+                        <input type="text" id="textColor" name="textColor" maxlength="6" class="setting-input"
+                            placeholder="例: 222222" />
+                        <button type="button" onclick="changeColor(2)" class="setting-btn">変更</button>
+                    </div>
+                </div>
+
+                <div class="setting-group">
+                    <label for="tableColor" class="setting-label">テーブル</label>
+                    <div class="setting-input-row">
+                        <div class="table-img" >現在のテーブルテーマ</div>
+                        <select id="tableColor" name="tableColor" class="setting-select">
+                            <option value="0">赤</option>
+                            <option value="1">青</option>
+                            <option value="2">黄色</option>
+                            <option value="3">緑</option>
+                            <option value="4">ピンク</option>
+                            <option value="5">水色</option>
+                            <option value="6">紫</option>
+                        </select>
+                        <button type="button" onclick="changeColor(3)" class="setting-btn">変更</button>
+                    </div>
+                </div>
+
+                <div class="setting-reset-row">
+                    <button type="button" onclick="changeColor(0)" class="setting-reset-btn">リセット</button>
+                </div>
+            </form>
+        </div>
     </div>
     <div th:replace="~{layout :: footer}"></div>
 </body>
