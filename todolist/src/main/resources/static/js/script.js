@@ -23,7 +23,7 @@ window.addEventListener("DOMContentLoaded", function () {
         if (path === "/nexus" && nexus) nexus.style.display = "none";
         if (path === "/setting" && setting) setting.style.display = "none";
     }
-    
+
     //テーマカラー
     let themeColor = localStorage.getItem('theme');
     let header = document.querySelector(".header-area");
@@ -44,7 +44,7 @@ window.addEventListener("DOMContentLoaded", function () {
     if (textColor) {
         if (hedTitle) hedTitle.style.color = textColor;
         menuIcons.forEach(function (icon) {
-            icon.querySelectorAll("span").forEach(function(span){
+            icon.querySelectorAll("span").forEach(function (span) {
                 span.style.backgroundColor = textColor;
             });
         });
@@ -52,6 +52,51 @@ window.addEventListener("DOMContentLoaded", function () {
             link.style.color = textColor;
         });
         if (fotTitle) fotTitle.style.color = textColor;
+    }
+
+    //テーブルの色変更
+    // localStorage から色を取得
+    let tableColor = localStorage.getItem('table');
+    let even = localStorage.getItem('even');
+    let odd = localStorage.getItem('odd');
+
+    if (tableColor && even && odd) {
+        // ToDoリスト
+        let toDoFirstRow = document.querySelector('.toDolist tr:nth-child(1)');
+        if (toDoFirstRow) {
+            toDoFirstRow.style.backgroundColor = tableColor;
+        }
+
+        let toDoEvenRows = document.querySelectorAll('.toDolist tr:nth-child(2n+2)');
+        toDoEvenRows.forEach(function (row) {
+            row.style.backgroundColor = even;
+        });
+
+        let toDoOddRows = document.querySelectorAll('.toDolist tr:nth-child(2n+3)');
+        toDoOddRows.forEach(function (row) {
+            row.style.backgroundColor = odd;
+        });
+
+        // 完了リスト
+        let completedFirstRow = document.querySelector('.completedList tr:nth-child(1)');
+        if (completedFirstRow) {
+            completedFirstRow.style.backgroundColor = tableColor;
+        }
+
+        let completedEvenRows = document.querySelectorAll('.completedList tr:nth-child(2n+2)');
+        completedEvenRows.forEach(function (row) {
+            row.style.backgroundColor = even;
+        });
+
+        let completedOddRows = document.querySelectorAll('.completedList tr:nth-child(2n+3)');
+        completedOddRows.forEach(function (row) {
+            row.style.backgroundColor = odd;
+        });
+
+        let demoColor = document.querySelector(".table-img");
+        if (demoColor) {
+            demoColor.style.backgroundColor = tableColor;
+        }
     }
 
     //背景設定
@@ -251,14 +296,19 @@ function updateCheckedStatus(checkbox) {
 function changeColor(flag) {
     let defaultThemeColor = "#e0e0e0";
     let defaultTextColor = "#555";
+    let defaultTableColors = ["#e0e0e0", "#f8f8f8", "#f0f0f0"];
     let themeColor = document.getElementById("themeColor").value;
     let textColor = document.getElementById("textColor").value;
+    let tableColor = document.getElementById("tableColor").value;
     const hexPattern = /^([0-9A-F]{3}){1,2}$/i;
 
     if (flag == 0) {
         // デフォルトの色にリセット
         localStorage.setItem('theme', defaultThemeColor);
         localStorage.setItem('text', defaultTextColor);
+        localStorage.setItem('table', defaultTableColors[0]);
+        localStorage.setItem('even', defaultTableColors[1]);
+        localStorage.setItem('odd', defaultTableColors[2]);
         location.reload(true);
     } else if (flag == 1) {
         //テーマ
@@ -276,6 +326,24 @@ function changeColor(flag) {
         } else {
             alert("正しい色を入力してください（例: ff5733）");
         }
+    } else if (flag == 3) {
+        //テーブル
+        //[1行目、偶数、奇数]
+        const tableColors = [
+            "#FF6666", "#FFCCCC", "#FF9999", // 赤の配色
+            "#6666FF", "#CCCCFF", "#9999FF", // 青の配色
+            "#FFFF00", "#FFFFCC", "#FFFF66", // 黄色の配色
+            "#00FF00", "#CCFFCC", "#66FF66", // 緑の配色
+            "#FFC0CB", "#FFD0E6", "#FFB0D1", // ピンクの配色
+            "#ADD8E6", "#CCD8E6", "#BCD8E6", // 水色の配色
+            "#996699", "#CC99CC", "#B399B3"  // 紫の配色
+        ];
+
+        let index = tableColor * 3
+        localStorage.setItem('table', tableColors[index]);
+        localStorage.setItem('even', tableColors[index + 1]);
+        localStorage.setItem('odd', tableColors[index + 2]);
+        location.reload(true);
     }
 }
 
@@ -283,8 +351,8 @@ function changeColor(flag) {
 //削除処理の実装
 
 let button = document.getElementById("button_delete");
-button.addEventListener('click', function(){  
-    function delete_update_task(taskId){
+button.addEventListener('click', function () {
+    function delete_update_task(taskId) {
         const token = document.querySelector('meta[name="_csrf"]').getAttribute("content");
         const header = document.querySelector('meta[name="_csrf_header"]').getAttribute("content");
     }
