@@ -37,6 +37,7 @@ public class ToDoController {
 
     @GetMapping
     public String toDos(HttpSession session, Model model) {
+        session.setAttribute("isComplete", false);
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
         String username = auth.getName();
         List<Task> tasks = toDoService.getTasksByUserId(username);
