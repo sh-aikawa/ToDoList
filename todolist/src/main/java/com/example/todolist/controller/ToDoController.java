@@ -77,13 +77,6 @@ public class ToDoController {
         return "toDo/completed";
     }
 
-    @GetMapping("/detail")
-    public String showTaskDetail(@RequestParam("taskId") Long taskId, Model model) {
-        Task task = toDoService.getTask(taskId);
-        model.addAttribute("task", task);
-        return "toDo/detail";
-    }
-
     @GetMapping("/taskEdit/{taskId}")
     public String taskEdit(@PathVariable long taskId, Model model) {
         Task task = toDoService.getTask(taskId);
@@ -134,13 +127,6 @@ public class ToDoController {
             model.addAttribute("task", task);
         }
         return "listRoulette";
-    }
-
-    //使ってない削除機能
-    @GetMapping("/finishDelete")
-    public String finishDelete() {
-        toDoService.deleteTask();
-        return "redirect:/todolist/finish";
     }
 
     @GetMapping("/setting")

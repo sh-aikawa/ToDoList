@@ -19,10 +19,6 @@ public class ToDoService {
         this.userService = userService;
     }
 
-    public List<Task> getAllTasks(){
-        return toDoRepository.getAllTasks();
-    }
-
     public List<Task> getTasks(){
         long userId  = userService.getId();
         return toDoRepository.getTasksByUserId(userId);

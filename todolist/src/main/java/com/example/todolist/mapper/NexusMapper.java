@@ -11,9 +11,6 @@ import com.example.todolist.model.Message;
 @Mapper
 public interface NexusMapper {
 
-    @Select("SELECT * FROM chat")
-    String getAllChat();
-
     @Select("SELECT send_user_id, receive_user_id, content, send_at, read FROM chat WHERE send_user_id = #{myId} AND receive_user_id = #{userId} OR send_user_id = #{userId} AND receive_user_id = #{myId} ORDER BY send_at ASC")
     List<Message> getChat(long myId, long userId);
 

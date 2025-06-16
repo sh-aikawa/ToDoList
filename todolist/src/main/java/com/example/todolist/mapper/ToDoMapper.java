@@ -14,9 +14,6 @@ import com.example.todolist.model.Task;
 @Mapper
 public interface ToDoMapper {
 
-    @Select("SELECT * FROM tasks WHERE checked = false")
-    List<Task> getAllTasks();
-
     @Select("SELECT * FROM tasks WHERE checked = false AND user_id = #{userId}")
     List<Task> getTasksByUserId(long userId);
 

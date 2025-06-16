@@ -17,7 +17,6 @@ public class Comet {
     private String accountName;
     private String accountId;
     private String content;
-    private boolean happy;
     @DateTimeFormat(pattern = "yyyy年M月d日 H時m分ss秒")
     private LocalDateTime createdAt;
     private String formattedCreatedAt;

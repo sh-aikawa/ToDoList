@@ -27,10 +27,6 @@ public class UserRepository {
         return userMapper.getId(accountId);
     }
 
-    public List<User> getAllUsers() {
-        return userMapper.getAllFriends(-1); // 仮: 全ユーザー取得用
-    }
-
     public List<User> getAllFriends(long id){
         return userMapper.getAllFriends(id);
     }

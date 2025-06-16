@@ -45,10 +45,6 @@ public class UserService {
         return userRepository.getAccountName(id);
     }
 
-    public List<User> getAllUsers(){
-        return userRepository.getAllUsers();
-    }
-
     public List<User> getAllFriends(){
         long id = getId();
         return userRepository.getAllFriends(id);

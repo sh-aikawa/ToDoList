@@ -16,10 +16,6 @@ public class ToDoRepository {
         this.toDoMapper = toDoMapper;
     }
 
-    public List<Task> getAllTasks(){
-        return toDoMapper.getAllTasks();
-    }
-
     public List<Task> getTasksByUserId(long userId){
         return toDoMapper.getTasksByUserId(userId);
     }
