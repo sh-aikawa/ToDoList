@@ -24,7 +24,7 @@ window.addEventListener("DOMContentLoaded", function () {
         if (path === "/setting" && setting) setting.style.display = "none";
     }
 
-    if (!(path === "/efect")) {
+    if (!(path === "/effect")) {
         //テーマカラー
         let themeColor = localStorage.getItem('theme');
         let header = document.querySelector(".header-area");
