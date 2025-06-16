@@ -2,6 +2,8 @@ window.addEventListener("DOMContentLoaded", function () {
     let isDescending = localStorage.getItem('isDescending') === 'true';//ソート用
     const descForm = document.getElementById("descForm");
     const ascForm = document.getElementById("ascForm");
+
+
     if (isDescending) {
         ascForm.style.display = "none";
         descForm.style.display = "block";

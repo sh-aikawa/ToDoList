@@ -12,6 +12,7 @@ window.addEventListener("DOMContentLoaded", function () {
     
     //隠し要素処理 
     let title_change_url = document.getElementById('title_text');
+    //隠し要素処理 
     let count = 0;
     let boo = true;
     if (title_change_url) {
@@ -31,7 +32,7 @@ window.addEventListener("DOMContentLoaded", function () {
             } else {
                 let yotei = document.getElementById('yotei');
                 let url = document.getElementById('title');
-                let sub = document.getElementById('register_button');
+                let sub = document.getElementById('registar_button');
 
                 if (boo) {
                     title_change_url.innerText = "背景変更モード有効";
