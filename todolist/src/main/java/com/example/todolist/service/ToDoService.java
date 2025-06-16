@@ -45,7 +45,7 @@ public class ToDoService {
         Task task = new Task();
         task.setTitle(toDoForm.getTitle());
         task.setLimitDate(toDoForm.getLimitDate());
-        task.setDescription(toDoForm.getDescription());
+        task.setDescription(toDoForm.getDescription().isEmpty() ? "詳細は設定されていません。" : toDoForm.getDescription());
         task.setImportance(toDoForm.getImportance());
 
         long userId = userService.getId();

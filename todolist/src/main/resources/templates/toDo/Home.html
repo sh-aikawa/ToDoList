@@ -6,7 +6,6 @@
 <body>
     <div th:replace="~{layout :: header}"></div>
     <div class="mainArea">
-        <!-- <h3 id="display">toDoリストへようこそ！</h3> -->
         <div class="searchArea">
             <form th:action="@{/todolist/search}" method="post">
                 <input type="date" id="date" name="selectedDate"
@@ -23,7 +22,6 @@
             </form>
         </div>
 
-
         <div id="listArea">
             <table class="toDolist">
                 <h3 class="listTitle">toDo</h3>
@@ -37,7 +35,7 @@
                         <input type="checkbox" th:attr="data-task-id=${task.taskId}" th:checked="${task.checked}"
                             onchange="updateCheckedStatus(this)" />
                     </th>
-                    <th>
+                    <th class="todo-titles" th:attr="data-description=${task.description}">
                         <a th:href="@{/todolist/detail(taskId=${task.taskId})}">
                             <span th:text="${task.title}">TodoListをつくる</span></a>
                     </th>
@@ -50,6 +48,10 @@
         </div>
     </div>
     <div th:replace="~{layout :: footer}"></div>
+
+    <div id="global-popup-content" class="popup-content"></div>
+
+    
 </body>
 
 </html>

@@ -27,14 +27,13 @@ public class LoginController {
         return "login";
     }
 
-    @GetMapping("/efect")
-    public String efect(Model model) {
+    @GetMapping("/effect")
+    public String effect(Model model) {
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         CustomUserDetails userDetails = (CustomUserDetails)authentication.getPrincipal();
         Boolean inFirstVisit = userService.getInFirstVisit();
         model.addAttribute("accountName", userDetails.getAccountName());
-        model.addAttribute("inFirstVisit", inFirstVisit);
-        return "efect";
+        return "effect";
     }
 
     @GetMapping("/updateFlag")

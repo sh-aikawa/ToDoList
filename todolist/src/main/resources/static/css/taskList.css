@@ -1,0 +1,14 @@
+.popup-content {
+    display: none; /* 初期状態では非表示 */
+    position: absolute; /* 絶対位置指定 */
+    border: 1px solid #ccc;
+    background-color: #fff;
+    padding: 10px;
+    z-index: 1000; /* 他の要素よりはるかに手前に表示 */
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+    max-width: 300px; /* ポップアップの最大幅 */
+    word-wrap: break-word; /* 長い単語でも改行 */
+    line-height: 1.5;
+    font-size: 0.9em;
+    border-radius: 4px; /* 角を少し丸くする */
+}

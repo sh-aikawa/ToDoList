@@ -130,7 +130,8 @@ header {
 }
 
 .menu-toggle:checked+.menu-icon span:nth-child(1) {
-    transform: translateY(12px) rotate(45deg);
+    transform: translateY(15px) rotate(45deg);
+    width: 50px;
 }
 
 .menu-toggle:checked+.menu-icon span:nth-child(2) {
@@ -138,7 +139,8 @@ header {
 }
 
 .menu-toggle:checked+.menu-icon span:nth-child(3) {
-    transform: translateY(-12px) rotate(-45deg);
+    transform: translateY(-15px) rotate(-45deg);
+    width: 50px;
 }
 
 @media (max-width: 500px) {
@@ -429,27 +431,27 @@ header {
     }
 }
 
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-    }
-    to {
-        opacity: 100;
-    }
-}
-
 /*ログイン演出*/
 .fade-in {
-    animation: fadeIn 1s ease-in-out;
-     margin: 0;
-            padding: 0;
-            height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            background-color: #30afd2; /* 落ち着いた色合い */
-            color: #ecf0f1; /* 明るいテキストカラー */
-            font-family: 'Arial', sans-serif;
+    animation: login-fade 2s infinite;
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #30afd2; /* 落ち着いた色合い */
+    color: #ecf0f1; /* 明るいテキストカラー */
+    font-family: 'Arial', sans-serif;
+
+}@keyframes login-fade{
+    0%{
+        opacity: 0;
+    }50%{
+        opacity: 100;
+    }100%{
+        opacity: 0;
+    }
 }
 
 .welcome-message {
@@ -542,6 +544,11 @@ header {
     float:right;
     margin-right: 30px;
     margin-left: -80px;
+}
+.button_delete:hover{
+    transform: translateY(-3px);
+    background-image: url("/svg/open_tras.svg");
+    background-repeat: no-repeat;
 }
 
 .settingArea {
