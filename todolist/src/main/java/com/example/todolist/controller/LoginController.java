@@ -33,6 +33,7 @@ public class LoginController {
         CustomUserDetails userDetails = (CustomUserDetails)authentication.getPrincipal();
         Boolean inFirstVisit = userService.getInFirstVisit();
         model.addAttribute("accountName", userDetails.getAccountName());
+        model.addAttribute("inFirstVisit", inFirstVisit);
         return "effect";
     }
 
