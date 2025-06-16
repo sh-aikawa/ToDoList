@@ -11,6 +11,7 @@
             <form th:action="@{/comet/register}" th:object="${cometForm}" method="post">
                 <label for="content" class="content-label">内容</label>
                 <textarea id="content" name="content" th:field="*{content}" maxlength="280" required></textarea>
+                <span th:if="${#fields.hasErrors('content')}" th:errors="*{content}" class="error-message"></span>
                 <button type="submit" class="post-button">投稿</button>
             </form>
         </div>

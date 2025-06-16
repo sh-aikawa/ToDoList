@@ -5,13 +5,17 @@ import java.util.List;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.example.todolist.form.CometForm;
 import com.example.todolist.model.Comet;
 import com.example.todolist.service.CometService;
+
+import jakarta.validation.Valid;
 
 @Controller
 @RequestMapping("/comet")
@@ -45,7 +49,10 @@ public class CometController {
     }
 
     @PostMapping("/register")
-    public String postRegister(CometForm cometForm) {
+    public String postRegister(@ModelAttribute @Valid CometForm cometForm, BindingResult bindingResult) {
+        if(bindingResult.hasErrors()){
+            return "comet/register";
+        }
         cometService.registerComet(cometForm);//*受け取ったcometFormをもとにdbに格納 */
 
         return "redirect:/comet";

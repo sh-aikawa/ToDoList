@@ -2,6 +2,11 @@
     "java.configuration.updateBuildConfiguration": "disabled",
     "cSpell.words": [
         "classappend",
+        "mybatis",
+        "projectlombok",
+        "springframework",
+        "springsecurity",
+        "thymeleaf",
         "todolist",
         "yotei"
     ],

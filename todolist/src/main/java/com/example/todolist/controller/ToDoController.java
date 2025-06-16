@@ -6,18 +6,22 @@ import java.util.Random;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 
 import com.example.todolist.form.ToDoForm;
 import com.example.todolist.model.Task;
 import com.example.todolist.service.ToDoService;
+
+import jakarta.validation.Valid;
 
 @Controller
 @RequestMapping("/todolist")
@@ -46,7 +50,8 @@ public class ToDoController {
     }
 
     @PostMapping("/register")
-    public String postRegister(ToDoForm toDoForm) {
+    public String postRegister(@ModelAttribute @Valid ToDoForm toDoForm, BindingResult bindingResult, RedirectAttributes redirectAttributes) {
+        if (bindingResult.hasErrors()) return "register";
         toDoService.registerTask(toDoForm);
 
         return "redirect:/todolist";
