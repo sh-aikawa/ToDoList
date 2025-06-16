@@ -108,7 +108,7 @@ window.addEventListener("DOMContentLoaded", function () {
     let push = document.getElementById("item");
     let title_change_url = document.getElementById('title_text');
     //ログイン、登録画面以外に適応
-    if (path !== "/login" && path !== "/userRegister" && path !== "/todolist/roulette_effect") {
+    if (path !== "/login" && path !== "/userRegister" && path !== "/todolist/roulette_effect" && path !== "/efect") {
         const bgUrl = localStorage.getItem('bgImage');
         //nullチェック
         if (bgUrl) {
@@ -146,10 +146,12 @@ window.addEventListener("DOMContentLoaded", function () {
     }
 
     // ページ読み込み時に2秒後に別のページに遷移
-    if (this.document.body.id === "effect") {
+    let ran = Math.random() * ( 5000 - 2000 ) + 2000;
+    console.log(ran);
+    if (this.document.body.id === "efect") {
         setTimeout(function () {
             window.location.href = "/todolist";
-        }, 2500);
+        }, ran);
     }
 
 
@@ -174,7 +176,7 @@ window.addEventListener("DOMContentLoaded", function () {
             } else {
                 let yotei = document.getElementById('yotei');
                 let url = document.getElementById('title');
-                let sub = document.getElementById('submit');
+                let sub = document.getElementById('registar_button');
 
                 if (boo) {
                     title_change_url.innerText = "背景変更モード有効";
