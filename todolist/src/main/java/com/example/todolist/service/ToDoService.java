@@ -36,7 +36,7 @@ public class ToDoService {
         toDoRepository.updateChecked(taskId, checked);
     }
 
-    public void deleteTask(String username){
+    public void deleteTask(){
         long userId  = userService.getId();
         toDoRepository.deleteTask(userId);
     }
@@ -65,17 +65,17 @@ public class ToDoService {
         toDoRepository.editTask(task);
     }
 
-    public List<Task> getSortDescTasks(String username) {
+    public List<Task> getSortDescTasks() {
         long userId  = userService.getId();
         return toDoRepository.getSortDescTasks(userId);
     }
 
-    public List<Task> getSortAscTasks(String username) {
+    public List<Task> getSortAscTasks() {
         long userId  = userService.getId();
         return toDoRepository.getSortAscTasks(userId);
     }
 
-    public List<Task> getTasksforRoullete(String username) {
+    public List<Task> getTasksforRoullete() {
         long userId  = userService.getId();
         return toDoRepository.getTasksforRoullete(userId);
     }

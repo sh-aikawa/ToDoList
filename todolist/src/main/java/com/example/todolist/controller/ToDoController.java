@@ -103,9 +103,7 @@ public class ToDoController {
 
     @GetMapping("/sortDesc")
     public String getSortAscTasks(Model model) {
-        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
-        String username = auth.getName();
-        List<Task> tasks = toDoService.getSortDescTasks(username);
+        List<Task> tasks = toDoService.getSortDescTasks();
 
         model.addAttribute("tasks", tasks);
         return "toDo/Home";
@@ -113,9 +111,7 @@ public class ToDoController {
 
     @GetMapping("/sortAsc")
     public String getSortDescTasks(Model model) {
-        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
-        String username = auth.getName();
-        List<Task> tasks = toDoService.getSortAscTasks(username);
+        List<Task> tasks = toDoService.getSortAscTasks();
 
         model.addAttribute("tasks", tasks);
         return "toDo/Home";
@@ -131,9 +127,8 @@ public class ToDoController {
     @GetMapping("roulette_effect/listroulette")
     public String getlistRoulette(Model model) {
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
-        String username = auth.getName();
         Random random = new Random();
-        List<Task> tasks = toDoService.getTasksforRoullete(username);
+        List<Task> tasks = toDoService.getTasksforRoullete();
         if (tasks.size() > 0) {
             Task task = tasks.get(random.nextInt(tasks.size()));
             model.addAttribute("task", task);
@@ -148,9 +143,7 @@ public class ToDoController {
     //使ってない削除機能
     @GetMapping("/finishDelete")
     public String finishDelete() {
-        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
-        String username = auth.getName();
-        toDoService.deleteTask(username);
+        toDoService.deleteTask();
         return "redirect:/todolist/finish";
     }
 
