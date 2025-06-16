@@ -19,6 +19,8 @@ import com.example.todolist.form.ToDoForm;
 import com.example.todolist.model.Task;
 import com.example.todolist.service.ToDoService;
 
+import jakarta.servlet.http.HttpSession;
+
 @Controller
 @RequestMapping("/todolist")
 public class ToDoController {
@@ -30,7 +32,7 @@ public class ToDoController {
     }
 
     @GetMapping
-    public String toDos(Model model) {
+    public String toDos(HttpSession session, Model model) {
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
         String username = auth.getName();
         List<Task> tasks = toDoService.getTasksByUserId(username);
@@ -67,8 +69,9 @@ public class ToDoController {
     }
 
     @GetMapping("/finish")
-    public String getFinishTasks(Model model) {
+    public String getFinishTasks(HttpSession session, Model model) {
         List<Task> tasks = toDoService.getFinishTasks();
+        session.setAttribute("isComplete", true);
         model.addAttribute("tasks", tasks);
         return "toDo/completed";
     }
@@ -140,6 +143,7 @@ public class ToDoController {
         return "listroulette";
     }
 
+    //使ってない削除機能
     @GetMapping("/finishDelete")
     public String finishDelete() {
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
@@ -147,15 +151,24 @@ public class ToDoController {
         toDoService.deleteTask(username);
         return "redirect:/todolist/finish";
     }
+
     @GetMapping("/setting")
     public String setting(){
         return "toDo/setting";
     }
 
+    //こっちの削除処理を使用している
     @GetMapping("/finishDeleteByTaskId")
-    public String finishDeleteByTaskId(@RequestParam long taskId) {
+    public String finishDeleteByTaskId(@RequestParam long taskId, HttpSession session) {
         long Id = taskId;
         toDoService.deleteTaskByTaskId(Id);
-        return "redirect:/todolist/finish";
+        String result = "";
+        Boolean isComplete = (Boolean) session.getAttribute("isComplete");
+        if (Boolean.TRUE.equals(isComplete)) {
+            result = "redirect:/todolist/finish";
+        }else{
+            result = "redirect:/todolist";
+        }
+        return result;
     }
 }

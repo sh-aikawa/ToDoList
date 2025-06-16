@@ -8,11 +8,14 @@ import org.springframework.web.bind.annotation.GetMapping;
 
 import com.example.todolist.security.CustomUserDetails;
 
+import jakarta.servlet.http.HttpSession;
+
 
 @Controller
 public class LoginController {
     @GetMapping("/login")
-    public String Login() {
+    public String Login(HttpSession session) {
+        session.setAttribute("isComplete", false);
         return "login";
     }
 
