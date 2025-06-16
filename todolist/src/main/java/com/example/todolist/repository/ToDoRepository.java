@@ -60,8 +60,8 @@ public class ToDoRepository {
         return toDoMapper.getSortAscTasks(userId);
     }
 
-    public List<Task> getTasksforRoullete(long userId) {
-        return toDoMapper.getTasksforRoullete(userId);
+    public List<Task> getTasksforRoulette(long userId) {
+        return toDoMapper.getTasksforRoulette(userId);
     }
 
     public void deleteTaskByTaskId(long userId, long taskId){

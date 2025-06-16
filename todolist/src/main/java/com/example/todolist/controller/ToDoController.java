@@ -14,16 +14,13 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
-import org.springframework.security.core.Authentication;
-import org.springframework.security.core.context.SecurityContextHolder;
 
 import com.example.todolist.form.ToDoForm;
 import com.example.todolist.model.Task;
 import com.example.todolist.service.ToDoService;
 
-import jakarta.validation.Valid;
-
 import jakarta.servlet.http.HttpSession;
+import jakarta.validation.Valid;
 
 @Controller
 @RequestMapping("/todolist")
@@ -126,9 +123,8 @@ public class ToDoController {
 
     @GetMapping("roulette_effect/listRoulette")
     public String getListRoulette(Model model) {
-        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
         Random random = new Random();
-        List<Task> tasks = toDoService.getTasksforRoullete();
+        List<Task> tasks = toDoService.getTasksforRoulette();
         if (tasks.size() > 0) {
             Task task = tasks.get(random.nextInt(tasks.size()));
             model.addAttribute("task", task);

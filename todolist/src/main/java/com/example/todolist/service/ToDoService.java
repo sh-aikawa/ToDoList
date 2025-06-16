@@ -75,9 +75,9 @@ public class ToDoService {
         return toDoRepository.getSortAscTasks(userId);
     }
 
-    public List<Task> getTasksforRoullete() {
+    public List<Task> getTasksforRoulette() {
         long userId  = userService.getId();
-        return toDoRepository.getTasksforRoullete(userId);
+        return toDoRepository.getTasksforRoulette(userId);
     }
 
     public void deleteTaskByTaskId(long taskId){

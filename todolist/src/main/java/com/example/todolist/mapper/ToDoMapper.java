@@ -48,7 +48,7 @@ public interface ToDoMapper {
     List<Task> getSortAscTasks(long userId);
 
     @Select("SELECT * FROM tasks WHERE user_id = #{userId} AND checked = false")
-    List<Task> getTasksforRoullete(long userId);
+    List<Task> getTasksforRoulette(long userId);
 
     @Delete("DELETE FROM tasks WHERE user_id = #{userId} AND task_id = #{taskId}")
     void deleteTaskByTaskId(long userId, long taskId);
