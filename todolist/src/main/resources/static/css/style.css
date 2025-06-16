@@ -245,7 +245,7 @@ header {
 
 /* detail.htmlで使用 */
 .detail_text {
-    padding: 10px
+    padding: 10px;
 }
 
 /* アニメーション（遊び用） */
@@ -411,7 +411,7 @@ header {
 }
 .button_delete:hover{
     transform: translateY(-3px);
-    background-image: url("/svg/open_tras.svg");
+    background-image: url("/svg/open_trash.svg");
     background-repeat: no-repeat;
 }
 

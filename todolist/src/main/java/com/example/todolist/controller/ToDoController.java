@@ -124,8 +124,8 @@ public class ToDoController {
         return "roulette_effect";
     }
 
-    @GetMapping("roulette_effect/listroulette")
-    public String getlistRoulette(Model model) {
+    @GetMapping("roulette_effect/listRoulette")
+    public String getListRoulette(Model model) {
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
         Random random = new Random();
         List<Task> tasks = toDoService.getTasksforRoullete();
@@ -137,7 +137,7 @@ public class ToDoController {
             task.setTitle("ありません！！！！");
             model.addAttribute("task", task);
         }
-        return "listroulette";
+        return "listRoulette";
     }
 
     //使ってない削除機能
