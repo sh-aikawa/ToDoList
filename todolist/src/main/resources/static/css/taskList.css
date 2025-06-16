@@ -13,16 +13,16 @@
     border-radius: 4px; /* 角を少し丸くする */
 }
 
-.compelete_button_delete{
+.complete_button_delete{
     border:none;
     background-color:rgba(255, 255, 255, 0);
     justify-content: center;
     display: flex;
     background-repeat: no-repeat;
 }
-.compelete_button_delete:hover{
+.complete_button_delete:hover{
     transform: translateY(-3px);
-    background-image: url("/svg/open_tras.svg");
+    background-image: url("/svg/open_trash.svg");
     background-position: center;
     display: flex;
     background-repeat: no-repeat;
