@@ -13,12 +13,14 @@
                     <th>タイトル</th>
                     <th>期限</th>
                     <th>優先度</th>
+                    <th>削除</th>
                 </tr>
                 <tr th:each="task : ${tasks}">
-                    <th><a th:href="@{/todolist/taskEdit/{taskId}(taskId=${task.taskId})}"><span
-                                th:text="${task.title}">TodoListをつくる</span></a></th>
+                    <th><span th:text="${task.title}">TodoListをつくる</span></th>
                     <th><span th:text="${task.limitDate}">2025/6/5</span></th>
                     <th><span th:text="${task.importance}">1</th>
+                    <th><span><a id="compelete_button_delete" class = "compelete_button_delete" th:href = "@{/todolist/finishDeleteByTaskId(taskId=${task.taskId})}">
+                        <img src="/svg/close_tras.svg" alt="送信" width="32" height="32" x="4" y="4"/></a></span></th>
                 </tr>
             </table>
         </div>
