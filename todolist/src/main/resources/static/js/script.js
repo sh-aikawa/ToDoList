@@ -173,6 +173,10 @@ window.addEventListener("DOMContentLoaded", function () {
         }
     }
 
+    document.getElementById("app-title").addEventListener("click", function() {
+            window.location.href = "/todolist";
+    });
+
 
 
     //隠し要素処理 
