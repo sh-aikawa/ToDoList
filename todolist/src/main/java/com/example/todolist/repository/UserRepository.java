@@ -38,4 +38,12 @@ public class UserRepository {
     public String getAccountName(Long id) {
         return userMapper.getAccountName(id);
     }
+
+    public boolean getInFirstVisit(long id) {
+        return userMapper.getInFirstVisit(id);
+    }
+
+    public void setInFirstVisit(long id) {
+        userMapper.setInFirstVisit(id);
+    }
 }

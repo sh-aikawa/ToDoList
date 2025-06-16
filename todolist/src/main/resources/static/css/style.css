@@ -130,7 +130,8 @@ header {
 }
 
 .menu-toggle:checked+.menu-icon span:nth-child(1) {
-    transform: translateY(12px) rotate(45deg);
+    transform: translateY(15px) rotate(45deg);
+    width: 50px;
 }
 
 .menu-toggle:checked+.menu-icon span:nth-child(2) {
@@ -138,7 +139,8 @@ header {
 }
 
 .menu-toggle:checked+.menu-icon span:nth-child(3) {
-    transform: translateY(-12px) rotate(-45deg);
+    transform: translateY(-15px) rotate(-45deg);
+    width: 50px;
 }
 
 @media (max-width: 500px) {
@@ -666,4 +668,11 @@ header {
     background-color: #e0e0e0;
 }
 
+.validation-error{
+    color: #e53935;
+    padding: 8px 12px;
+    margin-bottom: 10px;
+    width: 100%;
+    font-size: 0.98em;
+}
 

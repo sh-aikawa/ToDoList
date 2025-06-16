@@ -5,7 +5,9 @@ import java.util.List;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -16,6 +18,8 @@ import com.example.todolist.model.Message;
 import com.example.todolist.model.User;
 import com.example.todolist.service.NexusService;
 import com.example.todolist.service.UserService;
+
+import jakarta.validation.Valid;
 
 @Controller
 @RequestMapping("/nexus")
@@ -57,7 +61,8 @@ public class NexusController {
     }
 
     @PostMapping("/chat/send")
-    public String sendMessage(MessageForm messageForm, RedirectAttributes redirectAttributes) {
+    public String sendMessage(@ModelAttribute @Valid MessageForm messageForm, BindingResult bindingResult, RedirectAttributes redirectAttributes) {
+        if(bindingResult.hasErrors()) return "redirect:/nexus/chat/{userId}";
         nexusService.sendMessage(messageForm); // *受け取ったmessageFormをもとにdbに保存 */
         redirectAttributes.addAttribute("userId", messageForm.getReceiveUserId()); // *トーク画面にリダイレクトするためにトーク相手のIdをリダイレクト先へ
         return "redirect:/nexus/chat/{userId}";

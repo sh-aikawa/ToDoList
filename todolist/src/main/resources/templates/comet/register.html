@@ -10,7 +10,9 @@
             <div class="post-title">コメットする</div>
             <form th:action="@{/comet/register}" th:object="${cometForm}" method="post">
                 <label for="content" class="content-label">内容</label>
-                <textarea id="content" name="content" th:field="*{content}" maxlength="280" required></textarea>
+                <textarea id="content" name="content" th:field="*{content}"required></textarea>
+                <div class="char-count" id="charCount">0 / 280</div>
+                <span th:if="${#fields.hasErrors('content')}" th:errors="*{content}" class="validation-error"></span>
                 <button type="submit" class="post-button">投稿</button>
             </form>
         </div>
