@@ -24,7 +24,7 @@ window.addEventListener("DOMContentLoaded", function () {
         if (path === "/setting" && setting) setting.style.display = "none";
     }
 
-    if (!(path === "/effect")) {
+    if (!(path == "/effect")) {
         //テーマカラー
         let themeColor = localStorage.getItem('theme');
         let header = document.querySelector(".header-area");
@@ -108,7 +108,7 @@ window.addEventListener("DOMContentLoaded", function () {
     let push = document.getElementById("item");
     let title_change_url = document.getElementById('title_text');
     //ログイン、登録画面以外に適応
-    if (path !== "/login" && path !== "/userRegister" && path !== "/todolist/roulette_effect") {
+    if (path !== "/login" && path !== "/userRegister" && path !== "/todolist/roulette_effect" && path !== "/efect") {
         const bgUrl = localStorage.getItem('bgImage');
         //nullチェック
         if (bgUrl) {
@@ -145,11 +145,32 @@ window.addEventListener("DOMContentLoaded", function () {
         });
     }
 
+
+    
     // ページ読み込み時に2秒後に別のページに遷移
+    let ran = Math.random() * ( 5000 - 2000 ) + 2000;
     if (this.document.body.id === "effect") {
-        setTimeout(function () {
-            window.location.href = "/todolist";
-        }, 2500);
+        if (inFirstVisit) {
+            setTimeout(function () {
+                fetch('/updateFlag', {
+                    method: 'GET' ,
+                    headers: {
+                        'Content-Type': 'application/json'
+                    }
+                })
+                .then(response => response.json())
+                .then(data => {
+                    console.log('Response from server:', data);
+                    if (data.success) {
+                        window.location.href = "/todolist";
+                    }else {
+                        console.error('Update failed');
+                    }
+                })
+            }, ran);
+        }else {
+            this.window.location.href = "/todolist";
+        }
     }
 
 
@@ -174,7 +195,7 @@ window.addEventListener("DOMContentLoaded", function () {
             } else {
                 let yotei = document.getElementById('yotei');
                 let url = document.getElementById('title');
-                let sub = document.getElementById('submit');
+                let sub = document.getElementById('registar_button');
 
                 if (boo) {
                     title_change_url.innerText = "背景変更モード有効";
