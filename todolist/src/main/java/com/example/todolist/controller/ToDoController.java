@@ -38,9 +38,7 @@ public class ToDoController {
     @GetMapping
     public String toDos(HttpSession session, Model model) {
         session.setAttribute("isComplete", false);
-        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
-        String username = auth.getName();
-        List<Task> tasks = toDoService.getTasksByUserId(username);
+        List<Task> tasks = toDoService.getTasks();
         model.addAttribute("tasks", tasks);
         return "toDo/Home";// 一覧画面に遷移
     }
@@ -125,9 +123,7 @@ public class ToDoController {
 
     @GetMapping("/roulette_effect")
     public String getRoulette_effect(Model model) {
-        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
-        String username = auth.getName();
-        List<Task> tasks = toDoService.getTasksByUserId(username);
+        List<Task> tasks = toDoService.getTasks();
         model.addAttribute("tasks", tasks);
         return "roulette_effect";
     }

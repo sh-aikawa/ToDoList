@@ -23,7 +23,7 @@ public class ToDoService {
         return toDoRepository.getAllTasks();
     }
 
-    public List<Task> getTasksByUserId(String username){
+    public List<Task> getTasks(){
         long userId  = userService.getId();
         return toDoRepository.getTasksByUserId(userId);
     }
