@@ -24,7 +24,7 @@ window.addEventListener("DOMContentLoaded", function () {
         if (path === "/setting" && setting) setting.style.display = "none";
     }
 
-    if (!(path === "/effect")) {
+    if (!(path == "/effect")) {
         //テーマカラー
         let themeColor = localStorage.getItem('theme');
         let header = document.querySelector(".header-area");
@@ -148,7 +148,7 @@ window.addEventListener("DOMContentLoaded", function () {
     // ページ読み込み時に2秒後に別のページに遷移
     let ran = Math.random() * ( 5000 - 2000 ) + 2000;
     console.log(ran);
-    if (this.document.body.id === "efect") {
+    if (this.document.body.id === "effect") {
         setTimeout(function () {
             window.location.href = "/todolist";
         }, ran);
