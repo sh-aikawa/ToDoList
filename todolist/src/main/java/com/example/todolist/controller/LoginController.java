@@ -25,14 +25,14 @@ public class LoginController {
     }
 
     @GetMapping("/login")
-    public String Login(HttpSession session) {
-        session.setAttribute("isComplete", false);
+    public String Login() {
         return "login";
     }
 
     @GetMapping("/effect")
-    public String effect(Model model) {
+    public String effect(Model model, HttpSession session) {
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        session.setAttribute("isComplete", false);
         CustomUserDetails userDetails = (CustomUserDetails)authentication.getPrincipal();
         Boolean inFirstVisit = userService.getInFirstVisit();
         model.addAttribute("accountName", userDetails.getAccountName());

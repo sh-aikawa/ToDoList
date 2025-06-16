@@ -11,7 +11,7 @@
             <form th:action="@{/todolist/{taskId}/edit(taskId=${task.taskId})}" th:object="${task}" method="post">
                 <div>
                     <label for="title" class = "registar_font">予定</label>
-                    <a id="button_delete" class = "button_delete" th:href = "@{/todolist/finishDeleteByTaskId(taskId=${task.taskId}, editMode)}"><img src="/svg/close_tras.svg" alt="送信" width="50" height="50" x="4" y="4"/></a>
+                    <a id="button_delete" class = "button_delete" th:href = "@{/todolist/finishDeleteByTaskId(taskId=${task.taskId})}"><img src="/svg/close_tras.svg" alt="送信" width="50" height="50" x="4" y="4"/></a>
                 </div>
                 <div>
                     <span><textarea type="text" id="title" name="title" th:field="*{title}" maxlength="100" class="registar_textarea" required></textarea>
