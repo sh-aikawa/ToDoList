@@ -39,7 +39,7 @@ header {
     align-items: center;
     background-color: #e0e0e0;
     width: 100%;
-    height: 80px;
+    height: 8%;
     box-sizing: border-box;
     position: fixed;
     top: 0;
@@ -88,7 +88,7 @@ header {
     background: #555;
     border-radius: 2px;
     transition: 0.3s;
-    margin: 6px 0; 
+    margin: 6px 0;
 }
 
 .menu {
@@ -152,8 +152,7 @@ header {
 
 /*メインコンテンンツ*/
 .mainArea {
-    margin-top: 80px;
-    margin-bottom: 80px;
+    margin: 80px auto;
     padding: 20px;
 }
 
@@ -165,7 +164,7 @@ header {
     left: 0;
     bottom: 0;
     width: 100%;
-    height: 80px;
+    height: 8%;
     box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.05);
     display: flex;
     justify-content: center;
@@ -270,28 +269,27 @@ header {
 }
 
 /* レジスタ用のstyle */
-.register_background{
+.register_background {
     animation: fade_in 1s;
     background-size: contain;
     background-color: rgb(255, 255, 255);
-    max-width: 497px;
-    max-height: 505px;
+    margin: 10% auto;
     width: 50%;
-    position: absolute;
-    left:32%;
-    right:30%;
+    position: relative;
     border-radius: 20%;
-    box-shadow: 10px 10px 4px #ccc ;
+    box-shadow: 10px 10px 4px #ccc;
     border: solid 2px rgba(255, 255, 255);
 }
 
-@keyframes fade_in{
-    0%{
+@keyframes fade_in {
+    0% {
         transform: translateY(-30px);
-        opacity:0;
-    }100%{
+        opacity: 0;
+    }
+
+    100% {
         transform: translateY(0px);
-        opacity:100;
+        opacity: 100;
     }
 }
 
@@ -304,28 +302,37 @@ header {
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: #30afd2; /* 落ち着いた色合い */
-    color: #ecf0f1; /* 明るいテキストカラー */
+    background-color: #30afd2;
+    /* 落ち着いた色合い */
+    color: #ecf0f1;
+    /* 明るいテキストカラー */
     font-family: 'Arial', sans-serif;
 
-}@keyframes login-fade{
-    0%{
+}
+
+@keyframes login-fade {
+    0% {
         opacity: 0;
-    }50%{
+    }
+
+    50% {
         opacity: 100;
-    }100%{
+    }
+
+    100% {
         opacity: 0;
     }
 }
 
 .welcome-message {
-            text-align: center;
-            font-size: 2em;
-            font-weight: bold;
-            box-shadow: 0 0 10px rgba(3, 167, 237, 0.5);
-            padding: 20px;
-            border-radius: 10px;
-            background-color: rgba(255, 255, 255, 0.407); /* 透明感のある背景 */
+    text-align: center;
+    font-size: 2em;
+    font-weight: bold;
+    box-shadow: 0 0 10px rgba(3, 167, 237, 0.5);
+    padding: 20px;
+    border-radius: 10px;
+    background-color: rgba(255, 255, 255, 0.407);
+    /* 透明感のある背景 */
 }
 
 .title_text {
@@ -334,33 +341,32 @@ header {
     margin-bottom: 20px;
 }
 
-.register_font{
+.register_font {
     font-size: 20px;
     text-align: center;
     display: block;
 }
 
-.register_input{
+.register_input {
     text-align: center;
     display: block;
     padding: 5px;
     margin-bottom: 10px;
-    
 }
 
 
-#limitDate{
+#limitDate {
     width: 50%;
     font-size: 20px;
     text-align: center;
 }
 
 
-#importance{
+#importance {
     width: 50%;
     font-size: 20px;
     text-align: center;
-    
+
 }
 
 .register_textarea {
@@ -377,15 +383,15 @@ header {
     resize: none;
 }
 
-.register_parent{
+.register_parent {
     text-align: center;
 }
 
-.register_button{
+.register_button {
     width: 10em;
     margin-top: 20px;
     border: none;
-    background-color: rgba(0, 221, 255, 0.785); 
+    background-color: rgba(0, 221, 255, 0.785);
     font-size: 30px;
     color: white;
     display: inline-block;
@@ -393,29 +399,30 @@ header {
     cursor: pointer;
 }
 
-.register_button:hover{
+.register_button:hover {
     transform: translateY(-3px);
     box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
 }
 
 /* 完了リストで使用*/
 
-.button_delete{
-    border:none;
-    background-color:rgba(255, 255, 255, 0);
+.button_delete {
+    border: none;
+    background-color: rgba(255, 255, 255, 0);
     display: block;
     text-align: right;
-    float:right;
+    float: right;
     margin-right: 30px;
     margin-left: -80px;
 }
-.button_delete:hover{
+
+.button_delete:hover {
     transform: translateY(-3px);
     background-image: url("/svg/open_trash.svg");
     background-repeat: no-repeat;
 }
 
-.validation-error{
+.validation-error {
     color: #e53935;
     padding: 8px 12px;
     margin-bottom: 10px;
@@ -423,3 +430,6 @@ header {
     font-size: 0.98em;
 }
 
+#hidden {
+    margin: auto;
+}
