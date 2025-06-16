@@ -15,7 +15,8 @@
                     <th>優先度</th>
                 </tr>
                 <tr th:each="task : ${tasks}">
-                    <th><a th:href="@{/todolist/taskEdit/{taskId}(taskId=${task.taskId})}"><span
+                    <th class="todo-titles" th:attr="data-description=${task.description}">
+                        <a th:href="@{/todolist/taskEdit/{taskId}(taskId=${task.taskId})}"><span
                                 th:text="${task.title}">TodoListをつくる</span></a></th>
                     <th><span th:text="${task.limitDate}">2025/6/5</span></th>
                     <th><span th:text="${task.importance}">1</th>
@@ -24,6 +25,8 @@
         </div>
     </div>
     <div th:replace="~{layout :: footer}"></div>
+
+    <div id="global-popup-content" class="popup-content"></div>
 </body>
 
 </html>
