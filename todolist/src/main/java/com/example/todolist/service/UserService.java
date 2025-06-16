@@ -54,4 +54,16 @@ public class UserService {
         return userRepository.getAllFriends(id);
     }
 
+    public boolean getInFirstVisit(){
+        long id = getId();
+        return userRepository.getInFirstVisit(id);
+    }
+
+    public void setInFirstVisit() {
+        long id = getId();
+        userRepository.setInFirstVisit(id);
+    }
+
+
+
 }

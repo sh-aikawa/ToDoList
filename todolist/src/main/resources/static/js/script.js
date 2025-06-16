@@ -145,11 +145,32 @@ window.addEventListener("DOMContentLoaded", function () {
         });
     }
 
+
+    console.log(inFirstVisit);
     // ページ読み込み時に2秒後に別のページに遷移
     if (this.document.body.id === "efect") {
-        setTimeout(function () {
-            window.location.href = "/todolist";
-        }, 2500);
+        if (inFirstVisit) {
+            setTimeout(function () {
+                fetch('/updateFlag', {
+                    method: 'GET' ,
+                    headers: {
+                        'Content-Type': 'application/json'
+                    }
+                })
+                .then(response => response.json())
+                .then(data => {
+                    console.log('Response from server:', data);
+                    if (data.success) {
+                        window.location.href = "/todolist";
+                    }else {
+                        console.error('Update failed');
+                    }
+                })
+            }, 2500);
+        }else {
+            this.window.location.href = "/todolist";
+        }
+        
     }
 
 

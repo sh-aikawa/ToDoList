@@ -6,6 +6,7 @@ import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Options;
 import org.apache.ibatis.annotations.Select;
+import org.apache.ibatis.annotations.Update;
 
 import com.example.todolist.model.User;
 
@@ -26,4 +27,10 @@ public interface UserMapper {
 
     @Select("SELECT id, account_name, account_id FROM users WHERE id != #{id}")
     List<User> getAllFriends(long id);
+
+    @Select("SELECT inFirstVisit FROM users WHERE id = #{id}")
+    Boolean getInFirstVisit(long id);
+
+    @Update("UPDATE users SET inFirstVisit = false WHERE id = #{id}")
+    void setInFirstVisit(long id);
 }
