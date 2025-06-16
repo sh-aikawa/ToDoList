@@ -6,28 +6,28 @@
 
 <body>
     <div th:replace="~{layout :: header}"></div>
-    <div class="mainArea registar_background">
+    <div class="mainArea register_background">
         <div>
             <form th:action="@{/todolist/{taskId}/edit(taskId=${task.taskId})}" th:object="${task}" method="post">
                 <div>
-                    <label for="title" class = "registar_font">予定</label>
+                    <label for="title" class = "register_font">予定</label>
                     <a id="button_delete" class = "button_delete" th:href = "@{/todolist/finishDeleteByTaskId(taskId=${task.taskId}, editMode)}"><img src="/svg/close_tras.svg" alt="送信" width="50" height="50" x="4" y="4"/></a>
                 </div>
                 <div>
-                    <span><textarea type="text" id="title" name="title" th:field="*{title}" maxlength="100" class="registar_textarea" required></textarea>
+                    <span><textarea type="text" id="title" name="title" th:field="*{title}" maxlength="100" class="register_textarea" required></textarea>
                 </div>
-                <label for="limitDate" class="registar_font">日付</label>
-                <div class="registar_input">
+                <label for="limitDate" class="register_font">日付</label>
+                <div class="register_input">
                     <input type="date" id="limitDate" th:field="*{limitDate}" max="9999-12-31" min="1000-01-01" />
                 </div>
 
-                <label for="description" class = "registar_font">詳細</label>
+                <label for="description" class = "register_font">詳細</label>
                 <div>
-                    <textarea id="description" th:field="*{description}" class="registar_textarea" maxlength="5000"></textarea>
+                    <textarea id="description" th:field="*{description}" class="register_textarea" maxlength="5000"></textarea>
                 </div>
 
-                <label for="importance" class = "registar_font">優先度</label>
-                <div class = "registar_input">
+                <label for="importance" class = "register_font">優先度</label>
+                <div class = "register_input">
                     <select id="importance" name="importance" th:field="*{importance}">
                         <option value="重要かつ緊急">重要かつ緊急</option>
                         <option value="重要だが緊急でない">重要だが緊急でない</option>
@@ -36,8 +36,8 @@
                     </select>
                 </div>
 
-                <div class="registar_parent">
-                    <button type="submit" class = "registar_button">編集完了</button>
+                <div class="register_parent">
+                    <button type="submit" class = "register_button">編集完了</button>
                 </div>
             </form>
         </div>

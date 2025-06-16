@@ -216,142 +216,6 @@ header {
     margin: 0;
 }
 
-/* ToDoリスト関係 */
-.listTitle{
-    padding-top: 10px;
-    text-align: center;
-}
-
-.toDolist {
-    width: 100%;
-    table-layout: fixed;
-    text-align: center;
-    border-collapse: separate;
-    border-spacing: 0;
-    border-radius: 12px;
-    overflow: hidden;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.04);
-}
-
-.toDolist tr:nth-child(1) {
-    background: #e0e0e0; /* 1行目 */
-}
-
-.toDolist tr:nth-child(2n+2) {
-    background: #f8f8f8; /* 偶数行 */
-}
-
-.toDolist tr:nth-child(2n+3) {
-    background: #f0f0f0; /* 奇数行 */
-}
-
-.toDolist th,
-.toDolist td {
-    padding: 10px;
-    border-bottom: solid 1px #e0e0e0;
-    border-right: 1px solid #bdbdbd;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-    background-clip: padding-box;
-}
-
-/* チェックボックス */
-.toDolist th:nth-child(1),
-.toDolist td:nth-child(1) {
-    width: 40px; 
-}
- /* タイトル列 */
-.toDolist th:nth-child(2),
-.toDolist td:nth-child(2) {
-    width: 220px;
-    white-space: normal;
-    word-break: break-all;
-    text-overflow: clip;
-}
- /* 期限 */
-.toDolist th:nth-child(3),
-.toDolist td:nth-child(3) {
-    width: 100px;
-}
-/* 優先度 */
-.toDolist th:nth-child(4),
-.toDolist td:nth-child(4) {
-    width: 40px; 
-}
-
-/* 最後の列の右ボーダーを消す */
-.toDolist th:last-child,
-.toDolist td:last-child {
-    border-right: none;
-}
-
-/* completedList用（3列バージョン） */
-.completedList {
-    width: 100%;
-    table-layout: fixed;
-    text-align: center;
-    border-collapse: separate;
-    border-spacing: 0;
-    border-radius: 12px;
-    overflow: hidden;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.04);
-}
-
-.completedList tr:nth-child(1) {
-    background: #f0f0f0; /* 1行目 */
-}
-
-.completedList tr:nth-child(2n+2) {
-    background: #f8f8f8; /* 偶数行 */
-}
-
-.completedList tr:nth-child(2n+3) {
-    background: #f0f0f0; /* 奇数行 */
-}
-
-.completedList th,
-.completedList td {
-    padding: 10px;
-    border-bottom: solid 1px #e0e0e0;
-    border-right: 1px solid #bdbdbd;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-    background-clip: padding-box;
-}
-
-/* タイトル列 */
-.completedList th:nth-child(1),
-.completedList td:nth-child(1) {
-    width: 260px;
-    white-space: normal;
-    word-break: break-all;
-    text-overflow: clip;
-}
-/* 期限 */
-.completedList th:nth-child(2),
-.completedList td:nth-child(2) {
-    width: 120px;
-}
-/* 優先度 */
-.completedList th:nth-child(3),
-.completedList td:nth-child(3) {
-    width: 60px;
-}
-
-/* アクション操作 */
-.completedList th:nth-child(4),
-.completedList td:nth-child(4) {
-    width: 40px;
-}
-
-/* 最後の列の右ボーダーを消す */
-.completedList th:last-child,
-.completedList td:last-child {
-    border-right: none;
-}
-
 /* 入力フォーム関係 */
 .itemArea {
     padding: 5px;
@@ -406,7 +270,7 @@ header {
 }
 
 /* レジスタ用のstyle */
-.registar_background{
+.register_background{
     animation: fade_in 1s;
     background-size: contain;
     background-color: rgb(255, 255, 255);
@@ -470,13 +334,13 @@ header {
     margin-bottom: 20px;
 }
 
-.registar_font{
+.register_font{
     font-size: 20px;
     text-align: center;
     display: block;
 }
 
-.registar_input{
+.register_input{
     text-align: center;
     display: block;
     padding: 5px;
@@ -499,7 +363,7 @@ header {
     
 }
 
-.registar_textarea {
+.register_textarea {
     height: 100px;
     width: 50%;
     margin: 0 auto;
@@ -508,16 +372,16 @@ header {
     margin-bottom: 10px;
 }
 
-.registar_item {
+.register_item {
     width: 50%;
     resize: none;
 }
 
-.registar_parent{
+.register_parent{
     text-align: center;
 }
 
-.registar_button{
+.register_button{
     width: 10em;
     margin-top: 20px;
     border: none;
@@ -529,7 +393,7 @@ header {
     cursor: pointer;
 }
 
-.registar_button:hover{
+.register_button:hover{
     transform: translateY(-3px);
     box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
 }
@@ -549,123 +413,6 @@ header {
     transform: translateY(-3px);
     background-image: url("/svg/open_tras.svg");
     background-repeat: no-repeat;
-}
-
-.settingArea {
-    max-width: 400px;
-    margin: 40px auto;
-    background: #fff;
-    box-shadow: 0 4px 16px rgba(0,0,0,0.08);
-    border-radius: 16px;
-    padding: 32px 24px;
-}
-
-.setting-title {
-    text-align: center;
-    margin-bottom: 24px;
-    font-size: 1.6em;
-    font-weight: bold;
-    color: #333;
-}
-
-.setting-form {
-    display: flex;
-    flex-direction: column;
-    gap: 24px;
-}
-
-.setting-group {
-    display: flex;
-    flex-direction: column;
-}
-
-.setting-label {
-    font-weight: bold;
-    margin-bottom: 6px;
-    color: #444;
-}
-
-.setting-input-row {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    margin-top: 8px;
-}
-
-.setting-input {
-    flex: 1;
-    padding: 6px;
-    font-size: 1em;
-    border: 1px solid #ccc;
-    border-radius: 6px;
-    background: #fafbfc;
-}
-
-.setting-btn {
-    padding: 6px 16px;
-    background: #00ddff;
-    color: #fff;
-    border: none;
-    border-radius: 8px;
-    font-size: 1em;
-    cursor: pointer;
-    transition: background 0.2s;
-}
-
-.setting-btn:hover {
-    background: #00bcd4;
-}
-
-.setting-reset-row {
-    text-align: center;
-}
-
-.setting-reset-btn {
-    padding: 6px 32px;
-    background: #e0e0e0;
-    border-radius: 8px;
-    border: none;
-    color: #333;
-    font-size: 1em;
-    cursor: pointer;
-    transition: background 0.2s;
-}
-
-.setting-reset-btn:hover {
-    background: #bdbdbd;
-}
-
-/* セレクトボックスのデザイン */
-.setting-select {
-    flex: 1;
-    padding: 6px 12px;
-    font-size: 1em;
-    border: 1px solid #ccc;
-    border-radius: 6px;
-    background: #fafbfc;
-    color: #333;
-    appearance: none;
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    margin-right: 8px;
-    transition: border-color 0.2s, box-shadow 0.2s;
-    box-shadow: 0 1px 2px rgba(0,0,0,0.03);
-}
-
-.setting-select:focus {
-    border-color: #00bcd4;
-    box-shadow: 0 0 0 2px rgba(0, 221, 255, 0.13);
-    outline: none;
-}
-
-/* セレクトボックスの親行のボタンとのバランス調整 */
-.setting-input-row > .setting-select {
-    max-width: 350px;
-    min-width: 100px;
-}
-
-.table-img {
-    background-color: #e0e0e0;
 }
 
 .validation-error{
