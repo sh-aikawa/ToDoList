@@ -5,24 +5,24 @@
 
 <body>
     <div th:replace="~{layout :: header}"></div>
-    <div class="mainArea registar_background">
+    <div class="mainArea register_background">
         <!-- <h4 id="title_text" class="title_text">予定の登録をします</h4> -->
         <form type="hidden" th:action="@{/todolist/register}" th:object="${toDoForm}" method="post" id ="hidden">
-            <label for="title" id="yotei" class = "registar_font">予定</label>
+            <label for="title" id="yotei" class = "register_font">予定</label>
             <div>
-                <textarea type="text" id="title" name="title" th:field="*{title}" maxlength="100" class="registar_textarea" required></textarea>
+                <textarea type="text" id="title" name="title" th:field="*{title}" maxlength="100" class="register_textarea" required></textarea>
             </div>
-            <label for="limitDate" class="registar_font" id="title_text">日付</label>
-            <div class="registar_input">
+            <label for="limitDate" class="register_font" id="title_text">日付</label>
+            <div class="register_input">
                 <input type="date" id="limitDate" th:field="*{limitDate}" max="9999-12-31" min="1000-01-01">
             </div>
 
-            <label for="description" class = "registar_font">詳細</label>
+            <label for="description" class = "register_font">詳細</label>
             <div>
-                <textarea id="description" name="description" th:field="*{description}" maxlength="5000"  class="registar_textarea"></textarea>
+                <textarea id="description" name="description" th:field="*{description}" maxlength="5000"  class="register_textarea"></textarea>
             </div>
-            <label for="importance" class = "registar_font">重要度</label>
-            <div class = "registar_input">
+            <label for="importance" class = "register_font">重要度</label>
+            <div class = "register_input">
                 <select id="importance" name="importance" th:field="*{importance}">
                     <option value="重要かつ緊急">重要かつ緊急</option>
                     <option value="重要だが緊急でない">重要だが緊急でない</option>
@@ -30,8 +30,8 @@
                     <option value="重要でも緊急でもない">重要でも緊急でもない</option>
                 </select>
             </div>
-            <div class="registar_parent">
-                <button type="submit" id = "registar_button" class = "registar_button">登　録</button>
+            <div class="register_parent">
+                <button type="submit" id = "register_button" class = "register_button">登　録</button>
             </div>
         </form>
     </div>

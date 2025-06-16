@@ -14,10 +14,14 @@
     <link th:href="@{/css/button.css}" rel="stylesheet" />
     <link th:href="@{/css/kuji.css}" rel="stylesheet" />
     <link th:href="@{/css/taskList.css}" rel="stylesheet" />
+    <link th:href="@{/css/table.css}" rel="stylesheet" />
+    <link th:href="@{/css/setting.css}" rel="stylesheet" />
     <script th:src="@{/js/script.js}" defer></script>
+    <script th:src="@{/js/theme.js}" defer></script>
+    <script th:src="@{/js/table.js}" defer></script>
     <script th:src="@{/js/hoverPopup.js}" defer></script>
+    <script th:src="@{/js/hidden.js}" defer></script>
     <script th:src="@{/js/comet.js}" defer></script>
-
     <title>Title</title>
 </head>
 
@@ -33,7 +37,7 @@
                     <span></span>
                 </label>
                 <div class="menu">
-                    <a th:href="@{/todolist}" id="modoru" class="menu-link">ホーム</a>
+                    <a th:href="@{/todolist}" id="Home" class="menu-link">ホーム</a>
                     <a th:href="@{/todolist/finish}" id="completed" class="menu-link">完了済みタスク一覧</a>
                     <a th:href="@{/todolist/register}" id="register" class="menu-link">よていをとうろく</a>
                     <a th:href="@{/comet}" id="comet" class="menu-link">comet</a>
