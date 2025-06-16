@@ -38,7 +38,7 @@
                             onchange="updateCheckedStatus(this)" />
                     </th>
                     <th>
-                        <a th:href="@{/todolist/detail(taskId=${task.taskId})}">
+                        <a th:href="@{/todolist/taskEdit/{taskId}(taskId=${task.taskId})}">
                             <span th:text="${task.title}">TodoListをつくる</span></a>
                     </th>
                     <th><span th:text="${task.limitDate}">2025/6/5</span></th>
