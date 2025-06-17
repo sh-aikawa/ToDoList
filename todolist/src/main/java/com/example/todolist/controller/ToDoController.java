@@ -49,7 +49,7 @@ public class ToDoController {
 
     @PostMapping("/register")
     public String postRegister(@ModelAttribute @Valid ToDoForm toDoForm, BindingResult bindingResult, RedirectAttributes redirectAttributes) {
-        if (bindingResult.hasErrors()) return "register";
+        if (bindingResult.hasErrors()) return "toDo/register";
         toDoService.registerTask(toDoForm);
 
         return "redirect:/todolist";

@@ -30,6 +30,9 @@
                     <option value="重要でも緊急でもない">重要でも緊急でもない</option>
                 </select>
             </div>
+            <span th:if="${#fields.hasErrors('title')}" th:errors="*{title}" class="validation-error"></span>
+            <span th:if="${#fields.hasErrors('limitDate')}" th:errors="*{limitDate}" class="validation-error"></span>
+            <span th:if="${#fields.hasErrors('description')}" th:errors="*{description}" class="validation-error"></span>
             <div class="register_parent">
                 <button type="submit" id = "register_button" class = "register_button">登　録</button>
             </div>
