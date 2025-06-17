@@ -1,5 +1,5 @@
 /* ToDoリスト関係 */
-.listTitle{
+.listTitle {
     padding-top: 10px;
     text-align: center;
 }
@@ -12,19 +12,22 @@
     border-spacing: 0;
     border-radius: 12px;
     overflow: hidden;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
 }
 
 .toDolist tr:nth-child(1) {
-    background: #e0e0e0; /* 1行目 */
+    background: #e0e0e0;
+    /* 1行目 */
 }
 
 .toDolist tr:nth-child(2n+2) {
-    background: #f8f8f8; /* 偶数行 */
+    background: #f8f8f8;
+    /* 偶数行 */
 }
 
 .toDolist tr:nth-child(2n+3) {
-    background: #f0f0f0; /* 奇数行 */
+    background: #f0f0f0;
+    /* 奇数行 */
 }
 
 .toDolist th,
@@ -41,25 +44,28 @@
 /* チェックボックス */
 .toDolist th:nth-child(1),
 .toDolist td:nth-child(1) {
-    width: 40px; 
+    width: 5%;
 }
- /* タイトル列 */
+
+/* タイトル列 */
 .toDolist th:nth-child(2),
 .toDolist td:nth-child(2) {
-    width: 220px;
+    width: 70%;
     white-space: normal;
     word-break: break-all;
     text-overflow: clip;
 }
- /* 期限 */
+
+/* 期限 */
 .toDolist th:nth-child(3),
 .toDolist td:nth-child(3) {
-    width: 100px;
+    width: 10%;
 }
+
 /* 優先度 */
 .toDolist th:nth-child(4),
 .toDolist td:nth-child(4) {
-    width: 40px; 
+    width: 15%;
 }
 
 /* 最後の列の右ボーダーを消す */
@@ -77,19 +83,22 @@
     border-spacing: 0;
     border-radius: 12px;
     overflow: hidden;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
 }
 
 .completedList tr:nth-child(1) {
-    background: #f0f0f0; /* 1行目 */
+    background: #f0f0f0;
+    /* 1行目 */
 }
 
 .completedList tr:nth-child(2n+2) {
-    background: #f8f8f8; /* 偶数行 */
+    background: #f8f8f8;
+    /* 偶数行 */
 }
 
 .completedList tr:nth-child(2n+3) {
-    background: #f0f0f0; /* 奇数行 */
+    background: #f0f0f0;
+    /* 奇数行 */
 }
 
 .completedList th,
@@ -106,26 +115,28 @@
 /* タイトル列 */
 .completedList th:nth-child(1),
 .completedList td:nth-child(1) {
-    width: 260px;
+    width: 70%;
     white-space: normal;
     word-break: break-all;
     text-overflow: clip;
 }
+
 /* 期限 */
 .completedList th:nth-child(2),
 .completedList td:nth-child(2) {
-    width: 120px;
+    width: 10%;
 }
+
 /* 優先度 */
 .completedList th:nth-child(3),
 .completedList td:nth-child(3) {
-    width: 60px;
+    width: 15%;
 }
 
 /* アクション操作 */
 .completedList th:nth-child(4),
 .completedList td:nth-child(4) {
-    width: 40px;
+    width: 5%;
 }
 
 /* 最後の列の右ボーダーを消す */

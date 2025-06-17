@@ -68,12 +68,14 @@
 }
 
 .timeline-container {
-    max-width: 700px;
-    margin: 20px auto;
+    max-width: 70%;
+    margin: 20% auto;
     padding: 0 15px;
+    margin: 0 auto;
 }
 
 .comet {
+    position: relative;
     background-color: #fff;
     border: 1px solid #e0e0e0;
     border-radius: 10px;
@@ -146,8 +148,8 @@
 /* 投稿ボタンを画面右下に固定し、丸い流れ星アイコン用のスタイルを追加 */
 .floating-post-button {
     position: fixed;
-    right: 32px;
-    bottom: 8%;
+    right: 3%;
+    bottom: 10%;
     width: 64px;
     height: 64px;
     border-radius: 50%;
