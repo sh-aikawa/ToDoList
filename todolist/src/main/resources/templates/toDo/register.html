@@ -5,7 +5,7 @@
 
 <body>
     <div th:replace="~{layout :: header}"></div>
-    <div class="mainArea register_background">
+    <div class="mainArea register_background" id = "back">
         <!-- <h4 id="title_text" class="title_text">予定の登録をします</h4> -->
         <form type="hidden" th:action="@{/todolist/register}" th:object="${toDoForm}" method="post" id ="hidden">
             <label for="title" id="yotei" class = "register_font">予定</label>

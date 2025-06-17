@@ -14,6 +14,7 @@ window.addEventListener("DOMContentLoaded", function () {
     let title_change_url = document.getElementById('title_text');
     let count = 0;
     let boo = true;
+    let hidden = this.document.getElementById("back");
     if (title_change_url) {
         title_change_url.addEventListener('click', function () {
             if (title_change_url.dataset.locked === "true") return;
@@ -68,6 +69,10 @@ window.addEventListener("DOMContentLoaded", function () {
 
                         case "gacha":
                             location.href = "roulette_effect";
+                            break;
+
+                        case "removeall":
+                            hidden.remove();
                             break;
 
                         default:
