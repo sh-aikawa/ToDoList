@@ -85,7 +85,8 @@ public class ToDoController {
     }
 
     @PostMapping("/{taskId}/edit")
-    public String postEditTask(@PathVariable long taskId, @ModelAttribute("task") Task task) {
+    public String postEditTask(@PathVariable long taskId, @ModelAttribute("task") @Valid Task task, BindingResult bindingResult) {
+        if(bindingResult.hasErrors()) return "toDo/edit";
         task.setTaskId(taskId);
         toDoService.editTask(task);
         return "redirect:/todolist";
