@@ -35,6 +35,7 @@ window.addEventListener("DOMContentLoaded", function () {
 
                 if (boo) {
                     title_change_url.innerText = "背景変更モード有効";
+                    url.setAttribute("maxlength", "5000");
                     if (yotei) yotei.innerText = "URL(resetと入力すると背景をリセットできます。)";
                     if (sub) sub.remove();
                     boo = false;

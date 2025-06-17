@@ -8,8 +8,7 @@
     <div id = "result" class = "hosi_background">
         <h3 class = "font kuji_color_black">今日のあなたの予定は...</h3>
         <div>
-            <a id = "title_text_roulette" th:text = "${task.title}" class = "font kuji_color_black"> </a>
-        </div>
+            <a id = "title_text_roulette" th:text = "${task.title}" class = "font kuji_color_black result_font"> </a>
     </div>
     <div th:replace="~{layout :: footer}"></div>
 </body>
