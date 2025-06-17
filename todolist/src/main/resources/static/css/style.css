@@ -52,10 +52,11 @@ header {
 .app-title {
     font-family: 'Courier New', Courier, monospace;
     color: #555;
-    margin: 0;
-    font-size: 1.5rem;
+    margin-left: 0.5rem;
+    margin-top: 0.4rem;
+    font-size: 1.8rem;
     font-weight: bold;
-    letter-spacing: 0.08em;
+    letter-spacing: 0.03em;
     padding-left: 20px;
 }
 
@@ -178,7 +179,7 @@ header {
     font-family: 'Courier New', Courier, monospace;
     color: #555;
     margin: 0;
-    font-size: 1.2rem;
+    font-size: 1.1rem;
     font-weight: bold;
     letter-spacing: 0.08em;
 }
