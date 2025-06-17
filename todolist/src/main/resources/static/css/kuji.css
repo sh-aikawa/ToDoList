@@ -9,7 +9,7 @@
 }
 
 .kuji_color_black{
-    margin-top: 130px; 
+    margin-top: 10%; 
     color: black;
 }
 
@@ -46,3 +46,17 @@
     50%{transform:rotate(90deg);}
     100%{ transform:rotate(0); }
 }
+
+.result_font{
+    animation: result 1s infinite;
+}@keyframes result{
+    0%{
+        font-size: 40px;
+    }
+    50%{
+        font-size: 80px;
+    }
+    100%{
+        font-size: 40px;
+    }
+} 
