@@ -25,7 +25,7 @@ header {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.39);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 }
 
 .header-title {
@@ -70,8 +70,8 @@ header {
 }
 
 .menu-icon {
-    width: 48px;
-    height: 48px;
+    width: 45px;
+    height: 45px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -94,10 +94,10 @@ header {
 .menu {
     color: #555;
     position: fixed;
-    top: 80px;
+    /* top: 80px; */
     right: -100%;
-    width: 300px;
-    height: calc(100% - 80px);
+    width: 100%;
+    height: 100%;
     background: #e0e0e0;
     /* box-shadow: -2px 0 8px rgba(0, 0, 0, 0.15); */
     box-shadow: none;
@@ -119,6 +119,7 @@ header {
     background: none;
     border: none;
     text-align: left;
+    text-align: center;
 }
 
 .menu-link:last-child {
@@ -145,8 +146,8 @@ header {
 
 @media (max-width: 500px) {
     .menu {
-        width: 80vw;
-        right: -80vw;
+        width: 100%;
+        right: 100%;
     }
 }
 
@@ -199,6 +200,7 @@ header {
     flex-direction: row;
     gap: 16px;
     align-items: center;
+    justify-content: center;
     flex-wrap: wrap;
     padding: 20px;
     width: 300px;
@@ -213,6 +215,30 @@ header {
     align-items: center;
     gap: 8px;
     margin: 0;
+}
+
+.searchArea input {
+    flex: 1;
+    padding: 6px;
+    font-size: 1em;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    background: #fafbfc;
+}
+
+.searchArea button {
+    padding: 6px 16px;
+    background: #1da1f2;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    font-size: 1em;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.searchArea button hover {
+    background: #00bcd4;
 }
 
 /* 入力フォーム関係 */
