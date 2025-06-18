@@ -8,8 +8,6 @@ window.addEventListener("DOMContentLoaded", function () {
     const logout = document.getElementById("logout");
     const nexus = document.getElementById("nexus");
     const setting = document.getElementById("setting");
-    console.log(path);
-    console.log(setting);
     if (path === "/login" || path === "/userRegister") {
         if (nav) nav.style.display = "none";
     } else {
