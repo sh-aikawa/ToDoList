@@ -12,8 +12,7 @@
             </div>
             <div th:unless="${#lists.isEmpty(users)}">
                 <div th:each="user : ${users}" class="user"> <a th:href="@{/nexus/chat/{id}(id=${user.id})}">
-                        <div class="unread-count" th:text="${user.unreadCount}" th:if="${user.unreadCount > 0}"
-                            th:data-user-id="${user.id}">0</div>
+                        <div class="unread-count" th:text="${user.unreadCount}" th:data-user-id="${user.id}">0</div>
                         <div class="username" th:text="${user.accountName}">ユーザー名</div>
                         <div class="accountId" th:text="'@' + ${user.accountId}">アカウントID</div>
                     </a>
@@ -21,10 +20,12 @@
             </div>
         </div>
     </div>
-    <div th:replace="~{layout :: footer}"></div>
-    <script>
+    <div th:replace="~{layout :: footer}"></div>    <script>
         document.addEventListener('DOMContentLoaded', function () {
-            setInterval(updateUnreadCounts, 5000); // 5秒ごとに更新
+            // 初期表示時に未読数の表示制御を実行
+            updateUnreadCounts();
+            // 5秒ごとに更新
+            setInterval(updateUnreadCounts, 5000);
         });
 
         function updateUnreadCounts() {
@@ -38,6 +39,11 @@
                             element.textContent = count;
                         })
                         .catch(error => console.error('Error updating unread count:', error));
+                }
+                if(element.textContent == 0 ){
+                    element.style.display="none";
+                }else{
+                    element.style.display="block";
                 }
             });
         }

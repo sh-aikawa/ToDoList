@@ -41,8 +41,8 @@ window.addEventListener("DOMContentLoaded", function () {
         }
     }
 
-    document.getElementById("app-title").addEventListener("click", function() {
-            window.location.href = "/todolist";
+    document.getElementById("app-title").addEventListener("click", function () {
+        window.location.href = "/todolist";
     });
 
     // nexus chatページで1分ごとにchat-listを自動更新
@@ -53,4 +53,8 @@ window.addEventListener("DOMContentLoaded", function () {
 
 function confirmDelete() {
     return confirm('本当にアカウントを削除しますか？\nこの操作は取り消すことができません。');
+}
+
+function logout() {
+    document.getElementById('logoutForm').submit();
 }
