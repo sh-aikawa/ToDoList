@@ -50,7 +50,8 @@ public class ToDoService {
     }
 
     public List<Task> getFinishTasks() {
-        return toDoRepository.getFinishTasks();
+        long userId = userService.getId();
+        return toDoRepository.getFinishTasks(userId);
     }
 
     public Task getTask(long taskId) {
