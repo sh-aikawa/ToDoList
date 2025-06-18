@@ -30,6 +30,29 @@ window.addEventListener("DOMContentLoaded", function () {
 
     document.getElementById("sortDesc").onclick = toggleSort;
     document.getElementById("sortAsc").onclick = toggleSort;
+
+    //Home画面の優先度カラー変更
+    var importanceElement  = document.querySelectorAll('.importance');
+    
+    importanceElement.forEach(function(element) {
+        var importanceText = element.textContent || element.innerText;
+
+        switch (importanceText) {
+            case '高':
+                element.style.color = 'red';
+                break;
+            case '中':
+                element.style.color = 'orange';
+                break;
+            case '低':
+                element.style.color = 'green';
+                break;
+            default:
+                element.style.color = 'black'; // 必要に応じてデフォルトの色
+                break;
+        }
+    })
+
 });
 
 // タスクのチェックボックスが変更されたときに呼び出される関数
