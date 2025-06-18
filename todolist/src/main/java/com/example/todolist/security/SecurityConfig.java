@@ -20,6 +20,7 @@ public class SecurityConfig {
                                                                 AntPathRequestMatcher.antMatcher("/userRegister"),
                                                                 AntPathRequestMatcher.antMatcher("/css/**"),
                                                                 AntPathRequestMatcher.antMatcher("/js/**"),
+                                                                AntPathRequestMatcher.antMatcher("/favicon.ico"),
                                                                 AntPathRequestMatcher.antMatcher("/images/**"),
                                                                 AntPathRequestMatcher.antMatcher("/login"),
                                                                 AntPathRequestMatcher.antMatcher("/h2/**") // ここを
