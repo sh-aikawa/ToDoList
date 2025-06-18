@@ -36,7 +36,6 @@ public class NexusController {
     @GetMapping
     public String selectUser(Model model) {
         List<User> users = userService.getAllFriends();
-        long myId = userService.getId();
         for(User user : users){
             List<Message> chat = nexusService.getChat(user.getId());
             long unreadCount = chat.stream()

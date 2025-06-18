@@ -1,7 +1,6 @@
 package com.example.todolist.model;
 
 import java.time.LocalDateTime;
-import java.time.ZoneOffset;
 
 import org.springframework.format.annotation.DateTimeFormat;
 
