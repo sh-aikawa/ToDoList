@@ -47,7 +47,7 @@ window.addEventListener("DOMContentLoaded", function () {
 
     // nexus chatページで1分ごとにchat-listを自動更新
     if (window.location.pathname === "/nexus/chat") {
-        setInterval(update, 60000); // 1分ごとにupdate実行
+        setInterval(update, 5000);
     }
 });
 

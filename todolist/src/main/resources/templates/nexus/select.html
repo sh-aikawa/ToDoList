@@ -20,34 +20,7 @@
             </div>
         </div>
     </div>
-    <div th:replace="~{layout :: footer}"></div>    <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            // 初期表示時に未読数の表示制御を実行
-            updateUnreadCounts();
-            // 5秒ごとに更新
-            setInterval(updateUnreadCounts, 5000);
-        });
-
-        function updateUnreadCounts() {
-            const unreadCountElements = document.querySelectorAll('.unread-count');
-            unreadCountElements.forEach(element => {
-                const userId = element.getAttribute('data-user-id');
-                if (userId) {
-                    fetch(`/nexus/unreadCount/${userId}`)
-                        .then(response => response.text())
-                        .then(count => {
-                            element.textContent = count;
-                        })
-                        .catch(error => console.error('Error updating unread count:', error));
-                }
-                if(element.textContent == 0 ){
-                    element.style.display="none";
-                }else{
-                    element.style.display="block";
-                }
-            });
-        }
-    </script>
+    <div th:replace="~{layout :: footer}"></div>
 </body>
 
 </html>
