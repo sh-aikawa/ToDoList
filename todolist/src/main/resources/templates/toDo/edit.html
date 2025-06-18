@@ -33,10 +33,9 @@
                 <label for="importance" class="register_font">優先度</label>
                 <div class="register_input">
                     <select id="importance" name="importance" th:field="*{importance}">
-                        <option value="重要かつ緊急">重要かつ緊急</option>
-                        <option value="重要だが緊急でない">重要だが緊急でない</option>
-                        <option value="緊急だが重要でない">緊急だが重要でない</option>
-                        <option value="重要でも緊急でもない">重要でも緊急でもない</option>
+                        <option value="高">高</option>
+                        <option value="中">中</option>
+                        <option value="低">低</option>
                     </select>
                 </div>
                 <span th:if="${#fields.hasErrors('title')}" th:errors="*{title}" class="validation-error"></span>
