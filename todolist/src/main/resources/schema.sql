@@ -23,7 +23,7 @@ CREATE TABLE IF NOT EXISTS tasks (
     limit_date DATE DEFAULT NULL,
     description VARCHAR(5000) DEFAULT NULL,
     checked BOOLEAN DEFAULT FALSE,
-    importance TEXT
+    importance INTEGER
 );
 
 CREATE TABLE IF NOT EXISTS comets (
