@@ -8,6 +8,7 @@
     <div class="mainArea">
         <div class="settingArea">
             <h2 class="setting-title">テーマ設定</h2>
+            <a href="https://www.colordic.org/" target="_blank" class="setting-link">カラーコード一覧</a>
             <form class="setting-form">
                 <div class="setting-group">
                     <label for="themeColor" class="setting-label">背景色</label>
@@ -33,7 +34,8 @@
                     <label for="tableColor" class="setting-label">テーブル</label>
                     <div class="setting-input-row">
                         <div class="table-img" >現在のテーブルテーマ</div>
-                        <select id="tableColor" name="tableColor" class="setting-select">
+                        <select id="tableColor" name="tableColor" class="setting-select" style="justify-self: auto;">
+                            <option value="99   ">選択してください</option>
                             <option value="0">赤</option>
                             <option value="1">青</option>
                             <option value="2">黄色</option>
@@ -50,6 +52,16 @@
                     <button type="button" onclick="changeColor(0)" class="setting-reset-btn">リセット</button>
                 </div>
             </form>
+
+            <!-- アカウント削除セクション -->
+            <div class="account-delete-section">
+                <h2 class="setting-title">アカウント削除</h2>
+                <div class="warning-text">
+                    <p>⚠️ アカウントを削除すると、すべてのデータが永久に失われます。この操作は取り消せません。</p>
+                </div>                <form id="deleteAccountForm" th:action="@{/todolist/deleteAccount}" method="post" onsubmit="return confirmDelete()">
+                    <button type="submit" class="delete-account-btn">アカウントを削除する</button>
+                </form>
+            </div>
         </div>
     </div>
     <div th:replace="~{layout :: footer}"></div>

@@ -31,6 +31,7 @@ public class NexusService {
         long userId = userService.getId();
         message.setSendUserId(userId);
         nexusRepository.sendMessage(message);
+    }    public void read(long chatId, long receiveUserId){
+        nexusRepository.read(chatId, receiveUserId);
     }
-
 }

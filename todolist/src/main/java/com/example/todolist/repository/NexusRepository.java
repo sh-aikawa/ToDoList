@@ -21,5 +21,7 @@ public class NexusRepository{
 
     public void sendMessage(Message message){
         nexusMapper.insertMessage(message);
+    }    public void read(long chatId, long receiveUserId){
+        nexusMapper.read(chatId, receiveUserId);
     }
 }

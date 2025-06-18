@@ -2,6 +2,7 @@ package com.example.todolist.mapper;
 
 import java.util.List;
 
+import org.apache.ibatis.annotations.Delete;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Options;
@@ -33,4 +34,7 @@ public interface UserMapper {
 
     @Update("UPDATE users SET inFirstVisit = false WHERE id = #{id}")
     void setInFirstVisit(long id);
+
+    @Delete("DELETE FROM users WHERE id = #{id}")
+    void deleteUser(long id);
 }
