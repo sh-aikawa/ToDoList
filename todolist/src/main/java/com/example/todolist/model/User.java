@@ -15,5 +15,5 @@ public class User {
     private String accountId;
     private String password;
     private LocalDate createdAt;
-
+    private long unreadCount;
 }

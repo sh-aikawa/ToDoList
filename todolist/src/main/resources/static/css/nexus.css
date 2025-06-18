@@ -1,4 +1,20 @@
 /* chat 検索関連*/
+.unread-count {
+    background: #007bff;
+    color: white;
+    border-radius: 12px;
+    padding: 2px 8px;
+    font-size: 0.9em;
+    margin-right: 10px;
+    min-width: 20px;
+    text-align: center;
+}
+
+.unread-count:empty,
+.unread-count[text="0"] {
+    display: none;
+}
+
 #searchArea {
     display: flex;
     flex-direction: column;
@@ -213,4 +229,15 @@
 
 .nexus-header-right-space {
     width: 48px;
+}
+
+.no-users-message {
+    text-align: center;
+    padding: 30px 20px;
+    background-color: #ffffff;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    color: #666;
+    font-size: 1.1em;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
 }
