@@ -18,6 +18,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import com.example.todolist.form.ToDoForm;
 import com.example.todolist.model.Task;
 import com.example.todolist.service.ToDoService;
+import com.example.todolist.service.UserService;
 
 import jakarta.servlet.http.HttpSession;
 import jakarta.validation.Valid;
@@ -26,10 +27,12 @@ import jakarta.validation.Valid;
 @RequestMapping("/todolist")
 public class ToDoController {
 
-    private final ToDoService toDoService;;
+    private final ToDoService toDoService;
+    private final UserService userService;
 
-    public ToDoController(ToDoService toDoService) {
+    public ToDoController(ToDoService toDoService, UserService userService) {
         this.toDoService = toDoService;
+        this.userService = userService;
     }
 
     @GetMapping
@@ -115,7 +118,7 @@ public class ToDoController {
         return "roulette_effect";
     }
 
-    @GetMapping("roulette_effect/listRoulette")
+    @GetMapping("/roulette_effect/listRoulette")
     public String getListRoulette(Model model) {
         Random random = new Random();
         List<Task> tasks = toDoService.getTasksforRoulette();
@@ -148,5 +151,11 @@ public class ToDoController {
             result = "redirect:/todolist";
         }
         return result;
+    }
+
+    @PostMapping("/deleteAccount")
+    public String deleteAccount() {
+        userService.deleteUser();
+        return "redirect:/login?deleted";
     }
 }

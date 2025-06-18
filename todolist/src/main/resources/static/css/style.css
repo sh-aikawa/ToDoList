@@ -124,7 +124,7 @@ header {
 }
 
 .menu-link:hover{
-    transform: translateY(-6px);
+    /* transform: translateY(-6px); */
     animation: glow 2.5s infinite;
 }
 
@@ -138,6 +138,11 @@ header {
     100%{
         opacity: 0.3;
     }
+}
+
+.menu-link:active{
+    transform: translateY(3px);
+    
 }
 
 .menu-link:last-child {
@@ -448,11 +453,14 @@ header {
     box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
 }
 
-/* 完了リストで使用*/
+.register_button:active{
+    transform: translateY(0px);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+}
 
+/* 完了リストで使用*/
 .button_delete {
     border: none;
-    background-color: rgba(255, 255, 255, 0);
     display: block;
     text-align: right;
     float: right;
@@ -465,6 +473,13 @@ header {
     background-image: url("/svg/open_trash.svg");
     background-repeat: no-repeat;
 }
+
+.button_delete:active {
+    transform: translateY(0px);
+    background-image: url("/svg/close_trash.svg");
+}
+
+
 
 .validation-error {
     color: #e53935;

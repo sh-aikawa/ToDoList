@@ -2,6 +2,7 @@ package com.example.todolist.mapper;
 
 import java.util.List;
 
+import org.apache.ibatis.annotations.Delete;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Select;
@@ -17,5 +18,8 @@ public interface CometMapper {
 
     @Insert("INSERT INTO comets(user_id, content) VALUES (#{userId}, #{content})")
     void insertComet(Comet comet);
+
+    @Delete("DELETE FROM comets WHERE comet_id = #{cometId}")
+    void deleteComet(long cometId);
 
 }

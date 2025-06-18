@@ -60,6 +60,9 @@ public class UserService {
         userRepository.setInFirstVisit(id);
     }
 
-
-
+    public void deleteUser() {
+        long id = getId();
+        userRepository.deleteUser(id);
+        SecurityContextHolder.clearContext(); // セキュリティコンテキストをクリアしてログアウト
+    }
 }

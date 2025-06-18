@@ -22,4 +22,8 @@ public class CometRepository {
     public List<Comet> getAllComets() {
         return cometMapper.getAllComets();
     }
+
+    public void deleteComet(long cometId){
+        cometMapper.deleteComet(cometId);
+    }
 }
