@@ -10,6 +10,8 @@
             <div th:each="comet : ${comets}" class="comet">
                 <span class="username" th:text="${comet.accountName}">ユーザー名</span>
                 <span class="accountId" th:text="'@' + ${comet.accountId}">アカウントID</span>
+                <span id="button_delete" class="button_delete_comet"><a th:href="@{/comet/delete(cometId = ${comet.cometId})}">
+                    <img src="/svg/comet_delete_icon.svg" alt="削除" width="26" height="26"/></a></span>
                 <div class="content" th:text="${comet.content}">ツイート内容</div>
                 <div class="timestamp" th:text="${comet.formattedCreatedAt}">タイムスタンプ</div>
             </div>

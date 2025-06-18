@@ -32,7 +32,6 @@
 
 .kuji{
     animation: shake 1.5s infinite;
-    background-image: url(https://japaclip.com/files/omikuji.png);
     background-repeat: no-repeat;
     width: 300px; 
     height: 400px;
