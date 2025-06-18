@@ -36,7 +36,7 @@ public class NexusController {
     public String selectUser(Model model) {
         List<User> users = userService.getAllFriends();
         model.addAttribute("users", users);
-        return "/nexus/select";
+        return "nexus/select";
     }
 
     @GetMapping("/chat/{id}")
