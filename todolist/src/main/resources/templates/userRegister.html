@@ -15,21 +15,21 @@
                 <div class="login-form-group">
                     <label for="accountName" class="login-label">アカウント名：</label>
                     <input type="text" id="accountName" name="accountName" th:field="*{accountName}" maxlength="20"
-                        required class="login-input">
+                        required class="login-input" placeholder="20字以内">
                     <span th:if="${#fields.hasErrors('accountName')}" th:errors="*{accountName}"
                         class="validation-error"></span>
                 </div>
                 <div class="login-form-group">
                     <label for="accountId" class="login-label">アカウントID：</label>
                     <input type="text" id="accountId" name="accountId" th:field="*{accountId}" maxlength="20" pattern="^[a-zA-Z0-9]+$" required
-                        class="login-input">
+                        class="login-input" placeholder="20字以内">
                     <span th:if="${#fields.hasErrors('accountId')}" th:errors="*{accountId}"
                         class="validation-error"></span>
                 </div>
                 <div class="login-form-group">
                     <label for="password" class="login-label">パスワード：</label>
                     <input type="password" id="password" name="password" th:field="*{password}" minlength="4" maxlength="16" required
-                        class="login-input">
+                        class="login-input" placeholder="半角英数混合4文字以上16文字以内">
                     <span th:if="${#fields.hasErrors('password')}" th:errors="*{password}"
                         class="validation-error"></span>
                 </div>

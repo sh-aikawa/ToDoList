@@ -31,11 +31,10 @@
                 </div>
 
                 <label for="importance" class="register_font">優先度</label>
-                <div class="register_input">
-                    <select id="importance" name="importance" th:field="*{importance}">
-                        <option value="高">高</option>
-                        <option value="中">中</option>
-                        <option value="低">低</option>
+                <div class="register_input"> <select id="importance" name="importance" th:field="*{importance}">
+                        <option value="1">高</option>
+                        <option value="2">中</option>
+                        <option value="3">低</option>
                     </select>
                 </div>
                 <span th:if="${#fields.hasErrors('title')}" th:errors="*{title}" class="validation-error"></span>
