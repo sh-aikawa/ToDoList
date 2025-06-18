@@ -8,7 +8,8 @@ window.addEventListener("DOMContentLoaded", function () {
     const logout = document.getElementById("logout");
     const nexus = document.getElementById("nexus");
     const setting = document.getElementById("setting");
-
+    console.log(path);
+    console.log(setting);
     if (path === "/login" || path === "/userRegister") {
         if (nav) nav.style.display = "none";
     } else {
@@ -19,6 +20,6 @@ window.addEventListener("DOMContentLoaded", function () {
         if (path === "/comet" && comet) comet.style.display = "none";
         if (path === "/login" && logout) logout.style.display = "none";
         if (path === "/nexus" && nexus) nexus.style.display = "none";
-        if (path === "/setting" && setting) setting.style.display = "none";
+        if (path === "/todolist/setting" && setting) setting.style.display = "none";
     }
 });
