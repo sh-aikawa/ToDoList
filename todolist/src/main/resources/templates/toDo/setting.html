@@ -50,6 +50,16 @@
                     <button type="button" onclick="changeColor(0)" class="setting-reset-btn">リセット</button>
                 </div>
             </form>
+
+            <!-- アカウント削除セクション -->
+            <div class="account-delete-section">
+                <h2 class="setting-title">アカウント削除</h2>
+                <div class="warning-text">
+                    <p>⚠️ アカウントを削除すると、すべてのデータが永久に失われます。この操作は取り消せません。</p>
+                </div>                <form id="deleteAccountForm" th:action="@{/todolist/deleteAccount}" method="post" onsubmit="return confirmDelete()">
+                    <button type="submit" class="delete-account-btn">アカウントを削除する</button>
+                </form>
+            </div>
         </div>
     </div>
     <div th:replace="~{layout :: footer}"></div>

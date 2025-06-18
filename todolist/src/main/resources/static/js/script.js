@@ -50,3 +50,7 @@ window.addEventListener("DOMContentLoaded", function () {
         setInterval(update, 60000); // 1分ごとにupdate実行
     }
 });
+
+function confirmDelete() {
+    return confirm('本当にアカウントを削除しますか？\nこの操作は取り消すことができません。');
+}
