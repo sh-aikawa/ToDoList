@@ -17,8 +17,7 @@
                 </tr>
                 <tr th:each="task : ${tasks}">
                     <th class="todo-titles" th:attr="data-description=${task.description}">
-                        <a th:href="@{/todolist/taskEdit/{taskId}(taskId=${task.taskId})}"><span
-                                th:text="${task.title}">TodoListをつくる</span></a></th>
+                        <span th:text="${task.title}">TodoListをつくる</span></a></th>
                     <th><span th:text="${task.limitDate}">2025/6/5</span></th>
                     <th><span th:text="${task.importance}">1</th>
                     <th><span><a id="compelete_button_delete" class = "complete_button_delete" th:href = "@{/todolist/finishDeleteByTaskId(taskId=${task.taskId})}">

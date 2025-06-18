@@ -42,4 +42,8 @@ public class UserRepository {
     public void setInFirstVisit(long id) {
         userMapper.setInFirstVisit(id);
     }
+
+    public void deleteUser(long id) {
+        userMapper.deleteUser(id);
+    }
 }

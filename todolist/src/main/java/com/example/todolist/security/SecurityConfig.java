@@ -31,9 +31,20 @@ public class SecurityConfig {
                                 .formLogin(login -> login
                                                 .loginProcessingUrl("/login")
                                                 .loginPage("/login")
-                                                .defaultSuccessUrl("/effect",true)
+                                                .defaultSuccessUrl("/effect", true)
                                                 .failureUrl("/login?error")
-                                                .permitAll());
+                                                .permitAll())
+                                .logout(logout -> logout
+                                                // ログアウト処理のURL (デフォルトは /logout)
+                                                .logoutUrl("/logout")
+                                                // ログアウト成功時のリダイレクト先
+                                                .logoutSuccessUrl("/login?logout") // 例: ログインページにリダイレクトし、ログアウトメッセージを表示
+                                                // ログアウト時にセッションを無効にする (推奨)
+                                                .invalidateHttpSession(true)
+                                                // ログアウト時にCookieを削除する (任意、例: JSESSIONID)
+                                                .deleteCookies("JSESSIONID")
+                                                .permitAll() // ログアウトURLも誰でもアクセス可能
+                                );
 
                 // ★追加: H2 Console が iframe で表示されるように、フレームオプションを無効にする
                 http.headers(headers -> headers.frameOptions(frameOptions -> frameOptions.disable()));

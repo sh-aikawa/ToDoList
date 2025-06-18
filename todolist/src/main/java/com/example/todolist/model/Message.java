@@ -12,10 +12,12 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 public class Message {
+    private long chatId;
     private long sendUserId;
     private long receiveUserId;
     private String content;
     @DateTimeFormat(pattern = "yyyy年M月d日 H時m分ss秒")
     private LocalDateTime sendAt;
     private String formattedSendAt;
+    private boolean read;
 }

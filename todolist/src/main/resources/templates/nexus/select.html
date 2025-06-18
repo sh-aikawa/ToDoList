@@ -1,18 +1,26 @@
 <!DOCTYPE html>
 <html lang="ja" xmlns:th="http://www.thymeleaf.org">
+
 <head th:replace="~{layout :: head('表示')}"></head>
+
 <body>
     <div th:replace="~{layout :: header}"></div>
     <div class="mainArea">
         <div id="searchArea">
-            <div th:each="user : ${users}" class="user">
-                <a th:href="@{/nexus/chat/{id}(id=${user.id})}">
-                    <div class="username" th:text="${user.accountName}">ユーザー名</div>
-                    <div class="accountId" th:text="'@' + ${user.accountId}">アカウントID</div>
-                </a>
+            <div th:if="${#lists.isEmpty(users)}" class="no-users-message">
+                選択できるアカウントがありません
+            </div>
+            <div th:unless="${#lists.isEmpty(users)}">
+                <div th:each="user : ${users}" class="user"> <a th:href="@{/nexus/chat/{id}(id=${user.id})}">
+                        <div class="unread-count" th:text="${user.unreadCount}" th:data-user-id="${user.id}">0</div>
+                        <div class="username" th:text="${user.accountName}">ユーザー名</div>
+                        <div class="accountId" th:text="'@' + ${user.accountId}">アカウントID</div>
+                    </a>
+                </div>
             </div>
         </div>
     </div>
     <div th:replace="~{layout :: footer}"></div>
 </body>
+
 </html>

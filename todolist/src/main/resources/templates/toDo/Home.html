@@ -41,7 +41,9 @@
                     </th>
                     <th><span th:text="${task.limitDate}">2025/6/5</span></th>
                     <th>
-                        <span th:text="${task.importance}">1</span>
+                        <span class="importance" th:if="${task.importance == 1}" th:text="'高'">高</span>
+                        <span class="importance" th:if="${task.importance == 2}" th:text="'中'">中</span>
+                        <span class="importance" th:if="${task.importance == 3}" th:text="'低'">低</span>
                     </th>
                 </tr>
             </table>
