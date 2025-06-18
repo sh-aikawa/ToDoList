@@ -92,11 +92,10 @@ public class NexusController {
         long myId = userService.getId();
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy年M月d日 H時m分s秒");
         for (Message message : chat) {
-            // 自分が受信者で、かつ未読のメッセージのみを既読にする
             if (!message.isRead() && message.getReceiveUserId() == myId) {
                 nexusService.read(message.getChatId(), myId);
             }
-            String formattedDate = message.getSendAt().format(formatter);
+            String formattedDate = message.getJSTSendAt().format(formatter);
             message.setFormattedSendAt(formattedDate);
         }
         User partner = userService.getAllFriends().stream()

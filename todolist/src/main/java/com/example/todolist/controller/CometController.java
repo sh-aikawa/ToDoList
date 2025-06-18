@@ -37,7 +37,7 @@ public class CometController {
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy年M月d日 H時m分s秒"); //*投稿日時のフォーマット(yyyy年M月d日 H時m分s秒) */
         List<Comet> comets = cometService.getAllComets(); //*cometの一覧を取得 */
         for (Comet comet : comets) {
-            String formattedDate = comet.getCreatedAt().format(formatter); // *投稿日時をフォーマット */
+            String formattedDate = comet.getJSTCreatedAt().format(formatter); // *投稿日時をフォーマット */
             comet.setFormattedCreatedAt(formattedDate);
         }
 

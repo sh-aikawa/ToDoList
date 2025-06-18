@@ -1,6 +1,7 @@
 package com.example.todolist.model;
 
 import java.time.LocalDateTime;
+import java.time.ZoneOffset;
 
 import org.springframework.format.annotation.DateTimeFormat;
 
@@ -20,4 +21,12 @@ public class Comet {
     @DateTimeFormat(pattern = "yyyy年M月d日 H時m分ss秒")
     private LocalDateTime createdAt;
     private String formattedCreatedAt;
+
+    public LocalDateTime getJSTCreatedAt() {
+        return createdAt != null ? createdAt.plusHours(9) : null;
+    }
+
+    public void setCreatedAt(LocalDateTime createdAt) {
+        this.createdAt = createdAt != null ? createdAt.minusHours(9) : null;
+    }
 }

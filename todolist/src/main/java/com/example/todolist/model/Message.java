@@ -1,6 +1,7 @@
 package com.example.todolist.model;
 
 import java.time.LocalDateTime;
+import java.time.ZoneOffset;
 
 import org.springframework.format.annotation.DateTimeFormat;
 
@@ -20,4 +21,12 @@ public class Message {
     private LocalDateTime sendAt;
     private String formattedSendAt;
     private boolean read;
+
+    public LocalDateTime getJSTSendAt() {
+        return sendAt != null ? sendAt.plusHours(9) : null;
+    }
+
+    public void setSendAt(LocalDateTime sendAt) {
+        this.sendAt = sendAt != null ? sendAt.minusHours(9) : null;
+    }
 }
