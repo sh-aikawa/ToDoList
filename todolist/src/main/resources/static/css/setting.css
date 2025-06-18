@@ -114,3 +114,18 @@
 .table-img {
     background-color: #e0e0e0;
 }
+
+/* リンクのスタイル */
+.setting-link {
+    display: block;
+    margin-top: 24px;
+    color: #00ddff;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.2s;
+    margin-bottom: 20px;
+}
+
+.setting-link:hover {
+    color: #00bcd4;
+}
