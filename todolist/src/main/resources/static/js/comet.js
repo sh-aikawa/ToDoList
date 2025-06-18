@@ -12,3 +12,5 @@ document.addEventListener("DOMContentLoaded", function () {
         textarea.addEventListener("input", updateCount);
         updateCount(); // 初期表示用
     });
+
+    
