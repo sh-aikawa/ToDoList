@@ -19,7 +19,11 @@
                     <th class="todo-titles" th:attr="data-description=${task.description}">
                         <span th:text="${task.title}">TodoListをつくる</span></a></th>
                     <th><span th:text="${task.limitDate}">2025/6/5</span></th>
-                    <th><span th:text="${task.importance}">1</th>
+                    <th>
+                        <span class="importance" th:if="${task.importance == 1}" th:text="'高'">高</span>
+                        <span class="importance" th:if="${task.importance == 2}" th:text="'中'">中</span>
+                        <span class="importance" th:if="${task.importance == 3}" th:text="'低'">低</span>
+                    </th>
                     <th><span><a id="compelete_button_delete" class = "complete_button_delete" th:href = "@{/todolist/finishDeleteByTaskId(taskId=${task.taskId})}">
                         <img src="/svg/close_trash.svg" alt="送信" width="32" height="32" x="4" y="4"/></a></span></th>
                 </tr>
