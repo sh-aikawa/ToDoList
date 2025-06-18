@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.example.todolist.form.CometForm;
 import com.example.todolist.model.Comet;
@@ -55,6 +56,13 @@ public class CometController {
         }
         cometService.registerComet(cometForm);//*受け取ったcometFormをもとにdbに格納 */
 
+        return "redirect:/comet";
+    }
+
+    
+    @GetMapping("/delete")
+    public String deleteComet(@RequestParam long cometId) {
+        cometService.deleteComet(cometId);
         return "redirect:/comet";
     }
 }

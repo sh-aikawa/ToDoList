@@ -118,7 +118,7 @@ public class ToDoController {
         return "roulette_effect";
     }
 
-    @GetMapping("roulette_effect/listRoulette")
+    @GetMapping("/roulette_effect/listRoulette")
     public String getListRoulette(Model model) {
         Random random = new Random();
         List<Task> tasks = toDoService.getTasksforRoulette();

@@ -32,4 +32,8 @@ public class CometService {
         return comets;
     }
 
+    public void deleteComet(long cometId){
+        cometRepository.deleteComet(cometId);
+    }
+
 }

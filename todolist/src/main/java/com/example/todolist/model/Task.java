@@ -24,5 +24,5 @@ public class Task {
     @Size(max = 5000, message = "詳細は5000字以内で入力してください")
     private String description;
     private boolean checked;
-    private String importance;
+    private int importance;
 }
