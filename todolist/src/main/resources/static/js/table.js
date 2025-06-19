@@ -32,9 +32,9 @@ window.addEventListener("DOMContentLoaded", function () {
     document.getElementById("sortAsc").onclick = toggleSort;
 
     //Home画面の優先度カラー変更
-    var importanceElement  = document.querySelectorAll('.importance');
-    
-    importanceElement.forEach(function(element) {
+    var importanceElement = document.querySelectorAll('.importance');
+
+    importanceElement.forEach(function (element) {
         var importanceText = element.textContent || element.innerText;
 
         switch (importanceText) {

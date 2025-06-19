@@ -14,20 +14,27 @@
 }
 
 .complete_button_delete{
-    border:none;
-    background-color:rgba(255, 255, 255, 0);
-    justify-content: center;
-    display: flex;
+    /* ...既存のスタイル... */
+    display: inline-flex; /* ← ここを修正 */
+    justify-content: center; /* ボタン内のアイコンを中央に */
+    align-items: center; /* ボタン内のアイコンを垂直方向にも中央に */
     background-repeat: no-repeat;
-}
-.complete_button_delete:hover{
-    transform: translateY(-3px);
-    background-image: url("/svg/open_trash.svg");
     background-position: center;
-    display: flex;
-    background-repeat: no-repeat;
+    background-image: url("/svg/close_trash.svg"); /* 通常時の画像 */
+    background-size: 32px 32px; /* 画像のサイズを指定 */
+    width: 32px; /* ボタン自体の幅 */
+    height: 32px; /* ボタン自体の高さ */
+    cursor: pointer;
 }
 
+.complete_button_delete:hover{
+    transform: translateY(-3px); /* ホバー時のアニメーションを維持 */
+    background-image: url("/svg/open_trash.svg"); /* ホバー時に開いたゴミ箱に切り替え */
+    /* background-position, background-repeat, background-size は親から継承されるため、ここで再度指定する必要はありませんが、
+       必要であれば明示的に指定しても構いません。 */
+}
+
+/* active状態はそのまま維持で問題ありません */
 .complete_button_delete:active{
     transform: translateY(0px);
     background-image: url("/svg/close_trash.svg");

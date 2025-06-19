@@ -9,7 +9,7 @@ window.addEventListener("DOMContentLoaded", function () {
             document.body.style.backgroundImage = "";
         }
     }
-    
+
     //隠し要素処理 
     let title_change_url = document.getElementById('title_text');
     let count = 0;

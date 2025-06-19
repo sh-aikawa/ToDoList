@@ -24,8 +24,9 @@
                         <span class="importance" th:if="${task.importance == 2}" th:text="'中'">中</span>
                         <span class="importance" th:if="${task.importance == 3}" th:text="'低'">低</span>
                     </th>
-                    <th><span><a id="compelete_button_delete" class = "complete_button_delete" th:href = "@{/todolist/finishDeleteByTaskId(taskId=${task.taskId})}">
-                        <img src="/svg/close_trash.svg" alt="送信" width="32" height="32" x="4" y="4"/></a></span></th>
+                    <th><span><a id="compelete_button_delete" class = "complete_button_delete" 
+                        th:href = "@{/todolist/finishDeleteByTaskId(taskId=${task.taskId})}"></a></span></th>
+                        
                 </tr>
             </table>
         </div>

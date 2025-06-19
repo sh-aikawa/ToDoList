@@ -20,4 +20,12 @@ public class Comet {
     @DateTimeFormat(pattern = "yyyy年M月d日 H時m分ss秒")
     private LocalDateTime createdAt;
     private String formattedCreatedAt;
+
+    public LocalDateTime getJSTCreatedAt() {
+        return createdAt != null ? createdAt.plusHours(9) : null;
+    }
+
+    public void setCreatedAt(LocalDateTime createdAt) {
+        this.createdAt = createdAt != null ? createdAt.minusHours(9) : null;
+    }
 }
