@@ -123,7 +123,7 @@ header {
     text-align: center;
 }
 
-.menu-link:hover{
+.menu-link:hover {
     /* transform: translateY(-6px); */
     animation: glow 2.5s infinite;
 }
@@ -132,17 +132,19 @@ header {
     0% {
         opacity: 0.3;
     }
+
     50% {
         opacity: 1;
     }
-    100%{
+
+    100% {
         opacity: 0.3;
     }
 }
 
-.menu-link:active{
+.menu-link:active {
     transform: translateY(3px);
-    
+
 }
 
 .menu-link:last-child {
@@ -176,7 +178,7 @@ header {
 
 /*メインコンテンンツ*/
 .mainArea {
-    margin: 80px auto;
+    margin: 10% auto;
     padding: 20px;
 }
 
@@ -453,7 +455,7 @@ header {
     box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
 }
 
-.register_button:active{
+.register_button:active {
     transform: translateY(0px);
     box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
 }
@@ -466,17 +468,32 @@ header {
     float: right;
     margin-right: 30px;
     margin-left: -80px;
+
+    /* デフォルトの画像をCSSで設定 */
+    background-image: url("/svg/close_trash.svg");
+    background-size: 50px 50px;
+    /* imgタグのwidth, heightに合わせてサイズを指定 */
+    background-position: center;
+    /* 中央に配置 */
+    background-repeat: no-repeat;
+    /* 繰り返しなし */
+    width: 50px;
+    /* ボタン自体の幅 */
+    height: 50px;
+    /* ボタン自体の高さ */
 }
 
 .button_delete:hover {
     transform: translateY(-3px);
     background-image: url("/svg/open_trash.svg");
-    background-repeat: no-repeat;
+    /* ホバー時の画像に切り替え */
+    /* その他のbackground-size/position/repeatは継承されるか、必要ならここでも指定 */
 }
 
 .button_delete:active {
     transform: translateY(0px);
     background-image: url("/svg/close_trash.svg");
+    /* クリック時の画像に切り替え */
 }
 
 

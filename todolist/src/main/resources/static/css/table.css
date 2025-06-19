@@ -110,6 +110,7 @@
     text-overflow: ellipsis;
     white-space: nowrap;
     background-clip: padding-box;
+    vertical-align: middle; /* <-- これを追加 */
 }
 
 /* タイトル列 */
@@ -137,6 +138,16 @@
 .completedList th:nth-child(4),
 .completedList td:nth-child(4) {
     width: 5%;
+    /* display: flex; などは削除 */
+    text-align: center; /* 横方向中央揃え (念のため明示) */
+    vertical-align: middle; /* 縦方向中央揃えを追加 */
+    padding: 10px; /* 他のセルと揃えるため、必要であればここで再度追加する */
+    border-bottom: solid 1px #e0e0e0;
+    border-right: 1px solid #bdbdbd;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    background-clip: padding-box;
 }
 
 /* 最後の列の右ボーダーを消す */

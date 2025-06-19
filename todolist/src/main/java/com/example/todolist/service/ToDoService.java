@@ -25,7 +25,8 @@ public class ToDoService {
     }
 
     public List<Task> getSelectTasks(LocalDate limitDate){
-        return toDoRepository.getSelectTasks(limitDate);
+        long userId = userService.getId();
+        return toDoRepository.getSelectTasks(userId, limitDate);
     }
 
     public void updateChecked(long taskId, boolean checked){

@@ -11,28 +11,28 @@ import com.example.todolist.model.Task;
 @Repository
 public class ToDoRepository {
     private final ToDoMapper toDoMapper;
-    
-    public ToDoRepository(ToDoMapper toDoMapper){
+
+    public ToDoRepository(ToDoMapper toDoMapper) {
         this.toDoMapper = toDoMapper;
     }
 
-    public List<Task> getTasksByUserId(long userId){
+    public List<Task> getTasksByUserId(long userId) {
         return toDoMapper.getTasksByUserId(userId);
     }
 
-    public List<Task> getSelectTasks(LocalDate limitDate){
-        return toDoMapper.getSelectTasks(limitDate);
+    public List<Task> getSelectTasks(long userId, LocalDate limitDate) {
+        return toDoMapper.getSelectTasks(userId, limitDate);
     }
 
-    public void updateChecked(long taskId, boolean checked){
+    public void updateChecked(long taskId, boolean checked) {
         toDoMapper.updateChecked(taskId, checked);
     }
 
-    public void insertTask(Task task){
+    public void insertTask(Task task) {
         toDoMapper.insertTask(task);
     }
 
-    public void deleteTask(long userId){
+    public void deleteTask(long userId) {
         toDoMapper.deleteTask(userId);
     }
 
@@ -44,7 +44,7 @@ public class ToDoRepository {
         return toDoMapper.getTask(taskId);
     }
 
-    public void editTask(Task task){
+    public void editTask(Task task) {
         toDoMapper.editTask(task);
     }
 
@@ -60,7 +60,7 @@ public class ToDoRepository {
         return toDoMapper.getTasksforRoulette(userId);
     }
 
-    public void deleteTaskByTaskId(long taskId){
+    public void deleteTaskByTaskId(long taskId) {
         toDoMapper.deleteTaskByTaskId(taskId);
     }
 
