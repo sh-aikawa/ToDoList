@@ -8,63 +8,80 @@
     <div class="mainArea">
         <div class="settingArea">
             <h2 class="setting-title">テーマ設定</h2>
-            <a href="https://www.colordic.org/" target="_blank" class="setting-link">カラーコード一覧</a>
             <form class="setting-form">
                 <div class="setting-group">
-                    <label for="themeColor" class="setting-label">背景色</label>
-                    <div class="setting-input-row">
-                        <span>#</span>
-                        <input type="text" id="themeColor" name="themeColor" maxlength="6" class="setting-input"
-                            placeholder="例: 00bfff" />
-                        <button type="button" onclick="changeColor(1)" class="setting-btn">変更</button>
+                    <label for="colorPicker" class="setting-label">カラーピッカー</label>
+                    <div class="setting-input-row color-picker-row">
+                        <input type="color" id="colorPicker" class="color-input" />
+                        <span class="color-code" id="colorCode">#000000</span>
                     </div>
                 </div>
 
-                <div class="setting-group">
-                    <label for="textColor" class="setting-label">文字色</label>
-                    <div class="setting-input-row">
-                        <span>#</span>
-                        <input type="text" id="textColor" name="textColor" maxlength="6" class="setting-input"
-                            placeholder="例: 222222" />
-                        <button type="button" onclick="changeColor(2)" class="setting-btn">変更</button>
+                <form class="setting-form">
+                    <div class="setting-group">
+                        <label for="themeColor" class="setting-label">背景色</label>
+                        <div class="setting-input-row">
+                            <span>#</span>
+                            <input type="text" id="themeColor" name="themeColor" maxlength="6" class="setting-input"
+                                placeholder="例: 00bfff" />
+                            <button type="button" onclick="changeColor(1)" class="setting-btn">変更</button>
+                        </div>
                     </div>
-                </div>
 
-                <div class="setting-group">
-                    <label for="tableColor" class="setting-label">テーブル</label>
-                    <div class="setting-input-row">
-                        <div class="table-img" >現在のテーブルテーマ</div>
-                        <select id="tableColor" name="tableColor" class="setting-select" style="justify-self: auto;">
-                            <option value="99   ">選択してください</option>
-                            <option value="0">赤</option>
-                            <option value="1">青</option>
-                            <option value="2">黄色</option>
-                            <option value="3">緑</option>
-                            <option value="4">ピンク</option>
-                            <option value="5">水色</option>
-                            <option value="6">紫</option>
-                        </select>
-                        <button type="button" onclick="changeColor(3)" class="setting-btn">変更</button>
+                    <div class="setting-group">
+                        <label for="textColor" class="setting-label">文字色</label>
+                        <div class="setting-input-row">
+                            <span>#</span>
+                            <input type="text" id="textColor" name="textColor" maxlength="6" class="setting-input"
+                                placeholder="例: 222222" />
+                            <button type="button" onclick="changeColor(2)" class="setting-btn">変更</button>
+                        </div>
                     </div>
-                </div>
 
-                <div class="setting-reset-row">
-                    <button type="button" onclick="changeColor(0)" class="setting-reset-btn">リセット</button>
-                </div>
-            </form>
+                    <div class="setting-group">
+                        <label for="tableColor" class="setting-label">テーブル</label>
+                        <div class="setting-input-row">
+                            <div class="table-img">現在のテーブルテーマ</div>
+                            <select id="tableColor" name="tableColor" class="setting-select"
+                                style="justify-self: auto;">
+                                <option value="99   ">選択してください</option>
+                                <option value="0">赤</option>
+                                <option value="1">青</option>
+                                <option value="2">黄色</option>
+                                <option value="3">緑</option>
+                                <option value="4">ピンク</option>
+                                <option value="5">水色</option>
+                                <option value="6">紫</option>
+                            </select>
+                            <button type="button" onclick="changeColor(3)" class="setting-btn">変更</button>
+                        </div>
+                    </div>
 
-            <!-- アカウント削除セクション -->
-            <div class="account-delete-section">
-                <h2 class="setting-title">アカウント削除</h2>
-                <div class="warning-text">
-                    <p>⚠️ アカウントを削除すると、すべてのデータが永久に失われます。この操作は取り消せません。</p>
-                </div>                <form id="deleteAccountForm" th:action="@{/todolist/deleteAccount}" method="post" onsubmit="return confirmDelete()">
-                    <button type="submit" class="delete-account-btn">アカウントを削除する</button>
+                    <div class="setting-reset-row">
+                        <button type="button" onclick="changeColor(0)" class="setting-reset-btn">リセット</button>
+                    </div>
                 </form>
-            </div>
+
+                <!-- アカウント削除セクション -->
+                <div class="account-delete-section">
+                    <h2 class="setting-title">アカウント削除</h2>
+                    <div class="warning-text">
+                        <p>⚠️ アカウントを削除すると、すべてのデータが永久に失われます。この操作は取り消せません。</p>
+                    </div>
+                    <form id="deleteAccountForm" th:action="@{/todolist/deleteAccount}" method="post"
+                        onsubmit="return confirmDelete()">
+                        <button type="submit" class="delete-account-btn">アカウントを削除する</button>
+                    </form>
+                </div>
         </div>
     </div>
     <div th:replace="~{layout :: footer}"></div>
+
+    <script>
+        document.getElementById('colorPicker').addEventListener('input', function () {
+            document.getElementById('colorCode').textContent = this.value;
+        });
+    </script>
 </body>
 
 </html>
